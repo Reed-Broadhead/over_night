@@ -6,9 +6,7 @@ import NavBar from './NavBar';
 import Search from './Search';
 
 
-
 export default function HomePage(){
-
   const [users, setUsers] = useState<string | null> (null);
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +23,7 @@ function HandleGetRequest(city: string){
       siteid: '300000001'
     },
     headers: {
-      'X-RapidAPI-Key': '6ac76f654bmsh5e6eac6c69701e1p1079c3jsn45185cfa0a11',
+      'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
       'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
     }
   };
