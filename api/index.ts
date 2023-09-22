@@ -8,11 +8,22 @@ const app = express();
 
 const prisma = new PrismaClient();
 
-app.get('/users', async (req, res, next) => { 
+// commands
+
+app.get("/", async (req: any, res: any, next: any) => {
+    try{
+        res.json("hello world!");
+    }catch(err){
+        next(err);
+    }
+})
+
+app.get('/users', async (req: any, res: any, next: any) => { 
+    // console.log(req)
     try {
     const users = await prisma.user.findMany({})
     res.json(users)
-    } catch(error){
+    } catch(error: any){
         next(error.message);
     }
 }) 

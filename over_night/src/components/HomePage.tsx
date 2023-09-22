@@ -1,16 +1,25 @@
-
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+// import.meta.env.VITE_API_KEY
 import NavBar from './NavBar';
 import Search from './Search';
 
+import {useSelector, useDispatch} from 'react-redux'
+import {setUser} from "../states/user"
 
 export default function HomePage(){
+  const dispatch = useDispatch()
+
+  const user = useSelector((state: any) => state.user.value);
+  const hotels = useSelector((state: any) => state.hotels.value);
+  console.log(user, hotels)
+
+
   const [users, setUsers] = useState<string | null> (null);
   const [loading, setLoading] = useState(true);
 
-function HandleGetRequest(city: string){
+// hotels request
+const HandleGetRequest = (city: string) =>{
   useEffect(() => {
     async function fetchData() {
   const options = {
@@ -38,7 +47,7 @@ function HandleGetRequest(city: string){
     fetchData();
   }, []);
 }
-
+// user request
 function RequestUsers(){
   useEffect(() => {
     async function fetchUsers() {
@@ -59,13 +68,22 @@ function RequestUsers(){
 RequestUsers()
 console.log(users)
 
+const setUserFunc = (): void =>{
+  dispatch(setUser({
+    name: "reed", 
+    email: "1123", 
+    address: '321', 
+  }))
+  
+}
 return(
     <div>
         
         <NavBar/>
         <Search/>
         <h2>hello home page</h2>
-
-    </div>
+        <button onClick={() => setUserFunc()}>hi</button>
+        <button onClick={() => console.log(user)}>yo</button>
+    </div>  
 )
 }
