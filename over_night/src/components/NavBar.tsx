@@ -9,7 +9,9 @@ export default function NavBar(){
            
             
           <a><img src={logo} className="h-20" alt="logo" /></a>
-       
+
+            <NavLink to="/login">Login</NavLink>
+
         </div>
     )
 }

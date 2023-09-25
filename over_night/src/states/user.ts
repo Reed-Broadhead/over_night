@@ -3,7 +3,7 @@ import { createSlice, PayloadAction} from "@reduxjs/toolkit"
 // initial state
 type InitialState = {
     
-    value: {"username": string, "email": string, "address": string, "orders": Array<any> } | null
+    value: {"id": string, "username": string, "email": string, "address": string, "orders": Array<any> } | null
 }
 
 const initialState: InitialState  = {

@@ -12,8 +12,6 @@ export default function HomePage(){
 
   const user = useSelector((state: any) => state.user.value);
   const hotels = useSelector((state: any) => state.hotels.value);
-  console.log(user, hotels)
-
 
   const [users, setUsers] = useState<string | null> (null);
   const [loading, setLoading] = useState(true);
@@ -47,42 +45,14 @@ const HandleGetRequest = (city: string) =>{
     fetchData();
   }, []);
 }
-// user request
-function RequestUsers(){
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await axios.get('/api/users');
-        console.log('Response:', response.data);
-        setUsers(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    }
-    fetchUsers();
-  }, []);
-}
-// HandleGetRequest("dallas")
-// HandleGetRequest("new York")
-RequestUsers()
-console.log(users)
 
-const setUserFunc = (): void =>{
-  dispatch(setUser({
-    name: "reed", 
-    email: "1123", 
-    address: '321', 
-  }))
-  
-}
 return(
     <div>
         
         <NavBar/>
         <Search/>
         <h2>hello home page</h2>
-        <button onClick={() => setUserFunc()}>hi</button>
+        {/* <button onClick={() => setUserFunc()}>hi</button> */}
         <button onClick={() => console.log(user)}>yo</button>
     </div>  
 )
