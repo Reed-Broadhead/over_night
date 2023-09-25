@@ -16,7 +16,7 @@ model User {
   username String @unique
   password String
   email    String @unique
-  adress   String
+  address   String
 
   Orders Order[]
 }

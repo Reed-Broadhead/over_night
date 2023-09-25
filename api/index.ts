@@ -30,8 +30,10 @@ app.get('/users', async (req: any, res: any, next: any) => {
 }) 
 
 app.post('/signup', async  (req: any, res: any, next: any)  => {
-    const { username, password, email, address } = req.body;
+    console.log(req.query);
+    const { username, password, email, address } = req.query;
     const hashedPassword = await bcrypt.hash(password, 10);
+    
     const user = await prisma.user.create({ 
         data: {
             username: username,
