@@ -53,7 +53,7 @@ return(
         <Search/>
         <h2>hello home page</h2>
         {/* <button onClick={() => setUserFunc()}>hi</button> */}
-        <button onClick={() => console.log(user)}>yo</button>
+        <button className="bg-black border"onClick={() => console.log(user)}>yo</button>
     </div>  
 )
 }

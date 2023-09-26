@@ -1,6 +1,8 @@
 import { Formik, Field, Form, FormikHelpers } from "formik";
 // import * as yup from "yup";
 import axios from "axios";
+import { setUser } from "../states/user";
+import { useSelector, useDispatch } from 'react-redux'
 
 interface Values {
     username: string,
@@ -10,7 +12,7 @@ interface Values {
   }
 
 export default function SignUp(){
-
+    const dispatch = useDispatch()
     const handlePost = async (values : any) => {
         console.log(values)
         axios.post("/api/signup", {
@@ -20,7 +22,14 @@ export default function SignUp(){
             address: values.address,
         })
         .then((response) => {
-            console.log(response);
+            console.log(response)
+            const {id, username, email, address} = response.data.user;
+            dispatch(setUser({
+                id: id,
+                username: username, 
+                email: email, 
+                address: address, 
+            }))
         })
         .catch((error) => {
             console.error(error);

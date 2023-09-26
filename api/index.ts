@@ -82,6 +82,10 @@ app.get('/checkCookies', (req: any, res: any, next: any) => {
     }
 })
 
+app.patch('/logout', (req: any, res: any, next: any) => {
+res.clearCookie("user")
+res.status(201).send({message: "User logged Out"})
+})
 
 app.listen(
     PORT,
