@@ -3,7 +3,7 @@ import { Formik, Field, Form, FormikHelpers } from "formik";
 import axios from "axios";
 import { setUser } from "../states/user";
 import { useSelector, useDispatch } from 'react-redux'
-import signup from "../assets/Signup.jpg"
+import signup from "../assets/Signup.png"
 import lock from "../assets/password.png"
 import user from "../assets/user.png"
 import email from "../assets/email.jpg"

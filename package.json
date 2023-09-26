@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "framer": "^2.4.1",
+    "motion": "^10.16.4"
+  }
+}
