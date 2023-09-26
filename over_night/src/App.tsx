@@ -6,6 +6,7 @@ import axios from "axios";
 import HomePage from './components/HomePage';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import Login_signUp from './components/Login_signUp';
 import { Routes, Route } from "react-router-dom"
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/signup" element={<SignUp/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<Login_signUp/>}/>
         </Routes>
     </>
   )

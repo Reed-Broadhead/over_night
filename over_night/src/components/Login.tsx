@@ -1,4 +1,4 @@
-import { Formik, Field, Form, FormikHelpers } from "formik";
+import { Formik, Field, Form, FormikHelpers, setNestedObjectValues } from "formik";
 import {useSelector, useDispatch} from 'react-redux'
 import {setUser, userSlice} from "../states/user"
 import axios from "axios";
@@ -14,10 +14,10 @@ interface Values {
 
 
 
-export default function Login(){
+export default function Login( {setState} : any ){
     const dispatch = useDispatch()
     const userStuff = useSelector((state: any) => state.user.value);
-
+    // setState()
     const handlePost = async (values : any) => {
         console.log(values)
         axios.post("/api/login", {
@@ -39,8 +39,6 @@ export default function Login(){
         })};
 
     return (
-        <div className="w-full h-screen bg-cover bg-black" style={{backgroundImage: `url(${background})`}}>
-            <div className="flex justify-center items-center  bg-black bg-opacity-30 w-full h-full">
         <Formik 
             initialValues={{
                 email: "",
@@ -56,23 +54,24 @@ export default function Login(){
             }}
         >
             
-            <Form className="pt-44  flex flex-col rounded-lg w-[320px] h-[600px] bg-cover shadow-2xl" style={{backgroundImage: `url(${loginScreen})`}}>
-              <div className="pl-4">
-                 <div  className=" h-[20px] flex flex-row border-b border-gray-300 w-min mb-5">
-                     <img src={user} className="h-[20px] py-1"/>
-                     <Field className="placeholder-gray-500 pl-1" id="email" name="email" placeholder="Email" />
+            <Form className="pt-40  flex flex-col rounded-lg w-[320px] h-[600px] bg-cover shadow-2xl" style={{backgroundImage: `url(${loginScreen})`}}>
+              <div className="pl-4 ">
+                <div className="">
+                    <button className="ml-0.5 border-b-2 border-logos-blue mr-3 text-gray-500 hover:text-gray-700">login</button>
+                    <button className="mr-2 text-gray-500 hover:text-gray-700" onClick={(e) => {e.preventDefault(); setState(false)}}>sign up</button>
+                </div>
+                 <div  className=" h-[30px]  flex flex-row border-b border-gray-300 w-min  mt-4">
+                     <img src={user} className=" h-[20px] mt-1.5"/>
+                     <Field className=" h-full  placeholder-gray-500 pl-1 " id="email" name="email" placeholder="Email" />
                  </div>
                 
-                 <div className=" h-[20px] flex flex-row border-b border-gray-300 w-min mb-5">
-                    <img src={lock} className="h-[20px] py-1"/>
+                 <div className=" h-[30px] flex flex-row border-b border-gray-300 w-min mt-4 mb-8">
+                    <img src={lock} className="h-[20px] mt-1"/>
                     <Field className=" placeholder-gray-500 pl-1  " id="password" name="password" placeholder="Password" />
                  </div>
                 <button className=" w-[100px] bg-logos-blue hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
               </div>
             </Form>
         </Formik>
-
-        </div>
-        </div>
     )
 }
