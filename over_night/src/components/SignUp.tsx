@@ -3,11 +3,12 @@ import { Formik, Field, Form, FormikHelpers } from "formik";
 import axios from "axios";
 import { setUser } from "../states/user";
 import { useSelector, useDispatch } from 'react-redux'
-import signup from "../assets/Signup.jpg"
+import signup from "../assets/signup.png"
 import lock from "../assets/password.png"
 import user from "../assets/user.png"
 import email from "../assets/email.jpg"
 import house from "../assets/house.jpg"
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Values {
     username: string,
@@ -56,9 +57,11 @@ export default function SignUp( {setState} : any ){
                 handlePost(values);
                 setSubmitting(false);
             }}
-        >
+        >   
+            
+
             <Form className="pt-40  flex flex-col rounded-lg w-[320px] h-[600px] bg-cover shadow-2xl" style={{backgroundImage: `url(${signup})`}}>
-            <div className="pl-4">
+            <div className=" pl-4">
                 <div className="">
                     <button className=" ml-0.5 mr-3 text-gray-500 hover:text-gray-700" onClick={(e) => {e.preventDefault() ; setState(true) }}>login</button>
                     <button className=" border-b-2 border-logos-blue mr-2 text-gray-500 hover:text-gray-700" onClick={(e) => {e.preventDefault()}}>sign up</button>
@@ -89,6 +92,7 @@ export default function SignUp( {setState} : any ){
                 <button className=" w-[100px] bg-logos-blue hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
             </div>
             </Form>
+        
         </Formik>
     )
 }

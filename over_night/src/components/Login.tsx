@@ -6,6 +6,8 @@ import background from "../assets/miami.jpeg"
 import loginScreen from "../assets/loginscreen.png"
 import lock from "../assets/password.png"
 import user from "../assets/user.png"
+import { motion, AnimatePresence } from "framer-motion";
+import {useState} from "react"
 
 interface Values {
     email: string,
@@ -38,6 +40,7 @@ export default function Login( {setState} : any ){
             console.error(error);
         })};
 
+
     return (
         <Formik 
             initialValues={{
@@ -54,6 +57,12 @@ export default function Login( {setState} : any ){
             }}
         >
             
+            {/* (<motion.div
+                        initial={{ x: 10, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -20, opacity: 0 }}
+                        transition={{ duration: 1 }}
+            >  */}
             <Form className="pt-40  flex flex-col rounded-lg w-[320px] h-[600px] bg-cover shadow-2xl" style={{backgroundImage: `url(${loginScreen})`}}>
               <div className="pl-4 ">
                 <div className="">
@@ -72,6 +81,8 @@ export default function Login( {setState} : any ){
                 <button className=" w-[100px] bg-logos-blue hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
               </div>
             </Form>
+            {/* </motion.div>  ) */}
+           
         </Formik>
     )
 }
