@@ -3,6 +3,7 @@ import axios from 'axios';
 // import.meta.env.VITE_API_KEY
 import NavBar from './NavBar';
 import Search from './Search';
+import background from '../assets/Vacation-photos/brandedPic.png'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {setUser} from "../states/user"
@@ -50,10 +51,12 @@ return(
     <div>
         
         <NavBar/>
+        <div className="w-full h-screen bg-cover " style={{backgroundImage: `url(${background})`}} ></div>
+        <div className=" flex justify-center items-center relative  bg-black bg-opacity-30 w-full h-full"></div>
         <Search/>
         <h2>hello home page</h2>
         {/* <button onClick={() => setUserFunc()}>hi</button> */}
-        <button className="bg-black border"onClick={() => console.log(user)}>yo</button>
+        <button className="bg-logos-blue border"onClick={() => console.log(user)}>yo</button>
     </div>  
 )
 }
