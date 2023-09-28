@@ -48,15 +48,16 @@ const HandleGetRequest = (city: string) =>{
 }
 
 return(
-    <div>
-        
+    <div className="w-full h-screen bg-cover " style={{backgroundImage: `url(${background})`}} >
+        <div className="  bg-black bg-opacity-40 w-full h-full">
         <NavBar/>
-        <div className="w-full h-screen bg-cover " style={{backgroundImage: `url(${background})`}} ></div>
-        <div className=" flex justify-center items-center relative  bg-black bg-opacity-30 w-full h-full"></div>
+        
+        <h1>Your room await's</h1>
         <Search/>
         <h2>hello home page</h2>
         {/* <button onClick={() => setUserFunc()}>hi</button> */}
         <button className="bg-logos-blue border"onClick={() => console.log(user)}>yo</button>
+        </div>
     </div>  
 )
 }
