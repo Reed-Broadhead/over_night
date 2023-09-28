@@ -54,7 +54,7 @@ return(
 
         <div id="2" className='border border-blue-900  h-max'>
 
-          <h1 className="text-white">Your room await's</h1>
+          <h1 className="text-white">Your room await's </h1>
           
          
              {/* <button onClick={() => setUserFunc()}>hi</button> */}
