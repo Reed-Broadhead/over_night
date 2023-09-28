@@ -49,15 +49,19 @@ const HandleGetRequest = (city: string) =>{
 
 return(
     <div className="w-full h-screen bg-cover " style={{backgroundImage: `url(${background})`}} >
-        <div className="  bg-black bg-opacity-40 w-full h-full">
+        <div id="1" className="border border-red-400 bg-black bg-opacity-10 relative w-full h-full">
         <NavBar/>
-        
-        <h1>Your room await's</h1>
-        <Search/>
-        <h2>hello home page</h2>
-        {/* <button onClick={() => setUserFunc()}>hi</button> */}
-        <button className="bg-logos-blue border"onClick={() => console.log(user)}>yo</button>
-        </div>
+
+        <div id="2" className='border border-blue-900  h-max'>
+
+          <h1 className="text-white">Your room await's</h1>
+          
+         
+             {/* <button onClick={() => setUserFunc()}>hi</button> */}
+            <button className="bg-logos-blue border"onClick={() => console.log(user)}>yo</button>
+       </div>
+       <Search/>
+      </div>
     </div>  
 )
 }
