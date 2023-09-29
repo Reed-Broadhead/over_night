@@ -1,20 +1,22 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {setUser, userSlice} from "../states/user"
-import axios from "axios";
+import axios, { formToJSON } from "axios";
 import background from "../assets/miami.jpeg"
 import Login from "./Login"
 import SignUp from "./SignUp";
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import homeButton from "../assets/arrow.png"
-import { NavLink } from 'react-router-dom';
+import homeButton from "../assets/WhiteLogo.png"
+import { Form, NavLink } from 'react-router-dom';
 import Navbar from "./NavBar";
+ 
 
 export default function Login_signUp() {
 
   const [isLogin, setIsLogin] = useState<boolean>(true)
   const [initialRender, setInitialRender] = useState<boolean>(true)
-  // const [isVisible, setIsVisible] = useState(true);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  
 
   const setState = (x : boolean) : void => {
       setIsLogin(x)
@@ -25,19 +27,36 @@ export default function Login_signUp() {
     setInitialRender(false)
   },[])
 
+  const variants = {
+    initial: {
+        scaleX:0
+    },
+    animate: {
+        scaleX:1
+    }
+};
 
   return (
 
       <div className="w-full h-screen bg-cover bg-black" style={{backgroundImage: `url(${background})`}} >
       <div className=" flex justify-center items-center relative  bg-black bg-opacity-30 w-full h-full">
+
+      <div className=' absolute left-2 top-2  w-fit hover:cursor-pointer'>
        <NavLink to= "/">
-      <motion.img className="h-10 absolute left-0 top-0" src={homeButton}
-      whileHover={{
-        scale: 1.2,
-        transition: { duration: 1 },
-        
-      }}/>
+
+      <motion.img onHoverStart={() => setIsHovered(true)} onHoverEnd={() => setIsHovered(false)} className="h-12" src={homeButton}/>
+
+
       </NavLink>
+      <motion.div 
+                className="absolute bottom-0 mt-5 left-2 h-0.5 w-full bg-logos-yellow origin-left"
+                variants={variants}
+                initial="initial"
+                animate={isHovered ? "animate" : "initial"}
+            ></motion.div>
+      </div>
+
+
       <AnimatePresence mode='wait'>
         <motion.div className=''
 

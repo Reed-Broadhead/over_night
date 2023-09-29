@@ -8,6 +8,7 @@ import lock from "../assets/password.png"
 import user from "../assets/user.png"
 import { motion, AnimatePresence } from "framer-motion";
 import {useState} from "react"
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface Values {
     email: string,
@@ -19,16 +20,22 @@ interface Values {
 export default function Login( {setState} : any ){
     const dispatch = useDispatch()
     const userStuff = useSelector((state: any) => state.user.value);
+    const navigate= useNavigate()
     
     // setState()
     const handlePost = async (values : any) => {
-        console.log(values)
+        // console.log(values)
         axios.post("/api/login", {
             email: values.email,
             password: values.password,
         })
         .then((response) => {
-            console.log(response);
+            if (response.status == 500){
+                console.log('not in system')
+            }else{
+
+           
+            // console.log(response);
             const {id, username, email, address} = response.data.user;
             dispatch(setUser({
                 id: id,
@@ -36,9 +43,11 @@ export default function Login( {setState} : any ){
                 email: email, 
                 address: address, 
             }))
-        })
+            navigate('/')
+        }}) 
         .catch((error) => {
-            console.error(error);
+            alert("Email or Password incorrect")
+            //console.error("user not found");
         })};
 
 

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import logo from '../assets/overnightlogo.png'
+import logo from '../assets/blacklogo.png'
 import SignUp from './SignUp'
 import LogOut from './LogOut'
 import { useSelector } from "react-redux"

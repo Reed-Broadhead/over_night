@@ -54,7 +54,7 @@ return(
 
         <div className=" flex  h-full w-full justify-center items-center ">
 
-            <h1 className="text-white   text-8xl">Your room await's</h1>
+            <h1 className="text-white   text-8xl">Your room await's {user?.username}</h1>
           
          
              {/* <button onClick={() => setUserFunc()}>hi</button> */}

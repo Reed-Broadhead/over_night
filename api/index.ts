@@ -36,12 +36,12 @@ app.get('/users', async (req: any, res: any, next: any) => {
 app.post("/login", async (req: any , res: any, next: any) => {
     const { email, password } = req.body;
     console.log(password);
-    const user = await prisma.user.findFirst({
+    try { const user = await prisma.user.findFirst({
         where: {
             email: email
         }
     })
-    console.log(password, user.password);
+   
 
     bcrypt.compare(password, user.password, (err: any, result: any) => {
         if (err) {
@@ -53,6 +53,8 @@ app.post("/login", async (req: any , res: any, next: any) => {
             res.cookie('user', user)
             res.status(200).send({ message: "Authentication successful", user: user })};
         })
+    } catch(error: any){
+        next(error.message)}
     })
 
 
