@@ -11,7 +11,7 @@ export default function NavBar(){
 const user = useSelector((state: any) => state.user.value)
     return(
 
-        <div className=" bg-transparent flex  h-30 w-full bg-contain bg-no-repeat mb-10 text-right">
+        <div className="bg-transparent flex  h-28 w-full bg-contain bg-no-repeat  text-right">
              <div className='w-1/2'>
                 <a><img src={logo} className="pt-1 pl-1 h-14" alt="logo" /></a>
             </div>
