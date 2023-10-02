@@ -4,8 +4,10 @@ import Whitelogo from "../assets/whiteLogo.png"
 import { motion } from "framer-motion";
 import { NavLink } from 'react-router-dom';
 
+
 interface Props {
-    color: string
+    color: string,
+
 }
 
 export default function LogoButton({color} : Props ){
@@ -20,7 +22,6 @@ export default function LogoButton({color} : Props ){
             scaleX:1
         }
     };
-
 
 
     return (

@@ -4,7 +4,7 @@ import Whitelogo from "../assets/whiteLogo.png"
 import SignUp from './SignUp'
 import LogOut from './LogOut'
 import { useSelector } from "react-redux"
-import Dots from "../assets/Dots.png"
+import Dots from "../assets/whitedots.png"
 import { Menu, Transition } from "@headlessui/react";
 import LogoButton from './LogoButton'
 
