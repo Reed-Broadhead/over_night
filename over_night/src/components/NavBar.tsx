@@ -35,7 +35,7 @@ const user = useSelector((state: any) => state.user.value)
 
 
                 {user == null ? 
-                <NavLink className="mt-1.5 mr-3 h-fit hover:bg-logos-blue text-white text-2xl " to="/login" >Login</NavLink>
+                <NavLink className="mt-1.5 mr-3 h-fit hover:text-black text-white text-2xl " to="/login" >Login</NavLink>
                  : <LogOut/>}
                  
             </div>
