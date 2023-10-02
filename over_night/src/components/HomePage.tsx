@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import Search from './Search';
 import background from '../assets/Vacation-photos/brandedPic.png'
+import video from "../assets/OverNightVacation.mp4" 
 
 import {useSelector, useDispatch} from 'react-redux'
 import {setUser} from "../states/user"
@@ -46,10 +47,31 @@ const HandleGetRequest = (city: string) =>{
     fetchData();
   }, []);
 }
-
+//  style={{backgroundImage: `url(${background})`}}
 return(
-    <div className="flex relative w-full h-screen bg-cover " style={{backgroundImage: `url(${background})`}} >
+    <div className="flex relative w-full h-screen bg-cover "  >
         <div className=" flex flex-col  bg-black bg-opacity-10 relative  w-full h-full">
+        
+        
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <video
+        autoPlay
+        loop
+        muted
+        className="absolute top-0 left-0 w-auto min-w-full min-h-full max-w-none"
+        style={{
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)'
+        }}
+      >
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+
+
         <NavBar/>
 
         <div className=" flex  h-full w-full justify-center items-center ">

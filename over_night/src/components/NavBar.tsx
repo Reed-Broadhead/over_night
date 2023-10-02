@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom'
-import logo from '../assets/blacklogo.png'
+import Blacklogo from '../assets/blacklogo.png'
+import Whitelogo from "../assets/whiteLogo.png"
 import SignUp from './SignUp'
 import LogOut from './LogOut'
 import { useSelector } from "react-redux"
 import Dots from "../assets/Dots.png"
 import { Menu, Transition } from "@headlessui/react";
+import LogoButton from './LogoButton'
 
 
 export default function NavBar(){
@@ -13,7 +15,8 @@ const user = useSelector((state: any) => state.user.value)
 
         <div className="bg-transparent flex  h-28 w-full bg-contain bg-no-repeat  text-right">
              <div className='w-1/2'>
-                <a><img src={logo} className="pt-1 pl-1 h-14" alt="logo" /></a>
+                {/* <a><img src={Whitelogo} className="pt-1 pl-1 h-14" alt="logo" /></a> */}
+                <LogoButton color="white"/>
             </div>
             <div className='w-1/2 flex flex-row-reverse mr-2 '>
 
