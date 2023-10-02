@@ -1,7 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {setUser, userSlice} from "../states/user"
 import axios, { formToJSON } from "axios";
-import background from "../assets/miami.jpeg"
+import background from '../assets/Vacation-photos/beautiful-tropical-beach-sea.jpg'
 import Login from "./Login"
 import SignUp from "./SignUp";
 import { useEffect, useState } from 'react';
@@ -9,8 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import homeButton from "../assets/whiteLogo.png"
 import { Form, NavLink } from 'react-router-dom';
 import Navbar from "./NavBar";
-import LogoButton from './LogoButton';
- 
+import Underline from './Underline';
 
 export default function Login_signUp() {
 
@@ -35,7 +34,15 @@ export default function Login_signUp() {
       <div className="w-full h-screen bg-cover bg-black" style={{backgroundImage: `url(${background})`}} >
       <div className=" flex justify-center items-center relative  bg-black bg-opacity-30 w-full h-full">
 
-      <LogoButton color="white"/>
+      <div className='absolute top-0 left-2'>
+      <Underline>
+
+      <NavLink to="/">
+        <img src={homeButton} className="pt-1 pl-1 h-14" alt="logo" />
+      </NavLink>
+
+      </Underline>
+      </div>
 
       <AnimatePresence mode='wait'>
         <motion.div className=''

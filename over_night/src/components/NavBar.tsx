@@ -6,7 +6,7 @@ import LogOut from './LogOut'
 import { useSelector } from "react-redux"
 import Dots from "../assets/whitedots.png"
 import { Menu, Transition } from "@headlessui/react";
-import LogoButton from './LogoButton'
+import Underline from './Underline'
 
 
 export default function NavBar(){
@@ -15,8 +15,13 @@ const user = useSelector((state: any) => state.user.value)
 
         <div className="bg-transparent flex  h-28 w-full bg-contain bg-no-repeat  text-right">
              <div className='w-1/2'>
-                {/* <a><img src={Whitelogo} className="pt-1 pl-1 h-14" alt="logo" /></a> */}
-                <LogoButton color="white"/>
+                
+                <div className='ml-1'>
+                    <Underline>
+                        <img src={Whitelogo} className=" pt-1 pl-1 h-14" alt="logo" />
+                    </Underline>
+                </div>
+
             </div>
             <div className='w-1/2 flex flex-row-reverse mr-2 '>
 
@@ -38,8 +43,19 @@ const user = useSelector((state: any) => state.user.value)
 
 
                 {user == null ? 
-                <NavLink className="mt-1.5 mr-3 h-fit hover:text-black text-white text-2xl " to="/login" >Login</NavLink>
-                 : <LogOut/>}
+                <div className='mr-3 mt-1.5' >
+                <Underline underlineRight={true} >
+                    <NavLink className=" h-fit hover:text-gray-100 text-white text-2xl " to="/login" >Login</NavLink>
+                </Underline>
+                </div>
+                 : 
+                 <div className='mr-3 mt-1.5' >
+                 <Underline underlineRight={true} >
+                 <LogOut/>
+                 </Underline>
+                </div>
+                 
+                 }
                  
             </div>
             
