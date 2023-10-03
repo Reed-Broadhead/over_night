@@ -31,7 +31,7 @@ export default function PopularStays(){
                         <div className=" mr-20  h-[350px] w-[350px]  bg-white hover:bg-gray-100 rounded-xl shadow-2xl"></div>
                     </div>
                     <div className="mx-auto">
-                        <div className=" mr-20  h-[350px] w-[600px]  bg-white hover:bg-gray-100 rounded-xl shadow-2xl"></div>
+                        <div className=" mr-20  h-[350px] w-[300px]  bg-white hover:bg-gray-100 rounded-xl shadow-2xl"></div>
                     </div>
                 </div>
             </div>

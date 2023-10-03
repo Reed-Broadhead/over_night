@@ -1,10 +1,15 @@
 import { Formik, Field, Form, FormikHelpers, setNestedObjectValues } from "formik";
 import {useSelector, useDispatch} from 'react-redux'
+import {useState, useEffect, useRef} from "react"
+// images
 import pin from "../assets/pin.png"
 import calandar from "../assets/calandar.png"
 import bed from "../assets/bed.png"
 import searchBar from "../assets/searchbar.png"
 import Underline from "./Underline";
+
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
 
 interface Values {
     location: string,
@@ -14,6 +19,28 @@ interface Values {
 
 
 export default function Search(){
+    const [isCalender, setIsCalender] = useState<boolean>(false)
+    const [date, setDate] = useState(new Date());
+
+    let menuRef = useRef();
+
+    const openCalender = () => {
+        setIsCalender(true)
+    }
+
+    useEffect(() => {
+        let handler = (e : any)=>{
+          if(!menuRef.current.contains(e.target)){
+            setIsCalender(false);
+          }      
+        };
+        document.addEventListener("mousedown", handler);
+        
+        return() =>{
+          document.removeEventListener("mousedown", handler);
+        }
+      });
+
     return(
         <div className="h-64  flex justify-center " >
             <Formik 
@@ -45,9 +72,20 @@ export default function Search(){
                      <Field className=" h-[40px] placeholder-gray-700 pl-1 text-xl shadow bg-white  bg-opacity-0" id="location" name="Location" placeholder="Location" />
                  </div>
                 
-                 <div className=" mx-auto h-min  flex items-center rounded border-b-4 border-logos-blue ">
-                    <img src={calandar} className="h-[32px] mb-2 mt-1.5"/>
-                    <Field className="h-[40px] placeholder-gray-700 pl-1 text-xl shadow bg-white text-black bg-opacity-0" id="dates" name="Dates" placeholder="Dates" />
+                 <div ref={menuRef} className=" flex flex-col mx-auto h-min  max-h-[50px] rounded border-b-4 border-logos-blue ">
+                    <div  className="flex items-center">
+                        <img src={calandar} className="h-[32px] mb-2 mt-1.5 "/>
+                        <Field onClick={() => openCalender()} className="h-[40px] placeholder-gray-700 pl-1 text-xl shadow bg-white text-black bg-opacity-0" id="dates" name="Dates" placeholder="Dates" />
+                    </div>
+                    { isCalender ? 
+                    <Calendar 
+                    className={[]}
+                    onChange={setDate}
+                    value={date}
+                    selectRange={true}
+                    /> 
+                    : null}
+
                  </div>
 
                  <div className=" mx-auto h-min  flex items-center rounded border-b-4 border-logos-blue ">

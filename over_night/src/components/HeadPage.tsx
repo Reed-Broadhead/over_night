@@ -10,6 +10,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {setUser} from "../states/user"
 
 
+
 export default function HeadPage(){
   const dispatch = useDispatch()
 
