@@ -23,7 +23,7 @@ export default function HomePage()  {
                 backgroundPosition: 'center'
             }}
         >
-            <h1 className="text-5xl text-white"> words </h1>
+            <h1 className="text-5xl text-white"> Where the best memoreis happen </h1>
         </div>
 
         </>
