@@ -80,10 +80,6 @@ return(
         <div className=" flex  h-full w-full justify-center items-center ">
 
             <h1 className="text-white   text-8xl">Your destination await's {user?.username}</h1>
-          
-         
-             {/* <button onClick={() => setUserFunc()}>hi</button> */}
-            {/* <button className="bg-logos-blue border"onClick={() => console.log(user)}>yo</button> */}
 
         
        </div>

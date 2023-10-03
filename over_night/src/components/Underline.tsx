@@ -8,7 +8,6 @@ import { NavLink } from 'react-router-dom';
 interface Props {
     children: ReactNode;
     underlineRight?: boolean;
-
 }
 
 export default function Underline({children, underlineRight} : Props ){

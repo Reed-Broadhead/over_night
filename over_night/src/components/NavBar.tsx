@@ -8,12 +8,12 @@ import Dots from "../assets/whitedots.png"
 import { Menu, Transition } from "@headlessui/react";
 import Underline from './Underline'
 
-
+//  absolute top-0 left-0
 export default function NavBar(){
 const user = useSelector((state: any) => state.user.value)
     return(
-
-        <div className="bg-transparent flex  h-28 w-full bg-contain bg-no-repeat  text-right absolute top-0 left-0 ">
+        
+        <div className=" bg-transparent flex  h-28 w-full bg-contain bg-no-repeat fixed z-10 text-right">
              <div className='w-1/2'>
                 
                 <div className='ml-1'>
@@ -60,6 +60,7 @@ const user = useSelector((state: any) => state.user.value)
             </div>
             
         </div>
+       
     )
 }
 
