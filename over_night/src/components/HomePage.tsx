@@ -4,7 +4,7 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import Search from './Search';
 import background from '../assets/Vacation-photos/brandedPic.png'
-import video from "../assets/OverNightVacation.mp4" 
+import video from "../assets/shortclip.mp4" 
 
 import {useSelector, useDispatch} from 'react-redux'
 import {setUser} from "../states/user"
@@ -53,8 +53,9 @@ return(
         <div className=" flex flex-col  bg-black bg-opacity-10 relative  w-full h-full">
         
         
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <video
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-20">
+        <video  
+        
         autoPlay
         loop
         muted
@@ -65,13 +66,24 @@ return(
           transform: 'translate(-50%, -50%)'
         }}
       >
-        <source src={video} type="video/mp4" />
+       <source src={video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+    
+    {/* <iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/XPRyWVq8o2w?autoplay=1&loop=1"
+  title="YouTube video player"
+  frameborder="0"
+  
+  allowfullscreen
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      
+></iframe> */}
     </div>
 
-
-
+   
         <NavBar/>
         
 
