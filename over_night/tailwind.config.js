@@ -21,8 +21,9 @@ export default {
       ,
       logos:{
         yellow:"#F4C01E",
-        blue:"#74C1FF"}
-      
+        gyellow:"#FFF506",
+        blue:"#74C1FF",
+        gblue:"#A1BEFF"}
     }
   },
   plugins: [],

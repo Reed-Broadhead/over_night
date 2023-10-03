@@ -2,6 +2,8 @@ import HeadPage from "./HeadPage"
 import NavBar from "./NavBar"
 import Promotions from "./Promotions"
 import promotional from "../assets/Dallas.png"
+import PopularStays from "./PopularStays"
+import Footer from "./Footer"
 
 export default function HomePage()  {
 
@@ -23,8 +25,10 @@ export default function HomePage()  {
                 backgroundPosition: 'center'
             }}
         >
-            <h1 className="text-5xl text-white"> Where the best memories happen </h1>
+            <h1 className="text-7xl text-white"> Where the best memories happen </h1>
         </div>
+        <PopularStays/>
+        <Footer/>
 
         </>
 

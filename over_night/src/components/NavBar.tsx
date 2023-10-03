@@ -7,13 +7,35 @@ import { useSelector } from "react-redux"
 import Dots from "../assets/whitedots.png"
 import { Menu, Transition } from "@headlessui/react";
 import Underline from './Underline'
+import { useEffect, useState } from 'react';
 
 //  absolute top-0 left-0
 export default function NavBar(){
 const user = useSelector((state: any) => state.user.value)
+const [scrolling, setScrolling] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setScrolling(true);
+            } else {
+                setScrolling(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+     }, []);
+
+
     return(
         
-        <div className=" bg-transparent flex  h-28 w-full bg-contain bg-no-repeat fixed z-10 text-right">
+        <div className={`bg-transparent flex h-15 w-full bg-contain bg-no-repeat fixed z-10 text-right ${
+            scrolling ? 'bg-gray-700 bg-opacity-30 ' : '' }`}>
+             
              <div className='w-1/2'>
                 
                 <div className='ml-1'>

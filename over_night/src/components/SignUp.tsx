@@ -9,6 +9,7 @@ import user from "../assets/user.png"
 import email from "../assets/email.jpg"
 import house from "../assets/house.jpg"
 import { motion, AnimatePresence } from "framer-motion";
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface Values {
     username: string,
@@ -19,6 +20,7 @@ interface Values {
 
 export default function SignUp( {setState} : any ){
     const dispatch = useDispatch()
+    const navigate= useNavigate()
     const handlePost = async (values : any) => {
         console.log(values)
         axios.post("/api/signup", {
@@ -36,6 +38,7 @@ export default function SignUp( {setState} : any ){
                 email: email, 
                 address: address, 
             }))
+            navigate('/')
         })
         .catch((error) => {
             console.error(error);
