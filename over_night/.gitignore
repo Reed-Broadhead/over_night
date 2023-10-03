@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 shortclip.mp4
 .env
+over_night/src/assets/shortclip.mp4
+shortclip.mp4
