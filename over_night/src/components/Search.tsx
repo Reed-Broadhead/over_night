@@ -69,13 +69,13 @@ export default function Search(){
 
                  <div className=" mx-auto h-min  flex items-center rounded border-b-4 border-logos-blue ">
                      <img src={pin} className=" h-[40px] mt-1.5 "/>
-                     <Field className=" h-[40px] placeholder-gray-700 pl-1 text-xl shadow bg-white  bg-opacity-0" id="location" name="Location" placeholder="Location" />
+                     <Field className=" h-[40px] placeholder-gray-400 pl-1 text-xl shadow bg-white  bg-opacity-0" id="location" name="Location" placeholder="Location" />
                  </div>
                 
                  <div ref={menuRef} className=" flex flex-col mx-auto h-min  max-h-[50px] rounded border-b-4 border-logos-blue ">
                     <div  className="flex items-center">
                         <img src={calandar} className="h-[32px] mb-2 mt-1.5 "/>
-                        <Field onClick={() => openCalender()} className="h-[40px] placeholder-gray-700 pl-1 text-xl shadow bg-white text-black bg-opacity-0" id="dates" name="Dates" placeholder="Dates" />
+                        <Field onClick={() => openCalender()} className="h-[40px] placeholder-gray-400 pl-1 text-xl shadow bg-white text-black bg-opacity-0" id="dates" name="Dates" placeholder="Dates" />
                     </div>
                     { isCalender ? 
                     <Calendar 
@@ -90,7 +90,7 @@ export default function Search(){
 
                  <div className=" mx-auto h-min  flex items-center rounded border-b-4 border-logos-blue ">
                     <img src={bed} className="mb-1 h-[28px] mt-1.5"/>
-                    <Field className="h-[40px] placeholder-gray-700 pl-1 text-xl shadow-md bg-white  bg-opacity-0" id="rooms" name="Rooms" placeholder="Rooms" />
+                    <Field className="h-[40px] placeholder-gray-400 pl-1 text-xl shadow-md bg-white  bg-opacity-0" id="rooms" name="Rooms" placeholder="Rooms" />
                  </div>
 
                 <div className='mr-4 '>
