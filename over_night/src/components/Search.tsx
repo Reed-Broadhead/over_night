@@ -79,7 +79,7 @@ export default function Search(){
                     </div>
                     { isCalender ? 
                     <Calendar 
-                    className={[]}
+                    className="w-[550px] h-[550px] pt-3 pb-8 pr-5 pl-5 bg-white text-xl text-black font-extrabold border-b-4 border-logos-blue rounded-3xl {[]}"
                     onChange={setDate}
                     value={date}
                     selectRange={true}
