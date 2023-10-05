@@ -4,11 +4,14 @@ import {setUser, userSlice} from "../states/user"
 import axios from "axios";
 import background from "../assets/miami.jpeg"
 import loginScreen from "../assets/loginscreen.png"
-import lock from "../assets/password.png"
-import user from "../assets/user.png"
 import { motion, AnimatePresence } from "framer-motion";
 import {useState} from "react"
 import { Navigate, useNavigate } from "react-router-dom";
+import Underline from "./Underline";
+
+import lock from "../assets/password.png"
+import user from "../assets/user.png"
+import eye from "../assets/eye.jpg"
 
 interface Values {
     email: string,
@@ -21,6 +24,8 @@ export default function Login( {setState} : any ){
     const dispatch = useDispatch()
     const userStuff = useSelector((state: any) => state.user.value);
     const navigate= useNavigate()
+
+    const [passwordVisable, setPasswordVisable] = useState<boolean>(false)
     
     // setState()
     const handlePost = async (values : any) => {
@@ -54,7 +59,7 @@ export default function Login( {setState} : any ){
     return (
         <Formik 
             initialValues={{
-                email: "",
+                email: "", 
                 password: "",
             }}
             onSubmit={(
@@ -67,13 +72,7 @@ export default function Login( {setState} : any ){
             }}
         >
             
-            {/* (<motion.div
-                        initial={{ x: 10, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: -20, opacity: 0 }}
-                        transition={{ duration: 1 }}
-            >  */}
-            <Form className="pt-40  flex flex-col rounded-lg w-[320px] h-[600px] bg-cover shadow-2xl" style={{backgroundImage: `url(${loginScreen})`}}>
+            <Form className="pt-40 flex flex-col rounded-lg w-[320px] h-[600px] bg-cover shadow-2xl" style={{backgroundImage: `url(${loginScreen})`}}>
               <div className="pl-4 ">
                 <div className="">
                     <button className="ml-0.5 border-b-2 border-logos-blue mr-3 text-gray-500 hover:text-gray-700">login</button>
@@ -84,11 +83,20 @@ export default function Login( {setState} : any ){
                      <Field className=" h-full  placeholder-gray-500 pl-1 " id="email" name="email" placeholder="Email" />
                  </div>
                 
-                 <div className=" h-[30px] flex flex-row border-b border-gray-300 w-min mt-4 mb-8">
+                 <div className=" h-[30px] flex flex-row border-b border-gray-300 w-min mt-4 mb-2 ">
                     <img src={lock} className="h-[20px] mt-1"/>
-                    <Field className=" placeholder-gray-500 pl-1  " id="password" name="password" placeholder="Password" />
+                    {/* <button className="h-[20px] w-[20px] mt-1 " onClick={(e) => {e.preventDefault(); setPasswordVisable(!passwordVisable)}} > <img src={eye} className="w-full h-full"/> </button> */}
+                    <Field className=" placeholder-gray-500 pl-1 " type={passwordVisable ? 'text' : 'password'} id="password" name="password" placeholder="Password" />
+                    {/* <button className="h-[20px] mt-1" onClick={(e) => {e.preventDefault(); setPasswordVisable(!passwordVisable)}} > <img src={eye} className=""/> </button> */}
+                    {/* <img src={eye} onClick={(e) => {e.preventDefault(); setPasswordVisable(!passwordVisable)}} className="h-[20px] mt-1" /> */}
                  </div>
-                <button className=" w-[100px] bg-logos-blue hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+
+                <div className="flex flex-col ">
+                <Underline>
+                    <button className=" text-gray-400 text-left text-sm hover:text-gray-700" onClick={(e) => {e.preventDefault(); setPasswordVisable(!passwordVisable)}} >Show Password </button>
+                </Underline>
+                <button className=" mt-6 w-[100px]  bg-logos-blue hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+                </div>
               </div>
             </Form>
             {/* </motion.div>  ) */}
