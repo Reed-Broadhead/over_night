@@ -11,6 +11,8 @@ import {setUser} from "../states/user"
 
 
 
+
+
 export default function HeadPage(){
   const dispatch = useDispatch()
 
@@ -21,34 +23,39 @@ export default function HeadPage(){
   const [loading, setLoading] = useState(true);
 
 // hotels request
-const HandleGetRequest = (city: string) =>{
-  useEffect(() => {
-    async function fetchData() {
-  const options = {
-    method: 'GET',
-    url: 'https://hotels4.p.rapidapi.com/locations/v3/search',
-    params: {
-      q: city,
-      locale: 'en_US',
-      langid: '1033',
-      siteid: '300000001'
-    },
-    headers: {
-      'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
-      'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
-    }
-  };
+const HandleGetRequest = async (city: string) =>{
   
-  try {
-    const response = await axios.request(options);
-    console.log(response.data);
-  } catch (error) {
-    console.error(error);
-  }
-    }
-    fetchData();
-  }, []);
+  axios.post("/api/getHotels", {
+    city: city
+}).then((response) => {console.log(response)})
 }
+
+    // async function fetchData() {
+  // const options = {
+  //   method: 'GET',
+  //   url: 'https://hotels4.p.rapidapi.com/locations/v3/search',
+  //   params: {
+  //     q: city,
+  //     locale: 'en_US',
+  //     langid: '1033',
+  //     siteid: '300000001'
+  //   },
+  //   headers: {
+  //     'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
+  //     'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
+  //   }
+  // };
+  
+  // try {
+  //   const response = await axios.request(options);
+  //   console.log(response.data);
+  // } catch (error) {
+  //   console.error(error);
+  // }
+  //   } 
+
+    
+    
 //  style={{backgroundImage: `url(${background})`}}
 return(
     <div className="flex relative w-full h-screen bg-cover "  >
@@ -81,6 +88,8 @@ return(
         <div className=" flex  h-full w-full justify-center items-center ">
 
             <h1 className="text-white   text-8xl">Your destination await's {user?.username}</h1>
+
+            <h1 onClick={() => HandleGetRequest("DAL")}>yo</h1>
 
         
        </div>

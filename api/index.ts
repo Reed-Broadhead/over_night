@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser')
 
 const app = express();
 
+var Amadeus = require('amadeus');
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -24,7 +26,7 @@ app.get("/", async (req: any, res: any, next: any) => {
 })
 
 app.get('/users', async (req: any, res: any, next: any) => { 
-    // console.log(req)
+    //  console.log(req)
     try {
     const users = await prisma.user.findMany({})
     res.json(users)
@@ -46,7 +48,7 @@ app.post("/login", async (req: any , res: any, next: any) => {
     bcrypt.compare(password, user.password, (err: any, result: any) => {
         if (err) {
             console.log(err);
-            // Handle the error, e.g., send an error response
+            //  Handle the error, e.g., send an error response
             return res.status(500).send({ message: "Internal server error" });
         } else if (result === true) {
             console.log(`Right password`);
@@ -89,7 +91,28 @@ res.clearCookie("user")
 res.status(201).send({message: "User logged Out"})
 })
 
+
+app.post('/getHotels', (req: any, res: any, next: any) => {
+
+    const {city} = req.body
+
+    const amadeus = new Amadeus({
+         clientId: process.env.ASADEUS_KEY,
+        clientSecret: process.env.ASADEUS_SECRET_KEY
+         });
+          
+    amadeus.referenceData.locations.hotels.byCity.get({
+    cityCode: city
+    }).then(function (response : any){
+        res.status(201).send({hotels : response})
+    }).catch(function (response : any){
+        console.log(response)
+    })
+     
+    res.status(201)
+         })
+
 app.listen(
     PORT,
-    () => console.log(`it works on http://localhost:${PORT}`)
+    () => console.log(`it works on http:localhost:${PORT}`)
 )
