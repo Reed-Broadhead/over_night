@@ -38,7 +38,7 @@ app.get('/users', async (req: any, res: any, next: any) => {
 
 app.post("/login", async (req: any , res: any, next: any) => {
     const { email, password } = req.body;
-    console.log(password);
+
     try { const user = await prisma.user.findFirst({
         where: {
             email: email
@@ -52,8 +52,7 @@ app.post("/login", async (req: any , res: any, next: any) => {
             //  Handle the error, e.g., send an error response
             return res.status(500).send({ message: "Internal server error" });
         } else if (result === true) {
-            console.log(`Right password`);
-            res.cookie('user', user)
+            res.cookie('user', user.email)
             res.status(200).send({ message: "Authentication successful", user: user })};
         })
     } catch(error: any){
@@ -137,7 +136,15 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
                
           });
           
-          
+    app.get('/getSixStars', async (req: any, res: any, next: any) => {
+        try{
+        const sixStarhotels = await prisma.sixStars.findMany({})
+        res.json(sixStarhotels)
+        } catch(err: any) {
+            res.status(500).send({message: err})
+        }
+        
+    })
          
 
 

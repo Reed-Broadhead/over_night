@@ -34,6 +34,14 @@ const HandleGetRequest = async (city: string) => {
 //   const response = axios.get("/api/tripadvisor");
 //   console.log(response)
 // }
+
+const getSixStars = async () => {
+
+  axios.get("/api/getSixStars")
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err))
+}
+
 const tripAdvisor = () => {
   const options = {
     method: 'GET',
@@ -131,7 +139,7 @@ return(
 
             <h1 className="text-white   text-8xl">Your destination await's {user?.username}</h1>
 
-            <h1 onClick={() => tripAdvisor()}>yo</h1>
+            <h1 onClick={() => getSixStars()}>yo</h1>
 
         
        </div>
