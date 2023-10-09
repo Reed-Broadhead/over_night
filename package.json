@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "amadeus": "^9.0.0",
-    "react-transition-group": "^4.4.5"
-  }
-}
