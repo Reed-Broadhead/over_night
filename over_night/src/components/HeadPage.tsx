@@ -23,12 +23,54 @@ export default function HeadPage(){
   const [loading, setLoading] = useState(true);
 
 // hotels request
-const HandleGetRequest = async (city: string) =>{
+const HandleGetRequest = async (city: string) => { 
   
   axios.post("/api/getHotels", {
     city: city
 }).then((response) => {console.log(response)})
 }
+
+// const tripAdvisor= async () => {
+//   const response = axios.get("/api/tripadvisor");
+//   console.log(response)
+// }
+const tripAdvisor = () => {
+  const options = {
+    method: 'GET',
+    url: '/api/tripadvisor', // Use the relative URL for your server-side proxy
+    headers: { accept: 'application/json' },
+  };
+
+  axios
+    .request(options)
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
+// const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+// const tripAdvisor = ()=>{
+//   const options = {
+    
+//     method: 'GET',
+//     url: '/tripadvisor',
+//     params: {key: import.meta.env.TRIP_ADVISOR_API, searchQuery: 'miami', language: 'en', currency: 'USD'},
+//     headers: {accept: 'application/json'}
+//   };
+  
+//   axios
+//     .request(options)
+//     .then(function (response) {
+//       console.log(response.data);
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+//   }
 
     // async function fetchData() {
   // const options = {
@@ -89,7 +131,7 @@ return(
 
             <h1 className="text-white   text-8xl">Your destination await's {user?.username}</h1>
 
-            <h1 onClick={() => HandleGetRequest("DAL")}>yo</h1>
+            <h1 onClick={() => tripAdvisor()}>yo</h1>
 
         
        </div>

@@ -4,6 +4,7 @@ const PORT = 5555
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require("bcrypt")
 const cookieParser = require('cookie-parser')
+const axios = require('axios');
 
 const app = express();
 
@@ -112,7 +113,34 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
     res.status(201)
          })
 
+
+    app.get('/tripadvisor', async (req: any, res: any) => {
+       
+            const options = {
+                method: 'GET',
+                url: 'https://api.content.tripadvisor.com/api/v1/location/search?key=ff&searchQuery=miami&language=en',
+                headers: {accept: 'application/json'}
+              };
+              
+              axios
+                .request(options)
+                .then(function (response: any) {
+                    res.status(201).send({hotels : response.data})
+                })
+                .catch(function (error: any) {
+                    res.status(201).send(error)
+                });
+               
+          });
+          
+          
+         
+
+
+
 app.listen(
     PORT,
     () => console.log(`it works on http:localhost:${PORT}`)
 )
+
+
