@@ -118,8 +118,11 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
        
             const options = {
                 method: 'GET',
-                url: 'https://api.content.tripadvisor.com/api/v1/location/search?key=ff&searchQuery=miami&language=en',
-                headers: {accept: 'application/json'}
+                url: `https://api.content.tripadvisor.com/api/v1/location/search?key=${process.env.TRIP_ADVISOR_KEY}&searchQuery=miami&language=en`,
+                headers: {
+                    'X-TripAdvisor-API-Key': process.env.TRIP_ADVISOR_KEY,
+                    'Accept': 'application/json',
+                  }
               };
               
               axios
@@ -128,7 +131,8 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
                     res.status(201).send({hotels : response.data})
                 })
                 .catch(function (error: any) {
-                    res.status(201).send(error)
+                    res.status(500).send({ error: 'Internal server error' }) 
+                    console.error(error)
                 });
                
           });
