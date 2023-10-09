@@ -30,10 +30,6 @@ const HandleGetRequest = async (city: string) => {
 }).then((response) => {console.log(response)})
 }
 
-// const tripAdvisor= async () => {
-//   const response = axios.get("/api/tripadvisor");
-//   console.log(response)
-// }
 
 const getSixStars = async () => {
 

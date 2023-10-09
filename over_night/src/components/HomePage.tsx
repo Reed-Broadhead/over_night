@@ -1,11 +1,13 @@
 import HeadPage from "./HeadPage"
 import NavBar from "./NavBar"
+import axios from "axios"
 import Promotions from "./Promotions"
 import promotional from "../assets/Dallas.png"
 import PopularStays from "./PopularStays"
 import Footer from "./Footer"
 import { useState, useEffect } from "react"
 import passwordimage from '../assets/password.png'
+// import bellegio from "../assets/Bellagio.png"
 
 
 export default function HomePage()  {
@@ -13,9 +15,9 @@ export default function HomePage()  {
     const [sixStars, setSixStars] = useState([]);
 
     useEffect(() => {
-        fetch('/api/sixstars')
-          .then((resp) => resp.json())
-          .then((sixStarHOtelData) => setSixStars(sixStarHOtelData));
+        axios.get("/api/getSixStars")
+        .then((res) => setSixStars(res.data))
+        .catch((err) => console.log(err))
       }, []);
 
       const fakeData=[
@@ -37,14 +39,14 @@ export default function HomePage()  {
 
     ]
 
-   const locks= fakeData.map((element, index) => (
-        <Promotions  key={index} name={element.name} id={element.id} image={element.image}/>
+    const locks= sixStars.map((element, index) => (
+        <Promotions  key={index} name={element.hotelName} id={element.HotelId} image={element.pictures}/>
       ))
         
     return (
         <>
         <NavBar/>
-
+        {/* <img scr={bellegio}></img> */}
         <HeadPage/>
 
             <div>
