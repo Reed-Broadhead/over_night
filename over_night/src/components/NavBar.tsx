@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Blacklogo from '../assets/blacklogo.png';
-import Whitelogo from '../assets/whiteLogo.png';
+import Whitelogo from '../assets/WhiteLogo.png';//whiteLogo.png
 import SignUp from './SignUp';
 import LogOut from './LogOut';
 import { useSelector } from 'react-redux';
@@ -59,7 +59,7 @@ export default function NavBar() {
         {user == null ? (
           <div className="mr-3 mt-1.5">
             <Underline underlineRight={true}>
-              <NavLink className="h-fit hover:text-gray-100 text-white text-2xl" to="/login">
+              <NavLink className="h-fit hover:text-gray-100 text-white text-2xl transition-opacity duration-1000" to="/login">
                 Login
               </NavLink>
             </Underline>

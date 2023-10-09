@@ -35,12 +35,21 @@ export default function Login_signUp() {
       <div className=" flex justify-center items-center relative  bg-black bg-opacity-30 w-full h-full">
 
       <div className='absolute top-0 left-2'>
+        
       <Underline>
-
-      <NavLink to="/">
+      <AnimatePresence mode='wait'>
+      <motion.div className=''
+      initial={{ x: 20, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -20, opacity: 0 }}
+      transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96]  }}
+      > 
+        <NavLink className='transition-slide-left duration-3000'to="/">
         <img src={homeButton} className="pt-1 pl-1 h-14" alt="logo" />
-      </NavLink>
-
+        </NavLink>
+        </motion.div>  
+      
+      </AnimatePresence>
       </Underline>
       </div>
 
