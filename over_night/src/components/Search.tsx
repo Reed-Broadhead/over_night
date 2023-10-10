@@ -48,9 +48,9 @@ export default function Search(){
     const handleSubmit = (location: string, dates: [], rooms: string) : void => {
       console.log(location, dates, rooms)
 
-      axios.get("/api/hotelSearch")
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
+      // axios.get("/api/hotelSearch")
+      // .then((res) => console.log(res))
+      // .catch((err) => console.log(err))
 
       navigate("/search")
 
