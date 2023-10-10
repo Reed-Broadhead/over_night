@@ -18,11 +18,11 @@ export default function Promotions({name,id,image}){
         flex items-center justify-center
         bg-cover bg-no-repeat bg-center
         ml-12 mr-12 h-[350px] w-[350px]  
-        bg-white hover:bg-gray-100 rounded-xl shadow-2xl"
+        bg-white hover:bg-gray-100 rounded-xl shadow-2xl "
         style={{backgroundImage: `url(http://localhost:5173/src/assets/Bellagio.png)`}}
         >
 
-        <h1 className="text-gray-200 text-xl">{name}</h1>
+        <h1 className="text-gray-200 text-4xl">{name}</h1>
             
         </div>
             
