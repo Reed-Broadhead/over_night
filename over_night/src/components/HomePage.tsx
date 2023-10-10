@@ -7,7 +7,7 @@ import PopularStays from "./PopularStays"
 import Footer from "./Footer"
 import { useState, useEffect } from "react"
 import passwordimage from '../assets/password.png'
-// import bellegio from "../assets/Bellagio.png"
+import bellegio from "../assets/Bellagio.png"
 
 
 export default function HomePage()  {

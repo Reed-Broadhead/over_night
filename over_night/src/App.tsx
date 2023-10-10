@@ -6,6 +6,7 @@ import axios from "axios";
 import HomePage from './components/HomePage';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import SearchPage from "./components/hotelsSearch/SearchPage"
 import Login_signUp from './components/Login_signUp';
 import { Routes, Route } from "react-router-dom"
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<HomePage/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/login" element={<Login_signUp/>}/>
+          <Route path="/search" element={<SearchPage/>} />
         </Routes>
     </>
   )

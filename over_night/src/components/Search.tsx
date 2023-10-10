@@ -1,6 +1,8 @@
 import { Formik, Field, Form, FormikHelpers, setNestedObjectValues } from "formik";
 import {useSelector, useDispatch} from 'react-redux'
 import {useState, useEffect, useRef} from "react"
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 // images
 import pin from "../assets/pin.png"
 import calandar from "../assets/calandar.png"
@@ -20,7 +22,9 @@ interface Values {
 
 export default function Search(){
     const [isCalender, setIsCalender] = useState<boolean>(false)
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState<any>(new Date());
+
+    const navigate = useNavigate()
 
     let menuRef = useRef();
 
@@ -40,6 +44,17 @@ export default function Search(){
           document.removeEventListener("mousedown", handler);
         }
       });
+      
+    const handleSubmit = (location: string, dates: [], rooms: string) : void => {
+      console.log(location, dates, rooms)
+
+      axios.get("/api/hotelSearch")
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
+
+      navigate("/search")
+
+    }
 
     return(
         <div className="h-64  flex justify-center " >
@@ -54,7 +69,7 @@ export default function Search(){
                
                 {setSubmitting, resetForm}: FormikHelpers<Values>
             ) => {
-                console.log(values);
+                handleSubmit(values.location, date , values.rooms)
                 resetForm()
                 setSubmitting(false);
             }}
@@ -69,19 +84,20 @@ export default function Search(){
 
                  <div className=" mx-auto h-min  flex items-center rounded border-b-4 border-logos-blue ">
                      <img src={pin} className=" h-[40px] mt-1.5 "/>
-                     <Field className=" h-[40px] placeholder-gray-400 pl-1 text-xl shadow bg-white  bg-opacity-0" id="location" name="Location" placeholder="Location" />
+                     <Field className=" h-[40px] placeholder-gray-400 pl-1 text-xl shadow bg-white  bg-opacity-0" id="location" name="location" placeholder="Location" />
                  </div>
                 
                  <div ref={menuRef} className=" flex flex-col mx-auto h-min  max-h-[50px] rounded border-b-4 border-logos-blue ">
                     <div  className="flex items-center">
                         <img src={calandar} className="h-[32px] mb-2 mt-1.5 "/>
-                        <Field onClick={() => openCalender()} className="h-[40px] placeholder-gray-400 pl-1 text-xl shadow bg-white text-black bg-opacity-0" id="dates" name="Dates" placeholder="Dates" />
+                        <Field onClick={() => openCalender()} className="h-[40px] placeholder-gray-400 pl-1 text-xl shadow bg-white text-black bg-opacity-0" id="dates" name="dates" placeholder="Dates" />
                     </div>
                     { isCalender ? 
                     <Calendar 
+                    id="dates" 
                     className="react-calendar"
-                    onChange={setDate}
                     value={date}
+                    onChange={setDate}
                     selectRange={true}
                     /> 
                     : null}
@@ -90,7 +106,7 @@ export default function Search(){
 
                  <div className=" mx-auto h-min  flex items-center rounded border-b-4 border-logos-blue ">
                     <img src={bed} className="mb-1 h-[28px] mt-1.5"/>
-                    <Field className="h-[40px] placeholder-gray-400 pl-1 text-xl shadow-md bg-white  bg-opacity-0" id="rooms" name="Rooms" placeholder="Rooms" />
+                    <Field className="h-[40px] placeholder-gray-400 pl-1 text-xl shadow-md bg-white  bg-opacity-0" id="rooms" name="rooms" placeholder="Rooms" />
                  </div>
 
                 <div className='mr-4 '>

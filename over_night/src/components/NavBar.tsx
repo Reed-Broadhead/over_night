@@ -37,9 +37,13 @@ export default function NavBar() {
     >
       <div className="w-1/2">
         <div className="ml-1">
+          <NavLink to="/">
           <Underline>
-            <img src={Whitelogo} className="pt-1 pl-1 h-14" alt="logo" />
+            
+              <img src={Whitelogo} className="pt-1 pl-1 h-14" alt="logo" />
+            
           </Underline>
+          </NavLink>
         </div>
       </div>
       <div className="w-1/2 flex flex-row-reverse mr-2">

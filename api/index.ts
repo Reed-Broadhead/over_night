@@ -147,7 +147,56 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
     })
          
 
+    app.get('/hotelSearch', async (req: any, res: any, next: any) => {
+        // names
+        // gets hotel data with name
+        // data = { hotel name, rating, pictures, price  }
 
+
+        // let hotels : [] | undefined = undefined 
+
+        // const options = {
+        //     method: 'GET',
+        //     url: `https://api.content.tripadvisor.com/api/v1/location/search?key=${process.env.TRIP_ADVISOR_KEY}&searchQuery=miami&language=en`,
+        //     headers: {
+        //         'X-TripAdvisor-API-Key': process.env.TRIP_ADVISOR_KEY,
+        //         'Accept': 'application/json',
+        //       }
+        //   };
+          
+        //   axios
+        //     .request(options)
+        //     .then(function (response: any) {
+        //         // res.status(201).send({hotels : response.data})
+        //         console.log(response)
+        //         // hotels?.concat(response.data)
+        //         response.data.data.map((data : any) => {
+
+        //             // data.location_id
+        //             const options = {
+        //                 method: 'GET',
+        //                 url: `https://api.content.tripadvisor.com/api/v1/location/${process.env.TRIP_ADVISOR_KEY}/photos?key=en&language=en`,
+        //                 headers: {accept: 'application/json'}
+        //               };
+        //               axios
+        //                 .request(options)
+        //                 .then(function (response : any) {
+        //                     console.log(response.data);
+        //                 })
+        //                 .catch(function (error : any) {
+        //                     console.error(error);
+        //                 });
+
+        //             console.log(data)})
+
+        //     })
+        //     .catch(function (error: any) {
+        //         res.status(500).send({ error: 'Internal server error', devNotes: "problem with tripadvisor location search" }) 
+        //         console.error(error)
+        //     });
+        
+        res.status(201).send({message: "kinda works"})
+    })
 
 app.listen(
     PORT,

@@ -21,6 +21,7 @@ export default function Promotions({name,id,image}){
         bg-white hover:bg-gray-100 rounded-xl shadow-2xl"
         style={{backgroundImage: `url(http://localhost:5173/src/assets/Bellagio.png)`}}
         >
+
         <h1 className="text-gray-200 text-xl">{name}</h1>
             
         </div>
