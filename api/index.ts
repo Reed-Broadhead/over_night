@@ -5,6 +5,9 @@ const { PrismaClient } = require('@prisma/client');
 const bcrypt = require("bcrypt")
 const cookieParser = require('cookie-parser')
 const axios = require('axios');
+const { createHash }= require('crypto');
+
+
 
 const app = express();
 
@@ -148,55 +151,51 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
          
 
     app.get('/hotelSearch', async (req: any, res: any, next: any) => {
-        // names
-        // gets hotel data with name
-        // data = { hotel name, rating, pictures, price  }
+
+        const apiKey: string | undefined = process.env.API_KEY;
+        const secret: string | undefined = process.env.SECRET_KEY;
+        if (!apiKey || !secret) {
+            console.error("API_KEY and/or SECRET_KEY not defined in environment variables.");
+            process.exit(1);
+          }
+
+          const timestamp = Math.floor(Date.now() / 1000);
+          const dataToHash = apiKey + secret + timestamp.toString();
+          const signature = createHash('sha256')
+          .update(dataToHash)
+          .digest('hex');
 
 
-        // let hotels : [] | undefined = undefined 
-
-        // const options = {
-        //     method: 'GET',
-        //     url: `https://api.content.tripadvisor.com/api/v1/location/search?key=${process.env.TRIP_ADVISOR_KEY}&searchQuery=miami&language=en`,
-        //     headers: {
-        //         'X-TripAdvisor-API-Key': process.env.TRIP_ADVISOR_KEY,
-        //         'Accept': 'application/json',
-        //       }
-        //   };
-          
-        //   axios
-        //     .request(options)
-        //     .then(function (response: any) {
-        //         // res.status(201).send({hotels : response.data})
-        //         console.log(response)
-        //         // hotels?.concat(response.data)
-        //         response.data.data.map((data : any) => {
-
-        //             // data.location_id
-        //             const options = {
-        //                 method: 'GET',
-        //                 url: `https://api.content.tripadvisor.com/api/v1/location/${process.env.TRIP_ADVISOR_KEY}/photos?key=en&language=en`,
-        //                 headers: {accept: 'application/json'}
-        //               };
-        //               axios
-        //                 .request(options)
-        //                 .then(function (response : any) {
-        //                     console.log(response.data);
-        //                 })
-        //                 .catch(function (error : any) {
-        //                     console.error(error);
-        //                 });
-
-        //             console.log(data)})
-
-        //     })
-        //     .catch(function (error: any) {
-        //         res.status(500).send({ error: 'Internal server error', devNotes: "problem with tripadvisor location search" }) 
-        //         console.error(error)
-        //     });
+        let data = '';
         
-        res.status(201).send({message: "kinda works"})
+        let config = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=15&useSecondaryLanguage=false&destinationCode=BOS',
+          headers: { 
+            'Api-key': process.env.API_KEY, 
+            'X-Signature': signature, 
+            'Accept': 'application/json', 
+            'Accept-Encoding': process.env.ACCEPT_ENCODING, 
+            'Secret': process.env.SECRET_KEY
+          },
+          data : data
+        };
+        
+        axios.request(config)
+        .then((response : any) => {
+            res.status(201).send(JSON.stringify(response.data))
+        //   console.log(JSON.stringify(response.data))
+        })
+        .catch((error : any) => {
+          console.log(error);
+        });
+        
+        
+
+        // res.status(201).send({message: "kinda works"})
     })
+
 
 app.listen(
     PORT,

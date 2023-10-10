@@ -33,7 +33,7 @@ const HandleGetRequest = async (city: string) => {
 
 const getSixStars = async () => {
 
-  axios.get("/api/getSixStars")
+  axios.get("/api/hotelSearch")
   .then((res) => console.log(res))
   .catch((err) => console.log(err))
 }
@@ -135,7 +135,7 @@ return(
 
             <h1 className="text-white   text-8xl">Your destination await's {user?.username}</h1>
 
-            {/* <button className="h-10 border hover:bg-white"onClick={() => getSixStars()}> API TEST BUTTON</button> */}
+            <button className="h-10 border hover:bg-white"onClick={() => getSixStars()}>  YO API TEST BUTTON</button>
 
         
        </div>
