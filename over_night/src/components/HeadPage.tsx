@@ -25,7 +25,7 @@ const handleClick = async () => {
 
 
 return(
-    <div className="flex relative w-full h-screen bg-cover "  >
+    <div className="flex relative w-full h-screen bg-cover  "  >
         <div className=" flex flex-col  bg-black bg-opacity-10 relative  w-full h-full">
         
         

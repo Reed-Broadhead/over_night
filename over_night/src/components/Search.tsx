@@ -58,6 +58,7 @@ export default function Search(){
 
     return(
         <div className="h-64  flex justify-center " >
+          
             <Formik 
             initialValues={{
                 location: "",
@@ -74,25 +75,30 @@ export default function Search(){
                 setSubmitting(false);
             }}
         >
-          <div className="rounded-lg w-2/3 h-36 shadow-2xl bg-cover bg-center ">
+          <div className="rounded-lg w-2/3 h-36 shadow-2xl bg-cover bg-center relative">
+          <div className="bg-white w-full h-full opacity-40 absolute inset-0 rounded-lg z-0"></div>
+            
             <Form  >
               <div className="flex items-center pl-4  h-full w-full ">
                
 
               <div className="mx-auto h-min relative flex items-center rounded">
-            <Field className="h-[100px] pl-1 text-xl shadow bg-white rounded-lg" id="destination" name="destination"  />
-              <label htmlFor="location" className="absolute top-2 left-2 text-gray-800">DESINATION ⟟ ➣</label>
+            <Field className="h-[100px] pl-1 text-xl shadow bg-white underline  rounded-lg z-10" id="destination" name="destination" 
+            placeholder="                                                 "  />
+              <label htmlFor="location" className="absolute top-2 left-2 text-gray-800 z-20">DESINATION ⟟ ➣</label>
               </div>
 
               <div className="mx-auto h-min relative flex items-center rounded">
-            <Field className="h-[100px] pl-1 text-xl shadow-md bg-white rounded-lg" id="rooms" name="rooms"  />
-              <label htmlFor="rooms" className="absolute top-2 left-2 text-gray-800">ROOMS</label>
+            <Field className="h-[100px] pl-1 text-xl shadow-md bg-white rounded-lg z-10 underline" id="rooms" name="rooms" 
+             placeholder="                                                 " />
+              <label htmlFor="rooms" className="absolute top-2 left-2 text-gray-800 z-20">ROOMS</label>
               </div>
                 
                  <div ref={menuRef} className="mx-auto h-min relative flex items-center rounded relative">
                     <div  className="flex items-center">
-                        <Field onClick={() => openCalender()} className="h-[100px] w-[470px] pl-1 text-xl shadow-md bg-white rounded-lg" id="dates" name="dates" />
-                        <label htmlFor="dates" className="absolute top-2 left-2 text-gray-800 z-10">Checkin/Checkout</label>
+                        <Field onClick={() => openCalender()} className="h-[100px] w-[470px] pl-1 text-xl shadow-md bg-white rounded-lg z-10 underline " id="dates" name="dates" 
+                        placeholder="                                                                                                            " />
+                        <label htmlFor="dates" className="absolute top-2 left-2 text-gray-800 z-20">Checkin/Checkout</label>
                     </div>
                     { isCalender ? 
                     <Calendar 
@@ -106,16 +112,16 @@ export default function Search(){
 
                  </div>
 
-                 
-
                 <div className='mr-4 '>
                
-                <button className="bg-logos-gyellow  h-[100px] w-36 hover:bg-logos-yellow text-gray-800 text-2xl pl-[15px] rounded-lg" type="submit" style={{ textAlign: "left" }}>Book →<br></br> Now</button>
+                <button className="bg-logos-gyellow h-[100px] w-36 hover:bg-logos-yellow text-gray-800 text-2xl pl-[15px] rounded-lg z-20" type="submit" style={{ textAlign: "left" }}>Book →<br></br> Now</button>
+
                
                 </div>
-
+                
               </div>
             </Form>
+            
             </div>
            
         </Formik>

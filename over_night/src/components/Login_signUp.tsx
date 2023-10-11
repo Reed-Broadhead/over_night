@@ -32,7 +32,7 @@ export default function Login_signUp() {
 
   return (
 
-      <div className="w-full h-screen bg-cover bg-black" style={{backgroundImage: `url(${background2})`}} >
+      <div className="w-full h-screen bg-cover " style={{backgroundImage: `url(${background2})`}} >
       <div className=" flex justify-center items-center relative  bg-black bg-opacity-30 w-full h-full">
 
       <div className='absolute top-0 left-2'>
