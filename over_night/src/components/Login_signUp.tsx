@@ -15,6 +15,7 @@ export default function Login_signUp() {
 
   const [isLogin, setIsLogin] = useState<boolean>(true)
   const [initialRender, setInitialRender] = useState<boolean>(true)
+  const background2 = 'https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/beautiful-tropical-beach-sea-min.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvYmVhdXRpZnVsLXRyb3BpY2FsLWJlYWNoLXNlYS1taW4uanBnIiwiaWF0IjoxNjk3MDM4OTg3LCJleHAiOjE3OTE2NDY5ODd9.jRZtrz-WhlSeLXRoa2Qacx3aY4b1BP7Z9kOFmbHf8rs&t=2023-10-11T15%3A43%3A07.758Z'
 
   
 
@@ -31,7 +32,7 @@ export default function Login_signUp() {
 
   return (
 
-      <div className="w-full h-screen bg-cover bg-black" style={{backgroundImage: `url(${background})`}} >
+      <div className="w-full h-screen bg-cover bg-black" style={{backgroundImage: `url(${background2})`}} >
       <div className=" flex justify-center items-center relative  bg-black bg-opacity-30 w-full h-full">
 
       <div className='absolute top-0 left-2'>
