@@ -15,15 +15,18 @@ export default function Promotions({name,id,image}){
             
         <div 
         className=" 
-        flex items-center justify-center
+        flex items-center justify-end flex-col
+        border border-black
         bg-cover bg-no-repeat bg-center
-        ml-12 mr-12 h-[350px] w-[350px]  
-        bg-white hover:bg-gray-100 rounded-xl shadow-2xl "
+        ml-12 mr-12 h-[350px] w-[700px]  
+        bg-white hover:bg-gray-100 rounded-xl shadow-xl "
         style={{backgroundImage: `url(http://localhost:5173/src/assets/Bellagio.png)`}}
         >
 
-        <h1 className="text-gray-200 text-4xl">{name}</h1>
-            
+        <div className="w-full h-[20%] bg-white  flex items-center justify-center rounded-b-xl ">
+        <h1 className="text-gray-800 text-4xl">{name}</h1>
+
+        </div>
         </div>
             
 
