@@ -85,20 +85,20 @@ export default function Search(){
               <div className="mx-auto h-min relative flex items-center rounded">
             <Field className="h-[100px] mr-6 pl-2 pt-8 text-xl shadow bg-white underline decoration-gray-400 rounded-lg z-10 " id="destination" name="destination" 
             placeholder="                                                 "  />
-              <label htmlFor="location" className="pl-2 absolute top-2 left-2 text-gray-800 z-20">DESINATION ⟟ ➣</label>
+              <label htmlFor="location" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20">DESINATION ➣</label>
               </div>
 
               <div className="mx-auto h-min relative flex items-center rounded">
             <Field className="h-[100px] mr-6 pl-2 pt-8 text-xl shadow-md bg-white rounded-lg z-10 underline decoration-gray-400" id="rooms" name="rooms" 
              placeholder="                                                 " />
-              <label htmlFor="rooms" className="pl-2  absolute top-2 left-2 text-gray-800 z-20">ROOMS</label>
+              <label htmlFor="rooms" className="pl-2  absolute top-2 left-2 text-gray-800 font-semibold z-20 ">ROOMS ☐</label>
               </div>
                 
                  <div ref={menuRef} className="mx-auto h-min relative flex items-center rounded relative">
                     <div  className="flex items-center">
                         <Field onClick={() => openCalender()} className="h-[100px] w-[470px] mr-8 pl-2 pt-8 text-xl shadow-md bg-white rounded-lg z-10 underline decoration-gray-400" id="dates" name="dates" 
                         placeholder="                                                                                                            " />
-                        <label htmlFor="dates" className="pl-2 absolute top-2 left-2 text-gray-800 z-20">Checkin/Checkout</label>
+                        <label htmlFor="dates" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20">Checkin ☐ /Checkout ☐</label>
                     </div>
                     { isCalender ? 
                     <Calendar 

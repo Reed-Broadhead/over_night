@@ -50,9 +50,9 @@ return(
 
         
 
-        <div className=" flex  h-full w-full justify-center items-center ">
+        <div className=" flex  h-full w-full justify-center items-center  ">
 
-            <h1 className="text-white   text-8xl">Your destination await's {user?.username}</h1>
+            <h1 className="text-white   text-7xl">Your destination await's {user?.username}</h1>
 
             <button className="h-10 border hover:bg-white"onClick={() => handleClick()}>  YO API TEST BUTTON</button>
 

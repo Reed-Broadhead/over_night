@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Blacklogo from '../assets/blacklogo.png';
-import Whitelogo from '../assets/whiteLogo.png';//whiteLogo.png
+import Whitelogo from '../assets/AydanLogo.png';//whiteLogo.png//AydanLogo.png
 import SignUp from './SignUp';
 import LogOut from './LogOut';
 import { useSelector } from 'react-redux';
@@ -31,8 +31,8 @@ export default function NavBar() {
 
   return (
     <div
-      className={`flex h-15 w-full bg-contain bg-no-repeat fixed z-10 text-right ${
-        scrolling ? 'bg-gray-700 bg-opacity-30' : ''
+      className={`flex h-40 w-full bg-contain bg-no-repeat fixed z-10 text-right ${
+        scrolling ? 'bg-gray-500 bg-opacity-30' : ''
       }`}
     >
       <div className="w-1/2">
@@ -40,29 +40,29 @@ export default function NavBar() {
           <NavLink to="/">
           <Underline>
             
-              <img src={Whitelogo} className="pt-1 pl-1 h-14" alt="logo" />
+              <img src={Whitelogo} className="pt-10 pl-8 h-32" alt="logo" />
             
           </Underline>
           </NavLink>
         </div>
       </div>
       <div className="flex">
-      <div className="ml-40 mr-40 mt-10">
+      <div className="ml-40 mr-40 mt-16">
         <Underline underlineRight={true}>
-              <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/login">
+              <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/About">
                 About
               </NavLink>
             </Underline>
             </div>
-            <div className="mr-40 mt-10">
+            <div className="mr-40 mt-16">
             <Underline underlineRight={true}>
-              <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/login">
+              <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/faq">
                 FAQ
               </NavLink>
             </Underline>
             </div>
         {user == null ? (
-          <div className="mr-40 mt-10">
+          <div className="mr-40 mt-16">
             <Underline underlineRight={true}>
               <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/login">
                 Login
