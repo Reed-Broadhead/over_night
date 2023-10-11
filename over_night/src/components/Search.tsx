@@ -75,7 +75,7 @@ export default function Search(){
                 setSubmitting(false);
             }}
         >
-          <div className="rounded-lg w-2/3 h-36 shadow-2xl bg-cover bg-center relative">
+          <div className="rounded-lg w-[1200px] h-36 shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
           <div className="bg-white w-full h-full opacity-40 absolute inset-0 rounded-lg z-0"></div>
             
             <Form  >
@@ -83,22 +83,22 @@ export default function Search(){
                
 
               <div className="mx-auto h-min relative flex items-center rounded">
-            <Field className="h-[100px] pl-1 text-xl shadow bg-white underline  rounded-lg z-10" id="destination" name="destination" 
+            <Field className="h-[100px] mr-6 pl-2 pt-8 text-xl shadow bg-white underline decoration-gray-400 rounded-lg z-10 " id="destination" name="destination" 
             placeholder="                                                 "  />
-              <label htmlFor="location" className="absolute top-2 left-2 text-gray-800 z-20">DESINATION ⟟ ➣</label>
+              <label htmlFor="location" className="pl-2 absolute top-2 left-2 text-gray-800 z-20">DESINATION ⟟ ➣</label>
               </div>
 
               <div className="mx-auto h-min relative flex items-center rounded">
-            <Field className="h-[100px] pl-1 text-xl shadow-md bg-white rounded-lg z-10 underline" id="rooms" name="rooms" 
+            <Field className="h-[100px] mr-6 pl-2 pt-8 text-xl shadow-md bg-white rounded-lg z-10 underline decoration-gray-400" id="rooms" name="rooms" 
              placeholder="                                                 " />
-              <label htmlFor="rooms" className="absolute top-2 left-2 text-gray-800 z-20">ROOMS</label>
+              <label htmlFor="rooms" className="pl-2  absolute top-2 left-2 text-gray-800 z-20">ROOMS</label>
               </div>
                 
                  <div ref={menuRef} className="mx-auto h-min relative flex items-center rounded relative">
                     <div  className="flex items-center">
-                        <Field onClick={() => openCalender()} className="h-[100px] w-[470px] pl-1 text-xl shadow-md bg-white rounded-lg z-10 underline " id="dates" name="dates" 
+                        <Field onClick={() => openCalender()} className="h-[100px] w-[470px] mr-8 pl-2 pt-8 text-xl shadow-md bg-white rounded-lg z-10 underline decoration-gray-400" id="dates" name="dates" 
                         placeholder="                                                                                                            " />
-                        <label htmlFor="dates" className="absolute top-2 left-2 text-gray-800 z-20">Checkin/Checkout</label>
+                        <label htmlFor="dates" className="pl-2 absolute top-2 left-2 text-gray-800 z-20">Checkin/Checkout</label>
                     </div>
                     { isCalender ? 
                     <Calendar 
@@ -112,9 +112,9 @@ export default function Search(){
 
                  </div>
 
-                <div className='mr-4 '>
+                <div className='mr-4 z-50'>
                
-                <button className="bg-logos-gyellow h-[100px] w-36 hover:bg-logos-yellow text-gray-800 text-2xl pl-[15px] rounded-lg z-20" type="submit" style={{ textAlign: "left" }}>Book →<br></br> Now</button>
+                <button className=" bg-logos-gyellow h-[100px] w-36 hover:bg-logos-yellow text-gray-00 text-2xl pl-[15px] rounded-lg z-50" type="submit" style={{ textAlign: "left" }}>Book <br></br>Now<br></br> → </button>
 
                
                 </div>
