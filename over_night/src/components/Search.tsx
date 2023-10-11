@@ -7,7 +7,7 @@ import axios from "axios";
 import pin from "../assets/pin.png"
 import calandar from "../assets/calandar.png"
 import bed from "../assets/bed.png"
-import searchBar from "../assets/searchbar.png"
+// import searchBar from "../assets/searchbar.png"
 import Underline from "./Underline";
 
 import Calendar from 'react-calendar'
@@ -74,28 +74,30 @@ export default function Search(){
                 setSubmitting(false);
             }}
         >
-    
-            <Form className="rounded-xl w-2/3 h-28 shadow-2xl bg-white  bg-cover bg-center" style={{backgroundImage: `url(${searchBar})`}}>
+          <div className="rounded-lg w-2/3 h-36 shadow-2xl bg-cover bg-center ">
+            <Form  >
               <div className="flex items-center pl-4  h-full w-full ">
-                {/* <div className="">
-                    <button className="ml-0.5 border-b-2 border-logos-blue mr-3 text-gray-500 hover:text-gray-700">login</button>
-                    <button className="mr-2 text-gray-500 hover:text-gray-700" onClick={(e) => {e.preventDefault(); setState(false)}}>sign up</button>
-                </div> */}
+               
 
-                 <div className=" mx-auto h-min  flex items-center rounded border-b-4 border-logos-blue ">
-                     <img src={pin} className=" h-[40px] mt-1.5 "/>
-                     <Field className=" h-[40px] placeholder-gray-400 pl-1 text-xl shadow bg-white  bg-opacity-0" id="location" name="location" placeholder="Location" />
-                 </div>
+              <div className="mx-auto h-min relative flex items-center rounded">
+            <Field className="h-[100px] pl-1 text-xl shadow bg-white rounded-lg" id="destination" name="destination"  />
+              <label htmlFor="location" className="absolute top-2 left-2 text-gray-800">DESINATION ⟟ ➣</label>
+              </div>
+
+              <div className="mx-auto h-min relative flex items-center rounded">
+            <Field className="h-[100px] pl-1 text-xl shadow-md bg-white rounded-lg" id="rooms" name="rooms"  />
+              <label htmlFor="rooms" className="absolute top-2 left-2 text-gray-800">ROOMS</label>
+              </div>
                 
-                 <div ref={menuRef} className=" flex flex-col mx-auto h-min  max-h-[50px] rounded border-b-4 border-logos-blue ">
+                 <div ref={menuRef} className="mx-auto h-min relative flex items-center rounded relative">
                     <div  className="flex items-center">
-                        <img src={calandar} className="h-[32px] mb-2 mt-1.5 "/>
-                        <Field onClick={() => openCalender()} className="h-[40px] placeholder-gray-400 pl-1 text-xl shadow bg-white text-black bg-opacity-0" id="dates" name="dates" placeholder="Dates" />
+                        <Field onClick={() => openCalender()} className="h-[100px] w-[470px] pl-1 text-xl shadow-md bg-white rounded-lg" id="dates" name="dates" />
+                        <label htmlFor="dates" className="absolute top-2 left-2 text-gray-800 z-10">Checkin/Checkout</label>
                     </div>
                     { isCalender ? 
                     <Calendar 
                     id="dates" 
-                    className="react-calendar"
+                    className="react-calendar "
                     value={date}
                     onChange={setDate}
                     selectRange={true}
@@ -104,20 +106,17 @@ export default function Search(){
 
                  </div>
 
-                 <div className=" mx-auto h-min  flex items-center rounded border-b-4 border-logos-blue ">
-                    <img src={bed} className="mb-1 h-[28px] mt-1.5"/>
-                    <Field className="h-[40px] placeholder-gray-400 pl-1 text-xl shadow-md bg-white  bg-opacity-0" id="rooms" name="rooms" placeholder="Rooms" />
-                 </div>
+                 
 
                 <div className='mr-4 '>
-                <Underline underlineRight={true} >
-                <button className=" border-gray-400 text-gray-700 text-lg rounded" type="submit">Submit</button>
-                </Underline>
+               
+                <button className="bg-logos-gyellow  h-[100px] w-36 hover:bg-logos-yellow text-gray-800 text-2xl pl-[15px] rounded-lg" type="submit" style={{ textAlign: "left" }}>Book →<br></br> Now</button>
+               
                 </div>
 
               </div>
             </Form>
-            {/* </motion.div>  ) */}
+            </div>
            
         </Formik>
            

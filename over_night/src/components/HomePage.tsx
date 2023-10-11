@@ -39,7 +39,7 @@ export default function HomePage()  {
 
     ]
 
-    const locks= sixStars.map((element, index) => (
+    const featuredHotels= sixStars.map((element, index) => (
         <Promotions  key={index} name={element.hotelName} id={element.HotelId} image={element.pictures}/>
       ))
         
@@ -50,11 +50,13 @@ export default function HomePage()  {
         <HeadPage/>
 
             <div>
-            <h1 className="flex ml-24 mt-24 text-3xl  h-min w-[575px] flex items-center rounded border-b-4 border-logos-yellow"
+            <h1 className="flex ml-24 mt-24 text-3xl  h-min w-[200px] flex items-center rounded border-b-4 border-logos-yellow"
             >Six Star Hotels</h1>
             <div 
-                className="flex items-center justify-center bg-white w-full h-[600px] grid grid-cols-4">
-                {locks}
+                className="flex items-center justify-center bg-white w-full h-[500px] mb-[80px] grid grid-cols-4">
+                {featuredHotels}
+                {featuredHotels}
+                {featuredHotels}
             </div>
             </div>
        
