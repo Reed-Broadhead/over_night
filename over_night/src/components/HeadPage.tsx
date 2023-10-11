@@ -4,7 +4,7 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import Search from './Search';
 import background from '../assets/Vacation-photos/brandedPic.png'
-import video from "../assets/shortclip.mp4" 
+import video from "../assets/compressed47sec-vid.mp4" 
 
 import {useSelector, useDispatch} from 'react-redux'
 import {setUser} from "../states/user"
