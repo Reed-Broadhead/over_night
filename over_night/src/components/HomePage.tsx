@@ -50,16 +50,21 @@ export default function HomePage()  {
         <HeadPage/>
 
             <div>
-            <h1 className="flex ml-24 mt-24 text-3xl  h-min w-[200px] flex items-center rounded border-b-4 border-logos-yellow"
+            <h1 className="flex ml-24 mt-24 text-3xl  h-min w-[200px] flex items-center justify-center rounded border-b-4 border-logos-yellow"
             >Six Star Hotels</h1>
             <div 
-                className="flex items-center justify-center bg-white w-full h-[500px] mb-[80px] grid grid-cols-4">
-                {featuredHotels}
-                {featuredHotels}
-                {featuredHotels}
+                className="flex items-center justify-center bg-white w-full  grid grid-cols-2">
+                <div className="h-[400px] mb-[80px]">{featuredHotels}</div>
+                <div className="h-[400px] mb-[80px]">{featuredHotels}</div>
             </div>
             </div>
-       
+            <div className="flex items-center justify-center pb-5">
+                <button className="w-[170px] h-[50px]  bg-logos-gyellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
+                        active:translate-y-2  active:[box-shadow:0_9px_0_0_#FFBA03,0_0px_0_0_#FFBA03]
+                        active:border-b-[0px]
+                        transition-all duration-150 [box-shadow:0_10px_0_0_#F4C01E,0_10px_0_0_#F4C01E]
+                        border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 "type="submit" >Next</button>
+            </div >
         <div  
             className="flex justify-center items-center w-full h-[600px]"
             style={{
@@ -67,10 +72,10 @@ export default function HomePage()  {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center'
-            }}
-        >
+            }}>
             <h1 className="text-7xl text-white"> Where the best memories happen </h1>
         </div>
+
         <PopularStays/>
         <Footer/>
 

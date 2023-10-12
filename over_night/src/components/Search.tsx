@@ -75,8 +75,8 @@ export default function Search(){
                 setSubmitting(false);
             }}
         >
-          <div className="rounded-lg w-[1200px] h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
-          <div className="bg-white w-full h-full opacity-40 absolute inset-0 rounded-lg z-0"></div>
+          <div className="rounded-lg w-[1250px] h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
+          <div className="bg-white w-full h-full opacity-50 absolute inset-0 rounded-lg z-0"></div>
             
             <Form  >
               <div className="flex items-center pl-4  h-full w-full ">
