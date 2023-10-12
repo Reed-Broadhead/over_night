@@ -10,6 +10,7 @@ import homeButton from "../assets/whiteLogo.png"
 import { Form, NavLink } from 'react-router-dom';
 import Navbar from "./NavBar";
 import Underline from './Underline';
+import Footer from './Footer';
 
 
 export default function Login_signUp() {
@@ -34,11 +35,12 @@ export default function Login_signUp() {
   return (
 
       <div className="w-full h-screen bg-cover " style={{backgroundImage: `url(${background2})`}} >
+        <Navbar/>
       <div className=" flex justify-center items-center relative  bg-black bg-opacity-30 w-full h-full">
-
+      
       <div className='absolute top-0 left-2'>
         
-      <Underline>
+      {/* <Underline>
       <AnimatePresence mode='wait'>
       <motion.div className=''
       initial={{ x: 20, opacity: 0 }}
@@ -52,11 +54,11 @@ export default function Login_signUp() {
         </motion.div>  
       
       </AnimatePresence>
-      </Underline>
+      </Underline> */}
       </div>
 
       <AnimatePresence mode='wait'>
-        <motion.div className=''
+        <motion.div className='mt-40'
 
           key={isLogin}
           initial={initialRender ? {} : { x: 20, opacity: 0 }}
@@ -69,7 +71,7 @@ export default function Login_signUp() {
       </AnimatePresence>
       
       </div>
-      
+      <Footer/>
       </div>
       
   

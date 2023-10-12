@@ -114,11 +114,11 @@ export default function Search(){
 
                 <div className='mr-4 z-50'>
                
-                <button className='w-[170px] h-[100px]  bg-logos-gyellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
+                <button className='w-[170px] h-[100px]  bg-gradient-to-r from-logos-gyellow to-logos-yellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
                         active:translate-y-2  active:[box-shadow:0_9px_0_0_#4AB7F5,0_0px_0_0_#4AB7F5]
                         active:border-b-[0px]
                         transition-all duration-150 [box-shadow:0_10px_0_0_#F4C01E,0_10px_0_0_#F4C01E]
-                        border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 '  type="submit" >Book → <br></br>Now</button>
+                        border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 hover:text-black '  type="submit" >Book → <br></br>Now</button>
 
                
                 </div>

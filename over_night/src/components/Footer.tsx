@@ -5,13 +5,43 @@ export default function Footer(){
     return(
         <div>
             
-            <div className="flex items-center justify-center bg-gradient-to-r from-white to-logos-blue w-full h-[300px] ">
-            
-                <h1 className='flex items-center justify-center text-center'>Designed and Developed by Franco & Reed Copy Write 2023</h1>
+            <div className="bg-gradient-to-r from-white to-logos-blue w-full h-[340px] ">
+                <span className="grid grid-cols-5 ">
+                <div>
+                    <h1 className='pl-28 pb-8 mt-12 text-justify '>About</h1>
+                </div>
+                <div>
+                    <h1 className='pl-28 pb-8 mt-12 text-justify '>FAQ</h1>
+                </div>
+                <div>
+                    <h1 className='pl-28 pb-8 mt-12 text-justify '>Destinations</h1>
+                </div>
                 
-                <img src={logo} className="pt-10 pl-8 h-32" alt="logo" />
+                <div>
+                    <h1 className=' pb-8 mt-12 text-justify '>Log in</h1>
+                </div>
+                <div>
+                <img src={logo} className="mt-12 h-24 " alt="logo" />
+                </div>
+                <div>
+                    <h1 className='pl-28 pb-8 text-justify '>Six Star Hotels</h1>
+                </div>
+                <div>
+                    <h1 className='pl-28 pb-8 text-justify '>Privacy policy</h1>
+                </div>
+                <div>
+                    <h1 className='pl-28 pb-8 text-justify '>Popular Destinations</h1>
+                </div>
+                <div>
+                    <h1 className=' pb-8 text-justify '>Designed and Developed by Franco & Reed </h1>
+                </div>
+                
+                </span>
+
+               
 
             </div>
-        </div>
+            
+            </div>
     )
 }
