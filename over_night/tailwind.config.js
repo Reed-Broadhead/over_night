@@ -22,6 +22,7 @@ export default {
       logos:{
         yellow:"#F4C01E",
         gyellow:"#FFF506",
+        hyellow:"#F5E54A",
         blue:"#74C1FF",
         gblue:"#A1BEFF"}
     }

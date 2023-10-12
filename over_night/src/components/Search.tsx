@@ -75,7 +75,7 @@ export default function Search(){
                 setSubmitting(false);
             }}
         >
-          <div className="rounded-lg w-[1200px] h-36 shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
+          <div className="rounded-lg w-[1200px] h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
           <div className="bg-white w-full h-full opacity-40 absolute inset-0 rounded-lg z-0"></div>
             
             <Form  >
@@ -83,22 +83,22 @@ export default function Search(){
                
 
               <div className="mx-auto h-min relative flex items-center rounded">
-            <Field className="h-[100px] mr-6 pl-2 pt-8 text-xl shadow bg-white underline decoration-gray-400 rounded-lg z-10 " id="destination" name="destination" 
+            <Field className="h-[100px] mr-6 pl-2 pt-8 text-xl shadow-lg bg-white underline decoration-gray-400 rounded-lg z-10 " id="destination" name="destination" 
             placeholder="                                                 "  />
               <label htmlFor="location" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20">DESINATION ➣</label>
               </div>
 
               <div className="mx-auto h-min relative flex items-center rounded">
-            <Field className="h-[100px] mr-6 pl-2 pt-8 text-xl shadow-md bg-white rounded-lg z-10 underline decoration-gray-400" id="rooms" name="rooms" 
+            <Field className="h-[95px] mr-6 pl-2 pt-8 text-xl shadow-lg bg-white rounded-lg z-10 underline decoration-gray-400 " id="rooms" name="rooms" 
              placeholder="                                                 " />
               <label htmlFor="rooms" className="pl-2  absolute top-2 left-2 text-gray-800 font-semibold z-20 ">ROOMS ☐</label>
               </div>
                 
                  <div ref={menuRef} className="mx-auto h-min relative flex items-center rounded relative">
                     <div  className="flex items-center">
-                        <Field onClick={() => openCalender()} className="h-[100px] w-[470px] mr-8 pl-2 pt-8 text-xl shadow-md bg-white rounded-lg z-10 underline decoration-gray-400" id="dates" name="dates" 
+                        <Field onClick={() => openCalender()} className="h-[100px] w-[470px] mr-8 pl-2 pt-8 text-xl shadow-lg bg-white rounded-lg z-10 underline decoration-gray-400 " id="dates" name="dates" 
                         placeholder="                                                                                                            " />
-                        <label htmlFor="dates" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20">Checkin ☐ /Checkout ☐</label>
+                        <label htmlFor="dates" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20">Checkin ☑ /Checkout ☐</label>
                     </div>
                     { isCalender ? 
                     <Calendar 
@@ -114,10 +114,15 @@ export default function Search(){
 
                 <div className='mr-4 z-50'>
                
-                <button className=" bg-logos-gyellow h-[100px] w-36 hover:bg-logos-yellow text-gray-00 text-2xl pl-[15px] rounded-lg z-50" type="submit" style={{ textAlign: "left" }}>Book <br></br>Now<br></br> → </button>
+                <button className='w-[170px] h-[100px]  bg-logos-gyellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
+                        active:translate-y-2  active:[box-shadow:0_9px_0_0_#4AB7F5,0_0px_0_0_#4AB7F5]
+                        active:border-b-[0px]
+                        transition-all duration-150 [box-shadow:0_10px_0_0_#F4C01E,0_10px_0_0_#F4C01E]
+                        border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 '  type="submit" >Book → <br></br>Now</button>
 
                
                 </div>
+                
                 
               </div>
             </Form>
@@ -132,3 +137,12 @@ export default function Search(){
         </div>
     )
 }
+
+//<a href="#_" class="box-border relative z-30 inline-flex items-center justify-center w-auto px-8 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none">
+//<span class="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+//<span class="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+//<span class="relative z-20 flex items-center text-sm">
+//<svg class="relative w-5 h-5 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+//Button Text
+//</span>
+//</a>

@@ -11,6 +11,7 @@ import { Form, NavLink } from 'react-router-dom';
 import Navbar from "./NavBar";
 import Underline from './Underline';
 
+
 export default function Login_signUp() {
 
   const [isLogin, setIsLogin] = useState<boolean>(true)
@@ -68,6 +69,7 @@ export default function Login_signUp() {
       </AnimatePresence>
       
       </div>
+      
       </div>
       
   

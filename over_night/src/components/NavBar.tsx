@@ -47,14 +47,14 @@ export default function NavBar() {
         </div>
       </div>
       <div className="flex">
-      <div className="ml-40 mr-40 mt-16">
+      <div className="ml-40 mr-40 mt-20">
         <Underline underlineRight={true}>
               <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/About">
                 About
               </NavLink>
             </Underline>
             </div>
-            <div className="mr-40 mt-16">
+            <div className="mr-40 mt-20">
             <Underline underlineRight={true}>
               <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/faq">
                 FAQ
@@ -62,7 +62,7 @@ export default function NavBar() {
             </Underline>
             </div>
         {user == null ? (
-          <div className="mr-40 mt-16">
+          <div className="mr-40 mt-20">
             <Underline underlineRight={true}>
               <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/login">
                 Login
