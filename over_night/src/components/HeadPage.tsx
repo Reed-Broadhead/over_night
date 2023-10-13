@@ -40,7 +40,7 @@ export default function HeadPage() {
         </div>
         <div className="flex h-full w-full justify-center items-center">
           <h1 className="text-white text-7xl">Your destination awaits {user?.username}</h1>
-          <button className="h-10 border hover:bg-white" onClick={() => handleClick()}>YO API TEST BUTTON</button>
+          <button className="h-10 border hover:bg-white" onClick={() => handleClick()}>yo</button>
         </div>
         <div>
           <Search />
