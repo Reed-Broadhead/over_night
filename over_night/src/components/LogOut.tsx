@@ -15,7 +15,7 @@ export default function LogOut(){
     
     return(
         <>
-        <button className="h-fit hover:text-gray-100 mt-[75px] text-white text-3xl " onClick={handlePatch}>Log Out</button>
+        <button className="h-fit hover:text-gray-100  text-white text-3xl " onClick={handlePatch}>Log Out</button>
         </>
     )
 }

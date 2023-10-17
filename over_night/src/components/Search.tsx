@@ -57,7 +57,7 @@ export default function Search(){
     }
 
     return(
-        <div className="h-64  flex justify-center " >
+        <div className="" >
           
             <Formik 
             initialValues={{
@@ -76,25 +76,48 @@ export default function Search(){
             }}
         >
           <div className="rounded-lg w-[1250px] h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
-          <div className="bg-white w-full h-full opacity-50 absolute inset-0 rounded-lg z-0"></div>
+          <div className="bg-white w-full h-full opacity-50 absolute inset-0 rounded-lg -z-10"></div>
             
-            <Form  >
+            <Form>
               <div className="flex items-center pl-4  h-full w-full ">
                
 
-              <div className="mx-auto h-min relative flex items-center rounded">
-            <Field className="h-[100px] mr-6 pl-2 pt-8 text-xl shadow-lg bg-white underline decoration-gray-400 rounded-lg z-10 " id="destination" name="destination" 
-            placeholder="                                                 "  />
-              <label htmlFor="location" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20">DESINATION ➣</label>
-              </div>
+              {/* <div className="mx-auto bg-white h-min relative flex items-center rounded ">
+                
+                  <Field className="h-[100px] pl-2 pt-8 text-xl shadow-lg bg-white underline decoration-gray-400 rounded-lg z-10 border border-red-900" id="destination" name="destination" 
+                  placeholder="hi" />
+                  <label htmlFor="location" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20 ">DESINATION ➣</label>
+                
+              </div> */}
+                <div className="bg-white rounded h-[95px] mr-6 px-2 py-1">
+                  <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
+                     {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
+                     <div className="flex flex-row mb-2 pl-2 pt-1">
+                     <h1 className="font-semibold text-md text-gray-800">DESTINATION ➣</h1>
+                      <img />
+                     </div>
+                     <Field className=" h-[40px]  pl-1 text-xl shadow bg-white  bg-opacity-0" id="destination" name="destination" placeholder="" />
+                  </div>
+                 </div>
 
-              <div className="mx-auto h-min relative flex items-center rounded">
+              {/* <div className="mx-auto h-min relative flex items-center rounded">
             <Field className="h-[95px] mr-6 pl-2 pt-8 text-xl shadow-lg bg-white rounded-lg z-10 underline decoration-gray-400 " id="rooms" name="rooms" 
              placeholder="                                                 " />
               <label htmlFor="rooms" className="pl-2  absolute top-2 left-2 text-gray-800 font-semibold z-20 ">ROOMS ☐</label>
-              </div>
+              </div> */}
+
+                <div className="bg-white rounded h-[95px] mr-6 px-2 py-1">
+                  <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
+                     {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
+                     <div className="flex flex-row mb-2 pl-2 pt-1">
+                     <h1 className="font-semibold text-md text-gray-800">ROOMS ☐</h1>
+                      <img />
+                     </div>
+                     <Field className=" h-[40px]  pl-1 text-xl shadow bg-white  bg-opacity-0" id="rooms" name="rooms" placeholder="" />
+                  </div>
+                </div>
                 
-                 <div ref={menuRef} className="mx-auto h-min relative flex items-center rounded relative">
+                 {/* <div ref={menuRef} className="mx-auto h-min relative flex items-center rounded relative">
                     <div  className="flex items-center">
                         <Field onClick={() => openCalender()} className="h-[100px] w-[470px] mr-8 pl-2 pt-8 text-xl shadow-lg bg-white rounded-lg z-10 underline decoration-gray-400 " id="dates" name="dates" 
                         placeholder="                                                                                                            " />
@@ -110,9 +133,34 @@ export default function Search(){
                     /> 
                     : null}
 
-                 </div>
+                 </div> */}
+
+                <div ref={menuRef} className="bg-white rounded h-[95px] w-[470px] mr-6 px-2 py-1 ">
+                  <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
+                     {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
+                     <div className="flex flex-row mb-2 pl-2 pt-1">
+                     <h1 className="font-semibold text-md text-gray-800">Checkin ☑ /Checkout ☐</h1>
+                      <img />
+                     </div>
+                     <Field  onClick={() => openCalender()} className=" h-[40px]  pl-1 text-xl shadow bg-white  bg-opacity-0" id="dates" name="dates" placeholder="" />
+                  </div>
+                    
+                     { isCalender ? 
+                    <Calendar 
+                    id="dates" 
+                    className="react-calendar"
+                    value={date}
+                    onChange={setDate}
+                    selectRange={true}
+                    /> 
+                    : null}
+                </div>
+
 
                 <div className='mr-4 z-50'>
+
+
+                
                
                 <button className='w-[170px] h-[100px]  bg-gradient-to-r from-logos-gyellow to-logos-yellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
                         active:translate-y-2  active:[box-shadow:0_9px_0_0_#4AB7F5,0_0px_0_0_#4AB7F5]
