@@ -250,6 +250,16 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         // res.status(201).send({message: "kinda works"})
     })
 
+    app.get('/getCitys', async (req: any, res: any, next: any) => {
+        try{
+        const citys = await prisma.citys.findMany({})
+        res.json(citys)
+        } catch(error: any) {
+            // res.status(500).send({message: error})
+            next(error.message);
+        }
+        
+    })
 
 app.listen(
     PORT,

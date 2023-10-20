@@ -53,7 +53,7 @@ export default function NavBar() {
             {user == null ? (
               <div className=" flex items-center mx-auto">
                 <Underline underlineRight={true}>
-                  <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/login">
+                  <NavLink className="h-fit hover:text-gray-100 text-white text-2xl transition-opacity duration-1000" to="/login">
                     Login
                   </NavLink>
                 </Underline>
@@ -69,7 +69,7 @@ export default function NavBar() {
 
           <div className="flex items-center mx-auto">
             <Underline underlineRight={true}>
-                  <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/About">
+                  <NavLink className="h-fit hover:text-gray-100 text-white text-2xl transition-opacity duration-1000" to="/About">
                     About
                   </NavLink>
               </Underline>
@@ -77,7 +77,7 @@ export default function NavBar() {
 
             <div className="flex items-center mx-auto">
               <Underline underlineRight={true}>
-                <NavLink className="h-fit hover:text-gray-100 text-white text-3xl transition-opacity duration-1000" to="/faq">
+                <NavLink className="h-fit hover:text-gray-100 text-white text-2xl transition-opacity duration-1000" to="/faq">
                   FAQ
                 </NavLink>
               </Underline>

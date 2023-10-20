@@ -22,11 +22,13 @@ export default function Promotions({name, id, image} : PromotionsProps){
             
         <div 
         className=" 
+        border border-gray-200
         flex items-center justify-end flex-col static
         bg-cover bg-no-repeat bg-center
-         h-[350px] w-[600px] 
+        h-[350px] w-[600px] 
         mb-[20px] 
-        bg-white hover:bg-gray-100 rounded-xl shadow-xl "
+        bg-white hover:bg-gray-100 rounded-xl shadow-xl 
+        hover:shadow-2xl"
         // style={{backgroundImage: `url(http://localhost:5173/src/assets/Bellagio.png)`}}
         style={{backgroundImage: `url(${image})`}}
 

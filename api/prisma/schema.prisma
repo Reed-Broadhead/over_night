@@ -33,3 +33,11 @@ model SixStars {
   hotelName String
   pictures  String
 }
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Citys {
+  id      Int     @id(map: "citys_pkey") @default(autoincrement())
+  name    String?
+  picture String?
+  code    String?
+}
