@@ -143,8 +143,9 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         try{
         const sixStarhotels = await prisma.sixStars.findMany({})
         res.json(sixStarhotels)
-        } catch(err: any) {
-            res.status(500).send({message: err})
+        } catch(error: any) {
+            // res.status(500).send({message: error})
+            next(error.message);
         }
         
     })

@@ -162,11 +162,18 @@ export default function Search(){
 
                 
                
-                <button className='w-[170px] h-[100px]  bg-gradient-to-r from-logos-gyellow to-logos-yellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
+                {/* <button className='w-[170px] h-[100px]  bg-gradient-to-r from-logos-gyellow to-logos-yellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
                         active:translate-y-2  active:[box-shadow:0_9px_0_0_#4AB7F5,0_0px_0_0_#4AB7F5]
                         active:border-b-[0px]
                         transition-all duration-150 [box-shadow:0_10px_0_0_#F4C01E,0_10px_0_0_#F4C01E]
-                        border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 hover:text-black '  type="submit" >Book → <br></br>Now</button>
+                        border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 hover:text-black '  type="submit" >Book → <br></br>Now</button> */}
+                  
+                <button  className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-logos-yellow rounded hover:shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)]" 
+                type="submit">
+                  
+                  <h1 className=" w-1/2 mr-2 text-2xl text-simibold text-middle text-center ">Book now</h1>
+                  <h1 className=" w-1/2 text-2xl">→</h1>
+                  </button>
 
                
                 </div>
