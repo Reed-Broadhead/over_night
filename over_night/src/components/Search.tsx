@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useState, useEffect, useRef} from "react"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import {motion} from "framer-motion"
 // images
 import pin from "../assets/pin.png"
 import calandar from "../assets/calandar.png"
@@ -57,7 +58,7 @@ export default function Search(){
     }
 
     return(
-        <div className="" >
+        <div className="w-full flex justify-center" >
           
             <Formik 
             initialValues={{
@@ -75,7 +76,8 @@ export default function Search(){
                 setSubmitting(false);
             }}
         >
-          <div className="rounded-lg w-[1250px] h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
+          {/* w-[1250px] */}
+          <div className="rounded-lg w-5/6 h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
           <div className="bg-white w-full h-full opacity-50 absolute inset-0 rounded-lg -z-10"></div>
             
             <Form>
@@ -168,12 +170,18 @@ export default function Search(){
                         transition-all duration-150 [box-shadow:0_10px_0_0_#F4C01E,0_10px_0_0_#F4C01E]
                         border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 hover:text-black '  type="submit" >Book → <br></br>Now</button> */}
                   
-                <button  className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-logos-yellow rounded hover:shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)]" 
-                type="submit">
+                <motion.button  
+                className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-logos-yellow rounded shadow-md" 
+                type="submit"
+                whileHover={
+                  {scale: 1.03, 
+                  }}
+                whileTap={{ scale: 0.9 }}
+                >
                   
                   <h1 className=" w-1/2 mr-2 text-2xl text-simibold text-middle text-center ">Book now</h1>
                   <h1 className=" w-1/2 text-2xl">→</h1>
-                  </button>
+                </motion.button>
 
                
                 </div>

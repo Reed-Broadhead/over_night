@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import Promotions from "./Promotions"
 import axios from "axios";
+import {motion} from "framer-motion"
 
 export default function SixStarHotels() {
     const [sixStarCount, setSixStarCount] = useState<number>(0)
@@ -16,22 +17,36 @@ export default function SixStarHotels() {
         <Promotions  key={index} name={element.hotelName} id={element.HotelId} image={element.pictures}/>
       ))
     return (
-<div className="h-[500px]">
-                <h1 className="flex ml-24 mt-24 text-3xl mb-10 h-min w-[200px] flex items-center justify-center rounded border-b-4 border-logos-yellow"
+<div className="h-[500px] border">
+                <h1 className="flex ml-24 mt-10 text-3xl mb-5 h-min w-[200px] flex items-center justify-center rounded border-b-4 border-logos-yellow"
                 >Six Star Hotels</h1>
 
                 <div className="flex flex-row  w-full max-w-screen ">
 
                     <div className="w-1/2 flex flex-row items-center justify-center">
-                        <button onClick={() => { sixStarCount == 0 ? setSixStarCount(featuredHotels.length -2) : setSixStarCount(sixStarCount - 2)}}
-                        className="w-fit p-1 mr-10 border border-red-900 rounded"> back </button>
+
+                        <motion.button 
+                        onClick={() => { sixStarCount == 0 ? setSixStarCount(featuredHotels.length -2) : setSixStarCount(sixStarCount - 2)}}
+                        className="w-fit h-fit p-1 mr-10 border border-red-900 rounded-lg shadow-lg"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.9 }}
+                        > {'<='} </motion.button>
+
                         {featuredHotels[sixStarCount]} 
+
                     </div>
 
                     <div className="w-1/2 flex flex-row items-center justify-center">
+
                         {featuredHotels[sixStarCount + 1]}
-                        <button onClick={() => { (sixStarCount + 2) >= featuredHotels.length ? setSixStarCount(0) : setSixStarCount(sixStarCount + 2)}}
-                        className="w-fit p-1 ml-10 border border-red-900 rounded"> next </button>
+
+                        <motion.button
+                        onClick={() => { (sixStarCount + 2) >= featuredHotels.length ? setSixStarCount(0) : setSixStarCount(sixStarCount + 2)}}
+                        className="w-fit h-fit p-1 ml-10 border border-red-900 rounded-lg shadow-lg"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.9 }}
+                        > {"=>"} </motion.button>
+
                     </div>
 
                 </div>
