@@ -1,11 +1,18 @@
+import Underline from "./Underline"
+
 export default function FooterSections( {words} : any ) {
     // const words: any = [word1, word2, word3]
 
     const mappedWords = words.map((el : any) => {
         return (
-            <h1 className="my-auto text-xl text-black ">
-                {el}
-            </h1>
+            <div className="my-auto">
+
+                <Underline>
+                <h1 className="my-auto text-xl text-black ">
+                    {el}
+                </h1>
+            </Underline>
+            </div>
         )
     })
 
