@@ -21,13 +21,13 @@ export default function SixStarHotels() {
                 <h1 className="flex ml-24 mt-10 text-3xl mb-5 h-min w-[200px] flex items-center justify-center rounded border-b-4 border-logos-yellow"
                 >Six Star Hotels</h1>
 
-                <div className="flex flex-row  w-full max-w-screen ">
+                <div className="flex flex-row  w-full ">
 
-                    <div className="w-1/2 flex flex-row items-center justify-center">
+                    <div className="w-1/2 flex flex-row items-center justify-center ">
 
                         <motion.button 
                         onClick={() => { sixStarCount == 0 ? setSixStarCount(featuredHotels.length -2) : setSixStarCount(sixStarCount - 2)}}
-                        className="w-fit h-fit p-1 mr-10 border border-red-900 rounded-lg shadow-lg"
+                        className="w-fit h-fit p-1 mr-10  text-2xl rounded shadow-lg "
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.9 }}
                         > {'<='} </motion.button>
