@@ -44,16 +44,10 @@ export default function HeadPage() {
           <div className='w-full h-1/2 flex items-center justify-center'>
             <h1 className="text-white text-center text-7xl mt-auto">Your destination awaits {user?.username}</h1> 
           </div>
-          <div className='flex w-full justify-center mt-[15%]  h-fit mb-14  '>
+          <div className='flex w-full justify-center mt-[13%]  h-fit mb-14 '>
             <Search />
           </div>
-          {/* <button className="h-10 border hover:bg-white" onClick={() => handleClick()}>YO API TEST BUTTON</button> */}
-
         </div>
-        {/* mb-48 */}
-        {/* <div className='border w-full h-64' >
-          <Search />
-        </div> */}
       </div>
     </div>
   );

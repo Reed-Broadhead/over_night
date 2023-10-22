@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {setUser, userSlice} from "../states/user"
 import axios from "axios";
 import background from "../assets/miami.jpeg"
-import loginScreen from "../assets/loginScreenNewLogo3.png"
+import loginScreen from "../assets/LoginScreenNewLogo3.png"
 import { motion, AnimatePresence } from "framer-motion";
 import {useState} from "react"
 import { Navigate, useNavigate } from "react-router-dom";

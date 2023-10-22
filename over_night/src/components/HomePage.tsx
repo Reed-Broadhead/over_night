@@ -16,8 +16,7 @@ export default function HomePage()  {
         <NavBar/>
         {/* <img scr={bellegio}></img> */}
         <HeadPage/>
-
-        <PopularStays/>
+        <SixStarHotels />
         
         <div  
             className="flex justify-center items-center w-full h-[600px] "
@@ -33,8 +32,8 @@ export default function HomePage()  {
             
         </div>
 
-        <SixStarHotels />
-        <Footer/>
+        <PopularStays/>
+        <Footer/>   
 
         </>
 
