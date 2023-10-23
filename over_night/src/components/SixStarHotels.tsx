@@ -27,10 +27,10 @@ export default function SixStarHotels() {
 
                         <motion.button 
                         onClick={() => { sixStarCount == 0 ? setSixStarCount(featuredHotels.length -2) : setSixStarCount(sixStarCount - 2)}}
-                        className="w-fit h-fit p-1 mr-10 border border-red-900 rounded-lg shadow-lg"
+                        className="w-fit h-fit p-1 mr-10 border text-2xl rounded shadow-lg"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.9 }}
-                        > {'<='} </motion.button>
+                        > ← </motion.button>
 
                         {featuredHotels[sixStarCount]} 
 
@@ -42,10 +42,10 @@ export default function SixStarHotels() {
 
                         <motion.button
                         onClick={() => { (sixStarCount + 2) >= featuredHotels.length ? setSixStarCount(0) : setSixStarCount(sixStarCount + 2)}}
-                        className="w-fit h-fit p-1 ml-10 border border-red-900 rounded-lg shadow-lg"
+                        className="w-fit h-fit p-1 ml-10 border text-2xl text-bold rounded-lg shadow-lg"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.9 }}
-                        > {"=>"} </motion.button>
+                        > → </motion.button>
 
                     </div>
 

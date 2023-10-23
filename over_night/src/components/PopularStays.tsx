@@ -34,13 +34,13 @@ export default function PopularStays(){
 
     const mappedMainCitys = mainCityData.map((el, index) => {
         return (
-        <motion.div className='flex w-[40%] mx-auto h-[150px] border shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
+        <motion.div className='flex w-[40%] mx-auto h-[150px] border border-gray-600 shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
         style={{backgroundImage: `url(${el.picture})`}}
         whileTap={{ scale: 0.98 }}
         whileHover={{scale: 1.01}}        
         >
             
-            <div className='flex items-center justify-center h-full w-32 bg-gray-700/80 rounded-l-md'>
+            <div className='flex items-center justify-center h-full w-32 bg-black/60 rounded-l-md'>
             <h1 className='text-xl text-white text-bold'>{el.name}</h1>
             </div>
    
@@ -50,13 +50,13 @@ export default function PopularStays(){
     const mappedCitys = citys.map((el : any) => {
         return (
             <motion.div 
-            className='flex items-center justify-center w-2/12 mx-auto h-[150px] border shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
+            className='flex items-center justify-center w-2/12 mx-auto h-[150px]  shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
             style={{backgroundImage: `url(${el?.picture})`}}
             whileTap={{ scale: 0.95 }}
             whileHover={{scale: 1.01}}
             >
                 
-                <h1 className='text-xl text-black text-bold'>{el.name}</h1>
+                <h1 className='w-3/4 h-1/4 text-xl text-white text-center flex pt-1 justify-center text-bold bg-black/60 '>{el.name}</h1>
                 {/* <div className='flex items-center justify-center h-full w-32 bg-gray-700/80 rounded-l-md'>
                 </div> */}
        
@@ -74,11 +74,12 @@ export default function PopularStays(){
             </div>
             
             <div className='flex justify-center h-[200px]'>
-                <div className='flex items-center justify-center h-full w-12'>
+                <div className='flex items-center justify-center h-full w-12 '>
                     <motion.button onClick={() => { (cityCount) <= 0 ? setCityCount( citys.length - 5) : setCityCount(cityCount - 5) }} 
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
-                    > {'<='} </motion.button>
+                    className='border text-2xl rounded shadow-lg'
+                    > ←  </motion.button>
                 </div>
 
                 <div className='flex items-center h-full w-full'>
@@ -91,7 +92,8 @@ export default function PopularStays(){
                         onClick={() => { (cityCount + 5) >= citys.length ? setCityCount(0) : setCityCount(cityCount + 5)}}
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
-                    > {'=>'} </motion.button>
+                        className='border text-2xl rounded shadow-lg'
+                    > →  </motion.button>
                 </div>
 
             </div>

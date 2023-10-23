@@ -77,8 +77,8 @@ export default function Search(){
             }}
         >
           {/* w-[1250px] */}
-          <div className="rounded-lg w-5/6 h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
-          <div className="bg-white w-full h-full opacity-50 absolute inset-0 rounded-lg -z-10"></div>
+          <div className="rounded-lg w-[1250px] h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
+          <div className="w-full h-full bg-black/50 absolute inset-0 rounded-lg -z-10"></div>
             
             <Form>
               <div className="flex items-center pl-4  h-full w-full ">
@@ -171,7 +171,7 @@ export default function Search(){
                         border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 hover:text-black '  type="submit" >Book → <br></br>Now</button> */}
                   
                 <motion.button  
-                className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-logos-yellow rounded shadow-md" 
+                className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 
                 type="submit"
                 whileHover={
                   {scale: 1.03, 
