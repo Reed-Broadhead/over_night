@@ -2,7 +2,7 @@ import HeadPage from "./HeadPage"
 import NavBar from "./NavBar"
 import axios from "axios"
 import Promotions from "./Promotions"
-import promotional from "../assets/Dallas.png"
+import promotional from "../assets/skylinenight.png"
 import PopularStays from "./PopularStays"
 import Footer from "./Footer"
 import { useState, useEffect } from "react"
@@ -20,14 +20,17 @@ export default function HomePage()  {
         <SixStarHotels />
         
         <div  
-            className="flex justify-center items-center w-full h-[600px]"
+            className="flex justify-center items-center w-full h-[600px] "
             style={{
                 backgroundImage: `url(${promotional})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center'
             }}>
-            <h1 className="text-7xl text-white"> Where the best memories happen </h1>
+                <div className="w-full h-full  flex justify-center items-center bg-black/40">
+                    <h1 className="text-7xl text-white"> Where the best memories happen </h1>
+                </div>
+            
         </div>
 
         <PopularStays/>

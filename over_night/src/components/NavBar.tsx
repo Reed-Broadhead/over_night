@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Blacklogo from '../assets/blacklogo.png';
-import Whitelogo from '../assets/AydanLogo.png';//whiteLogo.png//AydanLogo.png
+import Whitelogo from '../assets/NewLogoWhiteGradient.png';//whiteLogo.png//AydanLogo.png
 import SignUp from './SignUp';
 import LogOut from './LogOut';
 import { useSelector } from 'react-redux';
@@ -31,8 +31,8 @@ export default function NavBar() {
 
   return (
     <div
-      className={`flex justify-center h-36 w-full bg-contain bg-no-repeat fixed z-10 text-right ${
-        scrolling ? 'bg-gray-500 bg-opacity-30' : ''
+      className={`flex justify-center h-36 w-full bg-contain bg-no-repeat fixed z-10 text-right  ${
+        scrolling ? 'bg-black/50 ' : ''
       }`}
     >
       <div className="w-2/3 flex flex-row items-center">
@@ -48,7 +48,7 @@ export default function NavBar() {
       </div>
 
 
-        <div className="flex flex-row-reverse  w-1/3 h-[85%]">
+        <div className="flex flex-row-reverse  w-1/3 h-full">
 
             {user == null ? (
               <div className=" flex items-center mx-auto">

@@ -77,8 +77,10 @@ export default function Search(){
             }}
         >
           {/* w-[1250px] */}
+
           <div className="rounded-lg w-3/4 h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
           <div className=" flex w-full h-full bg-black/50 absolute inset-0 rounded-lg -z-10"></div>
+
             
             <Form className="w-full">
               <div className="flex items-center h-full w-full ">
@@ -166,6 +168,10 @@ export default function Search(){
                 // className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-logos-yellow rounded shadow-md" 
 
                 className=" flex flex-row items-center justifu-center w-full h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 
+
+                  
+                <motion.button  
+                className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 
 
                 type="submit"
                 whileHover={

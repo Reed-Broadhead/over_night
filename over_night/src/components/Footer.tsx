@@ -1,4 +1,4 @@
-import logo from "../assets/AydanLogo.png"
+import logo from "../assets/NewLogoBlackRegular.png"
 
 
 export default function Footer(){
