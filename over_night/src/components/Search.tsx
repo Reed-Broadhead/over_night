@@ -77,11 +77,13 @@ export default function Search(){
             }}
         >
           {/* w-[1250px] */}
-          <div className="rounded-lg w-[1250px] h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
-          <div className="w-full h-full bg-black/50 absolute inset-0 rounded-lg -z-10"></div>
+
+          <div className="rounded-lg w-3/4 h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
+          <div className=" flex w-full h-full bg-black/50 absolute inset-0 rounded-lg -z-10"></div>
+
             
-            <Form>
-              <div className="flex items-center pl-4  h-full w-full ">
+            <Form className="w-full">
+              <div className="flex items-center h-full w-full ">
                
 
               {/* <div className="mx-auto bg-white h-min relative flex items-center rounded ">
@@ -91,7 +93,7 @@ export default function Search(){
                   <label htmlFor="location" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20 ">DESINATION ➣</label>
                 
               </div> */}
-                <div className="bg-white rounded h-[95px] mr-6 px-2 py-1">
+                <div className="bg-white rounded h-[95px] mx-auto py-1 w-[18%]">
                   <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1">
@@ -108,7 +110,7 @@ export default function Search(){
               <label htmlFor="rooms" className="pl-2  absolute top-2 left-2 text-gray-800 font-semibold z-20 ">ROOMS ☐</label>
               </div> */}
 
-                <div className="bg-white rounded h-[95px] mr-6 px-2 py-1">
+                <div className="bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%]">
                   <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1">
@@ -137,7 +139,7 @@ export default function Search(){
 
                  </div> */}
 
-                <div ref={menuRef} className="bg-white rounded h-[95px] w-[470px] mr-6 px-2 py-1 ">
+                <div ref={menuRef} className="bg-white rounded h-[95px] w-[470px] px-2 py-1 w-[40%] mx-auto">
                   <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1">
@@ -159,28 +161,28 @@ export default function Search(){
                 </div>
 
 
-                <div className='mr-4 z-50'>
+                <div className='z-50 w-[12%] mx-auto '>
+             
+                <motion.button  
 
+                // className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-logos-yellow rounded shadow-md" 
 
-                
-               
-                {/* <button className='w-[170px] h-[100px]  bg-gradient-to-r from-logos-gyellow to-logos-yellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
-                        active:translate-y-2  active:[box-shadow:0_9px_0_0_#4AB7F5,0_0px_0_0_#4AB7F5]
-                        active:border-b-[0px]
-                        transition-all duration-150 [box-shadow:0_10px_0_0_#F4C01E,0_10px_0_0_#F4C01E]
-                        border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 hover:text-black '  type="submit" >Book → <br></br>Now</button> */}
+                className=" flex flex-row items-center justifu-center w-full h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 
+
                   
                 <motion.button  
                 className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 
+
                 type="submit"
                 whileHover={
                   {scale: 1.03, 
                   }}
                 whileTap={{ scale: 0.9 }}
                 >
-                  
-                  <h1 className=" w-1/2 mr-2 text-2xl text-simibold text-middle text-center ">Book now</h1>
-                  <h1 className=" w-1/2 text-2xl">→</h1>
+                  <div className="w-fit h-fit flex flex-row items-center justify-center mx-auto ">
+                    <h1 className=" w-min  text-2xl text-simibold text-middle text-center ">Book now</h1>
+                    <h1 className=" w-fit  text-2xl">→</h1>
+                  </div>
                 </motion.button>
 
                

@@ -39,9 +39,12 @@ export default function HeadPage() {
           </video>
         </div>
 
-        <div className="flex h-full w-full items-center  flex-col">
-          <h1 className="text-white text-7xl mt-auto">Your destination awaits {user?.username}</h1>
-          <div className='flex w-full justify-center h-fit mb-14 mt-56'>
+        <div className=" h-full w-full flex-col">
+
+          <div className='w-full h-1/2 flex items-center justify-center'>
+            <h1 className="text-white text-center text-7xl mt-auto">Your destination awaits {user?.username}</h1> 
+          </div>
+          <div className='flex w-full justify-center mt-[15%]  h-fit mb-14  '>
             <Search />
           </div>
           {/* <button className="h-10 border hover:bg-white" onClick={() => handleClick()}>YO API TEST BUTTON</button> */}
