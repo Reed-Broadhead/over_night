@@ -58,7 +58,7 @@ export default function Login_signUp() {
       </div>
 
       <AnimatePresence mode='wait'>
-        <motion.div className='mt-40'
+        <motion.div className='my-auto mx-auto'
 
           key={isLogin}
           initial={initialRender ? {} : { x: 20, opacity: 0 }}
@@ -71,7 +71,7 @@ export default function Login_signUp() {
       </AnimatePresence>
       
       </div>
-      <Footer/>
+      {/* <Footer/> */}
       </div>
       
   

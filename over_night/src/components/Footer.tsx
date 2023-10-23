@@ -5,7 +5,7 @@ export default function Footer(){
     return(
         <div>
             
-            <div className="bg-gradient-to-r from-white to-logos-blue w-full h-[340px] ">
+            <div className="border-2 border-gray-400 w-full h-[340px] ">
                 <span className="grid grid-cols-5 ">
                 <div>
                     <h1 className='pl-28 pb-8 mt-12 text-justify '>About</h1>

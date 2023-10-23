@@ -38,13 +38,19 @@ export default function HeadPage() {
             Your browser does not support the video tag.
           </video>
         </div>
-        <div className="flex h-full w-full justify-center items-center">
-          <h1 className="text-white text-7xl">Your destination awaits {user?.username}</h1>
-          <button className="h-10 border hover:bg-white" onClick={() => handleClick()}>yo</button>
+
+        <div className="flex h-full w-full items-center  flex-col">
+          <h1 className="text-white text-7xl mt-auto">Your destination awaits {user?.username}</h1>
+          <div className='flex w-full justify-center h-fit mb-14 mt-56'>
+            <Search />
+          </div>
+          {/* <button className="h-10 border hover:bg-white" onClick={() => handleClick()}>YO API TEST BUTTON</button> */}
+
         </div>
-        <div>
+        {/* mb-48 */}
+        {/* <div className='border w-full h-64' >
           <Search />
-        </div>
+        </div> */}
       </div>
     </div>
   );
