@@ -1,47 +1,30 @@
-import logo from "../assets/NewLogoBlackRegular.png"
-
+import logo from "../assets/NewLogoBlackGradient.png"
+import FooterSections from "./FooterSection"
 
 export default function Footer(){
+
+    const elements = [["instagram", "2", "3"], ["4", "5", "6"], ["7", "8", "9"], ["10", "11", "12"]]
+
+    const mappedFooterSection = elements.map((el) => {
+        return (
+        <FooterSections words={el} /> )
+    })
+
     return(
-        <div>
+        <div className="border h-[340px] flex flex-row border-t border-gray-700">
             
-            <div className="border-2 border-gray-400 w-full h-[340px] ">
-                <span className="grid grid-cols-5 ">
-                <div>
-                    <h1 className='pl-28 pb-8 mt-12 text-justify '>About</h1>
-                </div>
-                <div>
-                    <h1 className='pl-28 pb-8 mt-12 text-justify '>FAQ</h1>
-                </div>
-                <div>
-                    <h1 className='pl-28 pb-8 mt-12 text-justify '>Destinations</h1>
-                </div>
-                
-                <div>
-                    <h1 className=' pb-8 mt-12 text-justify '>Log in</h1>
-                </div>
-                <div>
-                <img src={logo} className="mt-12 h-24 " alt="logo" />
-                </div>
-                <div>
-                    <h1 className='pl-28 pb-8 text-justify '>Six Star Hotels</h1>
-                </div>
-                <div>
-                    <h1 className='pl-28 pb-8 text-justify '>Privacy policy</h1>
-                </div>
-                <div>
-                    <h1 className='pl-28 pb-8 text-justify '>Popular Destinations</h1>
-                </div>
-                <div>
-                    <h1 className=' pb-8 text-justify '>Designed and Developed by Franco & Reed </h1>
-                </div>
-                
-                </span>
-
-               
-
-            </div>
             
+            {mappedFooterSection}
+            <div className="w-[28%] border flex flex-col-reverse">
+                <h1 className="mb-8 ml-10">copy wright</h1>
+                <img className="mb-16" src={logo}/>
+                <div className="ml-8 mb-8 w-2/4 flex flex-row  ">
+                <h1 className="mx-auto">1</h1>
+                <h1 className="mx-auto">2</h1>
+                <h1 className="mx-auto">3</h1>
+                </div>
             </div>
+
+        </div>
     )
-}
+} 
