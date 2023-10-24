@@ -22,7 +22,7 @@ export default function Promotions({name, id, image} : PromotionsProps){
         border border-gray-600
         flex items-center justify-end flex-col static
         bg-cover bg-no-repeat bg-center
-        h-[350px] w-[70%] 
+        h-[300px] w-[70%] 
         
          hover:bg-gray-100 rounded-xl shadow-xl 
         hover:shadow-2xl"

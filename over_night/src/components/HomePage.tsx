@@ -17,9 +17,10 @@ export default function HomePage()  {
         {/* <img scr={bellegio}></img> */}
         <HeadPage/>
         <SixStarHotels />
+
         
         <div  
-            className="flex justify-center items-center w-full h-[600px] "
+            className="flex justify-center items-center w-full h-[500px] "
             style={{
                 backgroundImage: `url(${promotional})`,
                 backgroundSize: 'cover',
@@ -34,6 +35,7 @@ export default function HomePage()  {
 
         <PopularStays/>
         <Footer/>   
+
 
         </>
 
