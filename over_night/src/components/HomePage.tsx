@@ -17,7 +17,7 @@ export default function HomePage()  {
         {/* <img scr={bellegio}></img> */}
         <HeadPage/>
 
-        <SixStarHotels />
+        <PopularStays/>
         
         <div  
             className="flex justify-center items-center w-full h-[600px] "
@@ -33,7 +33,7 @@ export default function HomePage()  {
             
         </div>
 
-        <PopularStays/>
+        <SixStarHotels />
         <Footer/>
 
         </>
