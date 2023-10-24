@@ -16,11 +16,11 @@ export default function HomePage()  {
         <NavBar/>
         {/* <img scr={bellegio}></img> */}
         <HeadPage/>
-
-        <PopularStays/>
+        <SixStarHotels />
+    
         
         <div  
-            className="flex justify-center items-center w-full h-[600px] "
+            className="flex justify-center items-center w-full h-[500px] "
             style={{
                 backgroundImage: `url(${promotional})`,
                 backgroundSize: 'cover',
@@ -33,7 +33,7 @@ export default function HomePage()  {
             
         </div>
 
-        <SixStarHotels />
+        <PopularStays/>
         <Footer/>
 
         </>
