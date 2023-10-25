@@ -19,7 +19,7 @@ import Calendar from 'react-calendar'
 import '../App.css';
 
 interface Values {
-    location: string,
+    destination: string,
     dates: string,
     rooms: string,
   }
@@ -50,12 +50,14 @@ export default function Search(){
         }
       });
       
-    const handleSubmit = (location: string, dates: [], rooms: string) : void => {
-      console.log(location, dates, rooms)
+    const handleSubmit = (destination: string, dates: [], rooms: string) : void => {
+      console.log(destination, dates, rooms)
 
-      // axios.get("/api/hotelSearch")
-      // .then((res) => console.log(res))
-      // .catch((err) => console.log(err))
+      axios.post("/api/hotelSearch", {
+        city: destination
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
 
       navigate("/search")
 
@@ -66,7 +68,7 @@ export default function Search(){
           
             <Formik 
             initialValues={{
-                location: "",
+                destination: "",
                 dates: "",
                 rooms: ""
             }}
@@ -75,7 +77,8 @@ export default function Search(){
                
                 {setSubmitting, resetForm}: FormikHelpers<Values>
             ) => {
-                handleSubmit(values.location, date , values.rooms)
+                // console.log(values)
+                handleSubmit(values.destination, date , values.rooms)
                 resetForm()
                 setSubmitting(false);
             }}
@@ -88,15 +91,7 @@ export default function Search(){
             
             <Form className="w-full">
               <div className="flex items-center h-full w-full ">
-               
 
-              {/* <div className="mx-auto bg-white h-min relative flex items-center rounded ">
-                
-                  <Field className="h-[100px] pl-2 pt-8 text-xl shadow-lg bg-white underline decoration-gray-400 rounded-lg z-10 border border-red-900" id="destination" name="destination" 
-                  placeholder="hi" />
-                  <label htmlFor="location" className="pl-2 absolute top-2 left-2 text-gray-800 font-semibold z-20 ">DESINATION ➣</label>
-                
-              </div> */}
                 <div className="bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%]">
                   <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
@@ -108,12 +103,6 @@ export default function Search(){
                      <Field className=" h-[40px]  pl-1 text-xl bg-white  bg-opacity-0" id="destination" name="destination" placeholder="" />
                   </div>
                  </div>
-
-              {/* <div className="mx-auto h-min relative flex items-center rounded">
-            <Field className="h-[95px] mr-6 pl-2 pt-8 text-xl shadow-lg bg-white rounded-lg z-10 underline decoration-gray-400 " id="rooms" name="rooms" 
-             placeholder="                                                 " />
-              <label htmlFor="rooms" className="pl-2  absolute top-2 left-2 text-gray-800 font-semibold z-20 ">ROOMS ☐</label>
-              </div> */}
 
                 <div className="bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%]">
                   <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
@@ -152,15 +141,7 @@ export default function Search(){
                 <div className='z-50 w-[12%] mx-auto '>
              
                 <motion.button  
-
-                // className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-logos-yellow rounded shadow-md" 
-
                 className=" flex flex-row items-center justifu-center w-full h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 
-
-                  
-                  
-                // className=" px-10 flex flex-row items-center  w-[170px] h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 
-
                 type="submit"
                 whileHover={
                   {scale: 1.03, 

@@ -12,7 +12,7 @@ export default function PopularStays(){
         .then((res) => setCitys(res.data))
         .catch((err) => console.log(err))
     }, [])
-    console.log(citys)
+    // console.log(citys)
     // useEffect(() => {
     //     axios.get("/api/getSixStars")
     //     .then((res) => setSixStars(res.data))

@@ -151,7 +151,10 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
     })
          
 
-    app.get('/hotelSearch', async (req: any, res: any, next: any) => {
+    app.post('/hotelSearch', async (req: any, res: any, next: any) => {
+
+        const {city} = req.body
+        console.log(city)
 
         const apiKey: string | undefined = process.env.API_KEY;
         const secret: string | undefined = process.env.SECRET_KEY;
@@ -168,83 +171,83 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
 
             //  hotel list 
 
-        // let data = '';
+        let data = '';
         
-        // let config = {
-        //   method: 'get',
-        //   maxBodyLength: Infinity,
-        //   url: 'https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=15&useSecondaryLanguage=false&destinationCode=BOS',
-        //   headers: { 
-        //     'Api-key': process.env.API_KEY, 
-        //     'X-Signature': signature, 
-        //     'Accept': 'application/json', 
-        //     'Accept-Encoding': process.env.ACCEPT_ENCODING, 
-        //     'Secret': process.env.SECRET_KEY
-        //   },
-        //   data : data
-        // };
+        let config = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: `https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=15&useSecondaryLanguage=false&destinationCode=NYC`,
+          headers: { 
+            'Api-key': process.env.API_KEY, 
+            'X-Signature': signature, 
+            'Accept': 'application/json', 
+            'Accept-Encoding': process.env.ACCEPT_ENCODING, 
+            'Secret': process.env.SECRET_KEY
+          },
+          data : data
+        };
         
-        // axios.request(config)
-        // .then((response : any) => {
-        //     res.status(201).send(JSON.stringify(response.data))
-        // //   console.log(JSON.stringify(response.data))
-        // })
-        // .catch((error : any) => {
-        //   console.log(error);
-        // });
+        axios.request(config)
+        .then((response : any) => {
+            res.status(201).send(JSON.stringify(response.data))
+        //   console.log(JSON.stringify(response.data))
+        })
+        .catch((error : any) => {
+          console.log(error);
+        });
         
         
                 //  hotel avilabilaty
 
-            let data = JSON.stringify({
-                "stay": {
-                  "checkIn": "2023-10-15",
-                  "checkOut": "2023-10-16"
-                },
-                "occupancies": [
-                  {
-                    "rooms": 1,
-                    "adults": 2,
-                    "children": 0
-                  }
-                ],
-                "filter": {
-                  "maxRooms": 5
-                },
-                "hotels": {
-                  "hotel": [
-                    77,
-                    168,
-                    264,
-                    265,
-                    297,
-                    311
-                  ]
-                }
-              });
+            // let data = JSON.stringify({
+            //     "stay": {
+            //       "checkIn": "2023-10-15",
+            //       "checkOut": "2023-10-16"
+            //     },
+            //     "occupancies": [
+            //       {
+            //         "rooms": 1,
+            //         "adults": 2,
+            //         "children": 0
+            //       }
+            //     ],
+            //     "filter": {
+            //       "maxRooms": 5
+            //     },
+            //     "hotels": {
+            //       "hotel": [
+            //         77,
+            //         168,
+            //         264,
+            //         265,
+            //         297,
+            //         311
+            //       ]
+            //     }
+            //   });
               
-              let config = {
-                method: 'post',
-                maxBodyLength: Infinity,
-                url: 'https://api.test.hotelbeds.com/hotel-api/1.0/hotels',
-                headers: { 
-                'Api-key': process.env.API_KEY, 
-                'X-Signature': signature, 
-                'Accept': 'application/json', 
-                'Accept-Encoding': process.env.ACCEPT_ENCODING, 
-                'Secret': process.env.SECRET_KEY,
-                'Content-Type': 'application/json'
-                },
-                data : data
-              };
+            //   let config = {
+            //     method: 'post',
+            //     maxBodyLength: Infinity,
+            //     url: 'https://api.test.hotelbeds.com/hotel-api/1.0/hotels',
+            //     headers: { 
+            //     'Api-key': process.env.API_KEY, 
+            //     'X-Signature': signature, 
+            //     'Accept': 'application/json', 
+            //     'Accept-Encoding': process.env.ACCEPT_ENCODING, 
+            //     'Secret': process.env.SECRET_KEY,
+            //     'Content-Type': 'application/json'
+            //     },
+            //     data : data
+            //   };
 
-              axios.request(config)
-              .then((response : any) => {
-                res.status(201).send(JSON.stringify(response.data))
-              })
-              .catch((error : any) => {
-                console.log(error, "failed");
-              });
+            //   axios.request(config)
+            //   .then((response : any) => {
+            //     res.status(201).send(JSON.stringify(response.data))
+            //   })
+            //   .catch((error : any) => {
+            //     console.log(error, "failed");
+            //   });
 
 
         // res.status(201).send({message: "kinda works"})
