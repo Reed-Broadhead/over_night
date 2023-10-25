@@ -120,7 +120,7 @@ export default function Search(){
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1">
                      <h1 className="font-semibold text-md text-gray-800">ROOMS </h1>
-                      <img src={bed} className="h-6 ml-1 p-1"/>
+                      <img src={bed} className="h-6 ml-1 p-0.5"/>
                      </div>
                      <Field className=" h-[40px]  pl-1 text-xl shadow bg-white  bg-opacity-0" id="rooms" name="rooms" placeholder="" />
                   </div>
