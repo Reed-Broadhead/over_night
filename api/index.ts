@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser')
 const axios = require('axios');
 const { createHash }= require('crypto');
 
-
+// const hotel = await prisma.hotels.findUnique({ where: { id: hotelId }, include: { citys: true, address: true } });
 
 const app = express();
 

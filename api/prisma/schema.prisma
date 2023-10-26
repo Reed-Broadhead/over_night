@@ -42,3 +42,84 @@ model Citys {
   code    String?
 }
 
+model Hotels {
+  id                    Int          @id @default(autoincrement())
+  S2C                   String
+  accommodationTypeCode String
+  address               ApiContent?  @relation("AddressRelation", fields: [addressId], references: [id])
+  addressId             Int?
+  chainCode             String
+  citys                 ApiContent?  @relation("CityRelation", fields: [citysId], references: [id])
+  citysId               Int?
+  code                  Int
+  coordinatesId         Int?
+  coordinates           Coordinates? @relation(fields: [coordinatesId], references: [id])
+  countryCode           String
+  descriptionId         Int?
+  description           ApiContent?  @relation("descriptionRelation", fields: [descriptionId], references: [id])
+  destinationCode       String
+  // facilities ?
+  images                Images[]
+  nameId                Int?
+  name                  ApiContent?  @relation("nameRelation", fields: [nameId], references: [id])
+  phone                 Phones[]
+  postalCode            String
+  ranking               Int
+  rooms                 Rooms[]
+  stateCode             String
+  web                   String
+  zoneCode              Int
+}
+
+model ApiContent {
+  id           Int      @id @default(autoincrement())
+  content      String
+  languageCode String
+  Hotels       Hotels[] @relation("AddressRelation")
+  Hotels1      Hotels[] @relation("CityRelation")
+  Hotels2      Hotels[] @relation("descriptionRelation")
+  Hotels3      Hotels[] @relation("nameRelation")
+}
+
+model Coordinates {
+  id        Int      @id @default(autoincrement())
+  latitude  Int
+  longitude Int
+  hotel     Hotels[] @relation()
+}
+
+model Phones {
+  id          Int    @id @default(autoincrement())
+  phoneNumber String
+  phoneType   String
+  hotel       Hotels @relation(fields: [hotelId], references: [id])
+  hotelId     Int
+}
+
+model Images {
+  id          Int    @id @default(autoincrement())
+  order       Int
+  path        String
+  visualOrder Int
+  hotel       Hotels @relation(fields: [hotelId], references: [id])
+  hotelId     Int
+}
+
+model Rooms {
+  id          Int         @id @default(autoincrement())
+  roomCode    String
+  description String
+  roomStays   RoomStays[]
+  roomType    String
+  Hotels      Hotels?     @relation(fields: [hotelsId], references: [id])
+  hotelsId    Int?
+}
+
+model RoomStays {
+  id          Int    @id @default(autoincrement())
+  description String
+  order       String
+  stayType    String
+  room        Rooms  @relation(fields: [roomId], references: [id])
+  roomId      Int
+}
