@@ -176,7 +176,7 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         let config = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: `https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=15&useSecondaryLanguage=false&destinationCode=NYC`,
+          url: `https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=15&useSecondaryLanguage=false&destinationCode=BOS`,
           headers: { 
             'Api-key': process.env.API_KEY, 
             'X-Signature': signature, 
