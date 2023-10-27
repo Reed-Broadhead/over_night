@@ -49,8 +49,8 @@ model Hotels {
   address               ApiContent?  @relation("AddressRelation", fields: [addressId], references: [id])
   addressId             Int?
   chainCode             String
-  citys                 ApiContent?  @relation("CityRelation", fields: [citysId], references: [id])
-  citysId               Int?
+  city                  ApiContent?  @relation("CityRelation", fields: [cityId], references: [id])
+  cityId                Int?
   code                  Int
   coordinatesId         Int?
   coordinates           Coordinates? @relation(fields: [coordinatesId], references: [id])
@@ -62,7 +62,7 @@ model Hotels {
   images                Images[]
   nameId                Int?
   name                  ApiContent?  @relation("nameRelation", fields: [nameId], references: [id])
-  phone                 Phones[]
+  phones                Phones[]
   postalCode            String
   ranking               Int
   rooms                 Rooms[]

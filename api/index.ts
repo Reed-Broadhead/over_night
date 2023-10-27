@@ -195,6 +195,8 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         .catch((error : any) => {
           console.log(error);
         });
+
+
         
         
                 //  hotel avilabilaty
@@ -263,6 +265,61 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         }
         
     })
+
+
+    app.get('/getBatchData', async (req: any, res: any, next:any)=>{
+       
+        const apiKey: string | undefined = process.env.API_KEY;
+        const secret: string | undefined = process.env.SECRET_KEY;
+        if (!apiKey || !secret) {
+            console.error("API_KEY and/or SECRET_KEY not defined in environment variables.");
+            process.exit(1);
+          }
+
+          const timestamp = Math.floor(Date.now() / 1000);
+          const dataToHash = apiKey + secret + timestamp.toString();
+          const signature = createHash('sha256')
+          .update(dataToHash)
+          .digest('hex');
+
+            //  hotel list 
+
+        let data = '';
+        
+        function storeData(data: any){
+            console.log(data)
+        }
+        let n = 1
+
+        for (let i = 0; i < 3; i++){
+        let config = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: `https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=${n}&to=${n+10}&useSecondaryLanguage=false&destinationCode=BOS`,
+          headers: { 
+            'Api-key': process.env.API_KEY, 
+            'X-Signature': signature, 
+            'Accept': 'application/json', 
+            'Accept-Encoding': process.env.ACCEPT_ENCODING, 
+            'Secret': process.env.SECRET_KEY
+          },
+          data : data
+        };
+        
+       
+        axios.request(config)
+        .then((response : any) => {
+            //res.status(201).send(JSON.stringify(response.data))
+           storeData(res.data);
+        })
+        .catch((error : any) => {
+          console.log(error);
+        });  n = n + 10 };
+
+
+        }
+    )
+
 
 app.listen(
     PORT,

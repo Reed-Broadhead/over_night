@@ -28,6 +28,7 @@ interface Values {
 export default function Search(){
     const [isCalender, setIsCalender] = useState<boolean>(false)
     const [date, setDate] = useState<any>(new Date());
+    
 
     const navigate = useNavigate()
 
@@ -63,9 +64,11 @@ export default function Search(){
 
     }
 
+    
+
     return(
         <div className="w-full flex justify-center" >
-          
+         
             <Formik 
             initialValues={{
                 destination: "",
