@@ -22,7 +22,6 @@ export default function HeadPage() {
   //// please be careful will over use our cresits
   
   const makeRequest = () => {
-
     // useEffect(()=>{
         axios.get("/api/getBatchData")
         .then((res)=>console.log(res))

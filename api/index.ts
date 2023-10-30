@@ -402,7 +402,6 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
             // res.status(201).send(JSON.stringify(response.data))
             res.status(201).send(storeData(response.data.hotels))
             // storeData(response.data)
-
         })
         .catch((error : any) => {
           console.log(error + " fetch");
