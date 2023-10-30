@@ -293,7 +293,6 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         content: string,
         languageCode: string
     }
-
     interface Data {
         S2C: string,
         accommodationTypecode?: string
@@ -357,7 +356,6 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
             //  hotel list 
 
         let data = '';
-        
 
         // const user = await prisma.user.create({ 
         //     data: {
@@ -369,8 +367,9 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         // })
 
         const storeData = async (hotelSet: Data[]) => {
-            console.log(data + "storeData log")
+            console.log(hotelSet + "storeData log")
             try{
+                console.log("cool" + hotelSet)
                 const createMany = await prisma.hotels.createMany({hotelSet});
                 return(createMany);
             } catch(error: any){
@@ -399,8 +398,11 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
        
         axios.request(config)
         .then((response : any) => {
+            // console.log(response.data.hotels)
             // res.status(201).send(JSON.stringify(response.data))
-           res.statuse(201).send(storeData(response.data))
+            res.status(201).send(storeData(response.data.hotels))
+            // storeData(response.data)
+
         })
         .catch((error : any) => {
           console.log(error + " fetch");
