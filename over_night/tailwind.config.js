@@ -17,8 +17,9 @@ export default {
       indigo: colors.indigo,
       red: colors.rose,
       blue:colors.blue,
-      yellow:colors.amber
-      ,
+      yellow:colors.amber,
+      purple:colors.purple,
+   
       logos:{
         yellow:"#F4C01E",
         gyellow:"#FFF506",
