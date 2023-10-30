@@ -45,7 +45,7 @@ model Citys {
 model Hotels {
   id                    Int          @id @default(autoincrement())
   S2C                   String
-  accommodationTypeCode String
+  accommodationTypeCode String?
   address               ApiContent?  @relation("AddressRelation", fields: [addressId], references: [id])
   addressId             Int?
   chainCode             String
@@ -63,12 +63,12 @@ model Hotels {
   nameId                Int?
   name                  ApiContent?  @relation("nameRelation", fields: [nameId], references: [id])
   phones                Phones[]
-  postalCode            String
+  postalCode            String?
   ranking               Int
   rooms                 Rooms[]
-  stateCode             String
-  web                   String
-  zoneCode              Int
+  stateCode             String?
+  web                   String?
+  zoneCode              Int?
 }
 
 model ApiContent {
@@ -108,18 +108,18 @@ model Images {
 model Rooms {
   id          Int         @id @default(autoincrement())
   roomCode    String
-  description String
-  roomStays   RoomStays[]
-  roomType    String
+  description String?
+  roomStays   RoomStays[] 
+  roomType    String?
   Hotels      Hotels?     @relation(fields: [hotelsId], references: [id])
   hotelsId    Int?
 }
 
 model RoomStays {
   id          Int    @id @default(autoincrement())
-  description String
-  order       String
-  stayType    String
+  description String?
+  order       String?
+  stayType    String?
   room        Rooms  @relation(fields: [roomId], references: [id])
   roomId      Int
 }

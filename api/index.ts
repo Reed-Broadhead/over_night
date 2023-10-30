@@ -265,6 +265,78 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         }
         
     })
+        // code: 34494,
+        // name: [Object],
+        // description: [Object],
+        // countryCode: 'US',
+        // stateCode: 'MA',
+        // destinationCode: 'BOS',
+        // zoneCode: 5,
+        // coordinates: [Object],
+        // categoryCode: '4EST',
+        // categoryGroupCode: 'GRUPO4',
+        // chainCode: 'MARIO',
+        // accommodationTypeCode: 'H',
+        // boardCodes: [Array],
+        // segmentCodes: [Array],
+        // address: [Object],
+        // postalCode: '2139',
+        // city: [Object],
+        // phones: [Array],
+        // rooms: [Array],
+        // facilities: [Array],
+        // images: [Array],
+        // lastUpdate: '2023-07-26',
+        // S2C: '3*',
+        // ranking: 101
+    interface Content {
+        content: string,
+        languageCode: string
+    }
+
+    interface Data {
+        S2C: string,
+        accommodationTypecode?: string
+        address: Content,
+        chainCode?: string,
+        city: Content,
+        code: number,
+        coordinates?: {
+            latitude?: number,
+            longitude?: number
+        },
+        countryCode: string,
+        description: Content,
+        destinationCode: string,
+        // facilities?: array[obj]
+        images?: {
+            imageTypeCode?: string,
+            order?: number,
+            path?: string,
+            visualOrder?: number
+        }[],
+        lastUpdate: string
+        name: Content,
+        phones?: {
+            phoneNumber?: string,
+            phoneType?: string
+        }[]
+        postalCode?: string,
+        ranking: number,
+        room?: {
+            roomCode?: string,
+            description?: string,
+            roomStays?: {
+                description?: string,
+                order?: string,
+                stayType?: string
+            }[]
+            roomType?: string,
+        }
+        statesCode?: string,
+        web?: string,
+        zoneCode?: number
+    }
 
 
     app.get('/getBatchData', async (req: any, res: any, next:any)=>{
@@ -286,8 +358,26 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
 
         let data = '';
         
-        function storeData(data: any){
-            console.log(data)
+
+        // const user = await prisma.user.create({ 
+        //     data: {
+        //         username: username,
+        //         password: hashedPassword,
+        //         email: email,
+        //         address:address
+        //     },
+        // })
+
+        const storeData = async (hotelSet: Data[]) => {
+            console.log(data + "storeData log")
+            try{
+                const createMany = await prisma.hotels.createMany({hotelSet});
+                return(createMany);
+            } catch(error: any){
+                return(`error: ${error}`)
+            }
+
+            
         }
         let n = 1
 
@@ -309,11 +399,11 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
        
         axios.request(config)
         .then((response : any) => {
-            //res.status(201).send(JSON.stringify(response.data))
-           storeData(res.data);
+            // res.status(201).send(JSON.stringify(response.data))
+           res.statuse(201).send(storeData(response.data))
         })
         .catch((error : any) => {
-          console.log(error);
+          console.log(error + " fetch");
         });  n = n + 10 };
 
 
