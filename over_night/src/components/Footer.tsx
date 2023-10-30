@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom"
 
 export default function Footer(){
 
-    const elements = [[<NavLink to="/about"> about</NavLink>,<NavLink to="/login">login</NavLink>, <NavLink to="/login">sign up</NavLink>], 
+    const elements = [[<NavLink to="/about"> About</NavLink>,<NavLink to="/login">Login</NavLink>, <NavLink to="/login">Sign Up</NavLink>], 
     [<NavLink to="/FAQ">FAQ</NavLink>, "Privacy Policy", "Help"], 
     ["Flight", "Stays", "Cars"], 
     [<NavLink to="/about">Linkedin</NavLink>,<NavLink to="/about">GitHub</NavLink>, <NavLink to="/about">Medium</NavLink>]]
@@ -19,9 +19,12 @@ export default function Footer(){
     })
 
     return(
-        <div className="border h-[340px] flex flex-row border-t border-gray-700">
+        <div className=" h-[340px] flex flex-row border-t border-gray-700">
 
+            <div className="flex flex-row w-[72%] ml-auto px-10 pl-14 my-2">
             {mappedFooterSection}
+
+            </div>
 
             <div className="w-[28%]  flex flex-col-reverse">
 

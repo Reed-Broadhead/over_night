@@ -17,7 +17,7 @@ export default function FooterSections( {words} : any ) {
     })
 
     return (
-        <div className="w-[18%] h-3/4 flex flex-col items-center">
+        <div className="w-[14%] my-auto mx-auto h-3/4 flex flex-col items-center ">
        
             {mappedWords}
 
