@@ -4,22 +4,23 @@ import linkedin from "../assets/linkedin.png"
 import github from "../assets/github.png"
 import medium from "../assets/medium.png"
 import {motion} from "framer-motion"
-import dallas from "../assets/Dallas.png"
+import Franco from "../assets/FrancoPicColor.jpg"
+import Reed from "../assets/user.png"
 
 export default function About(){
     return(
         <div className="">
             <NavBar/>
-            <div className="h-36 bg-gray-900" />
+            <div className="h-36 bg-gray-400 " />
             <div className="bg-white flex relative w-full h-3/4 bg-cover flex flex-col items-center" >
             
-            <div className=" flex flex-row justify-center h-full w-full border border-red-800 px-20">
+            <div className=" flex flex-row h-full w-fit px-20 ">
 
-                <div className ='text-2xl h-full w-[400px] flex flex-col text-black flex mt-10 '>
-                    <h1 className="text-bold text-2xl w-[400px] text-center">
-                    MEET THE LINE UP
+                <div className ='text-2xl h-full w-[400px] flex flex-col text-black flex mt-10 mr-10 '>
+                    <h1 className="text-bold text-5xl w-[400px] text-center  ">
+                    Meet The Line Up
                     </h1>
-                    <h1 className="mt-5 text-xl w-[400px] ">
+                    <h1 className="mt-8 text-2xl w-[400px] text-gray-500">
                         A couple of full stack software developers helping you see the world
                     </h1>
                 </div>
@@ -29,7 +30,7 @@ export default function About(){
                 {/* first / reed  */}
 
                         <div className="h-[650px] w-[400px]  mr-10">
-                            <img className="h-[400px] w-[400px] fit " src={dallas}></img>
+                            <img className="h-[400px] w-[400px] fit " src={Franco}></img>
                             <h2 className=" text text-2xl mt-3 ml-1 ">Reed Broadhead</h2>
                             <h2 className=" text text-xl  text-indigo-600 ml-1">Lead Engineer</h2>
                             <p className="text-gray-500 mt-2 ml-1">you yo sjdf askksj  hhhhhhhhhhhhhhhhhhhhjsjjs jkfgdsfds ghkjtr cvtbbb bbubuub jjjjj</p>
@@ -52,7 +53,7 @@ export default function About(){
                         </div>
                         {/*  second / franco */}
                         <div className="h-[650px] w-[400px]  ">
-                            <img className="h-[400px] w-[400px] fit " src={dallas}></img>
+                            <img className="h-[400px] w-[400px] fit " src={Franco}></img>
                             <h2 className=" text text-2xl mt-3 ">Franco Lepe</h2>
                             <h2 className=" text text-xl  text-indigo-600">Lead Engineer</h2>
                             <p className="text-gray-500 mt-2">you yo sjdf askksj  hhhhhhhhhhhhhhhhhhhhjsjjs jkfgdsfds ghkjtr cvtbbb bbubuub jjjjj</p>
