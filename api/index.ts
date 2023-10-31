@@ -1,3 +1,5 @@
+import { describe } from "node:test";
+
 require("dotenv").config()
 const express = require("express");
 const PORT = 5555
@@ -47,7 +49,6 @@ app.post("/login", async (req: any , res: any, next: any) => {
             email: email
         }
     })
-   
 
     bcrypt.compare(password, user.password, (err: any, result: any) => {
         if (err) {
@@ -316,13 +317,14 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         }[],
         lastUpdate: string
         name: Content,
+        nameId: number,
         phones?: {
             phoneNumber?: string,
             phoneType?: string
         }[]
         postalCode?: string,
         ranking: number,
-        room?: {
+        rooms?: {
             roomCode?: string,
             description?: string,
             roomStays?: {
@@ -331,7 +333,7 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
                 stayType?: string
             }[]
             roomType?: string,
-        }
+        }[],
         statesCode?: string,
         web?: string,
         zoneCode?: number
@@ -367,24 +369,125 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         // })
 
         const storeData = async (hotelSet: Data[]) => {
-            console.log(hotelSet + "storeData log")
-            try{
-                console.log("cool" + hotelSet)
-                const createMany = await prisma.hotels.createMany({hotelSet});
-                return(createMany);
-            } catch(error: any){
-                return(`error: ${error}`)
-            }
+            console.log("uploading data to databass...")
+                for (const hotelData of hotelSet) {
 
-            
-        }
+                const address = await prisma.apiContent.create({
+                    data: {
+                        content: hotelData.address.content,
+                        languageCode: hotelData.address.languageCode || null
+                    }
+                })
+                
+                const city = await prisma.apiContent.create({
+                    data: {
+                        content: hotelData.city.content,
+                        languageCode: hotelData.city.content || null
+                    }
+                })
+
+                const description = await prisma.apiContent.create({
+                    data: {
+                        content: hotelData.description.content,
+                        languageCode: hotelData.description.languageCode || null
+                    }
+                })
+
+                const name = await prisma.apiContent.create({
+                    data: {
+                        content: hotelData.name.content,
+                        languageCode: hotelData.name.languageCode || null
+                    }
+                })
+
+                const coordinates = await prisma.coordinates.create({
+                    data: {
+                        latitude: hotelData.coordinates?.latitude,
+                        longitude: hotelData.coordinates?.longitude
+                    }
+                })
+                const hotel = await prisma.hotels.create({
+                    data: {
+                        S2C: hotelData.S2C || null,
+                        accommodationTypeCode: hotelData.accommodationTypecode || null,
+                        addressId: address.id || null,
+                        chainCode: hotelData.chainCode || null,
+                        cityId: city.id || null,
+                        code: hotelData.code || null,
+                        coordinatesId: coordinates.id || null,
+                        countryCode: hotelData.countryCode || null,
+                        descriptionId: description.id || null,
+                        destinationCode: hotelData.destinationCode || null,
+                        lastUpdate: hotelData.lastUpdate || null,
+                        nameRef: name.id || null,
+                        nameId: hotelData.nameId || null,
+                        postalCode: hotelData.postalCode || null,
+                        ranking: hotelData.ranking || null,
+                        statesCode: hotelData.statesCode || null, 
+                        web: hotelData.web || null,
+                        zoneCode: hotelData.zoneCode || null,
+                    }
+                })
+
+                if (hotelData.images){
+                for (const image of hotelData.images){
+                    await prisma.images.create({
+                        data: {
+                            imageTypeCode: image.imageTypeCode || null,
+                            order: image.order || null,
+                            path: image.path || null,
+                            visualOrder: image.visualOrder || null,
+                            hotelId : hotel.id
+                        }
+                    })
+                }}
+                
+                if (hotelData.phones){
+                    for (const phone of hotelData.phones){
+                        await prisma.phones.create({
+                            data: {
+                                phoneNumber: phone.phoneNumber,
+                                phoneType: phone.phoneNumber,
+                                hotelId: hotel.id
+                            }
+                        })
+                    }
+                }
+             
+                if (hotelData.rooms){
+                    for(const room of hotelData.rooms){
+                        const currentRoom = await prisma.rooms.create({
+                            data: {
+                                roomCode: room.roomCode,
+                                description: room.description ||null,
+                                roomType: room.roomType || null,
+                                hotelsId: hotel.id
+                            }
+                        })
+                        if(room.roomStays){
+                            for(const stay of room.roomStays){
+                                await prisma.roomStays.create({
+                                    data:{
+                                        description: stay.description || null,
+                                        order: stay.order || null,
+                                        stayType: stay.stayType || null,
+                                        roomId: currentRoom.id
+                                    }
+                                })
+                            }
+                        }
+                    }
+                }
+            console.log("data uploaded!")
+            }}  
+
         let n = 1
 
         for (let i = 0; i < 3; i++){
         let config = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: `https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=${n}&to=${n+10}&useSecondaryLanguage=false&destinationCode=BOS`,
+          url: `https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=${n}&to=${n+2}&useSecondaryLanguage=false&destinationCode=BOS`,
           headers: { 
             'Api-key': process.env.API_KEY, 
             'X-Signature': signature, 
@@ -398,7 +501,6 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
        
         axios.request(config)
         .then((response : any) => {
-            // console.log(response.data.hotels)
             // res.status(201).send(JSON.stringify(response.data))
             res.status(201).send(storeData(response.data.hotels))
             // storeData(response.data)
