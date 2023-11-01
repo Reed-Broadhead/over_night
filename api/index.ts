@@ -531,7 +531,8 @@ const citiesList = {
         const search =  cityName.toLowerCase() == "boston" ? "BOS" : "NYC"
         try{
             const hotels = await prisma.hotels.findMany({
-                where:{destinationCode:search.toLowerCase()},
+                take: 10,
+                where:{destinationCode:search},
                 include:{
                     city:true,
                     phones:true,
@@ -544,12 +545,23 @@ const citiesList = {
                     address:true,
                     coordinates:true,
                     images:true,
+                    name: true
                 }
         
             })
-            res.json(hotels)
+            res.cookie("hotels", hotels);
+            // res.json(hotels)
+            res.status(200).send(hotels);
         }
         catch(error:any){res.json(error.message)}
+    })
+
+    app.get('/checkHotels', (req: any, res:any) => {
+        if (req.cookies.hotels){
+            res.status(200).send({hotels: req.cookies.hotels})
+        } else{ 
+            res.status(404).send(null)
+        }
     })
 
 

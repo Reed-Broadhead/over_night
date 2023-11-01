@@ -11,7 +11,7 @@ export default function About(){
     return(
         <div className="">
             <NavBar/>
-            <div className="h-36 bg-gray-400 " />
+            <div className="h-28 bg-gray-400 " />
             <div className="bg-white flex relative w-full h-3/4 bg-cover flex flex-col items-center" >
             
             <div className=" flex flex-row h-full w-fit px-20 ">

@@ -31,7 +31,7 @@ export default function NavBar() {
 
   return (
     <div
-      className={`flex justify-center h-36 w-full bg-contain bg-no-repeat fixed z-10 text-right  ${
+      className={`flex justify-center h-28 w-full bg-contain bg-no-repeat fixed z-10 text-right  ${
         scrolling ? 'bg-black/50 ' : ''
       }`}
     >
@@ -40,7 +40,7 @@ export default function NavBar() {
           <NavLink to="/" className=''>
           <Underline>
             
-              <img src={Whitelogo} className=" h-20 " alt="logo" />
+              <img src={Whitelogo} className=" h-16  " alt="logo" />
             
           </Underline>
           </NavLink>

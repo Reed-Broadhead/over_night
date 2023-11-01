@@ -17,6 +17,7 @@ import picCase from "../assets/case.png"
 
 import Calendar from 'react-calendar'
 import '../App.css';
+import { setHotels } from "../states/hotels";
 
 interface Values {
     destination: string,
@@ -28,6 +29,8 @@ interface Values {
 export default function Search(){
     const [isCalender, setIsCalender] = useState<boolean>(false)
     const [date, setDate] = useState<any>(new Date());
+
+    const dispatch = useDispatch()
     
 
     const navigate = useNavigate()
@@ -53,11 +56,10 @@ export default function Search(){
       
     const handleSubmit = (destination: string, dates: [], rooms: string) : void => {
       console.log(destination, dates, rooms)
-      
         axios.post("api/getHotelsByCity",{cityName:destination})
-        .then((res)=>console.log(res))
+        .then((res)=> {dispatch(setHotels(res.data));})
         .catch((err) => console.log(err));
-          navigate("/search")
+        navigate("/search")
     }
 
 
@@ -138,7 +140,7 @@ export default function Search(){
                 </div>
 
 
-                <div className='z-50 w-[12%] mx-auto '>
+                <div className=' w-[12%] mx-auto '>
              
                 <motion.button  
                 className=" flex flex-row items-center justifu-center w-full h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 

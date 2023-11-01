@@ -23,15 +23,12 @@ export const hotelSlice = createSlice({
             state.value = action.payload
         },
 
-        // addHotels: (state, action: PayloadAction<any>) => {
-        //     (state.value != null) ? state.value?[action.payload.term]
-        // },
-
         getHotels: (state) => {
             console.log(state.value)
         }
     }
 })
+
 
 export const {setHotels} = hotelSlice.actions
 export default hotelSlice.reducer
