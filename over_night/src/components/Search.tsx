@@ -53,16 +53,13 @@ export default function Search(){
       
     const handleSubmit = (destination: string, dates: [], rooms: string) : void => {
       console.log(destination, dates, rooms)
-
-      axios.post("/api/hotelSearch", {
-        city: destination
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
-
-      navigate("/search")
-
+      
+        axios.post("api/getHotelsByCity",{cityName:destination})
+        .then((res)=>console.log(res))
+        .catch((err) => console.log(err));
+          navigate("/search")
     }
+
 
     
 

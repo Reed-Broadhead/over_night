@@ -28,6 +28,13 @@ export default function HeadPage() {
         .catch((err) => console.log(err));
       // },[])
     }
+
+    const makeCityRequest = ()=>{
+      axios.post("api/getHotelsByCity",{cityName:"boston"})
+      .then((res)=>console.log(res))
+      .catch((err) => console.log(err));
+
+    }
       
 
   return (
@@ -54,7 +61,7 @@ export default function HeadPage() {
 
           <div className='w-full h-1/2 flex items-center justify-center'>
             <h1 className="text-white text-center text-7xl mt-auto">Your destination awaits {user?.username}</h1> 
-            <button className="border z-10" onClick={() => makeRequest()}>yo</button>
+            <button className="border z-10" onClick={() => makeCityRequest()}>yo</button>
           </div>
           <div className='flex w-full justify-center mt-[13%]  h-fit mb-14 '>
             <Search />

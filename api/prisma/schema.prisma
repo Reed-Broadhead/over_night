@@ -55,13 +55,13 @@ model Hotels {
   descriptionId         Int?
   destinationCode       String
   nameId                Int?
-  nameRef               Int?
   postalCode            String?
   ranking               Int?
-  statesCode            String?
   web                   String?
-  lastUpdate            String?
   zoneCode              Int?
+  statesCode            String?
+  lastUpdate            String?
+  nameRef               Int?
   address               ApiContent?  @relation("AddressRelation", fields: [addressId], references: [id])
   city                  ApiContent?  @relation("CityRelation", fields: [cityId], references: [id])
   coordinates           Coordinates? @relation(fields: [coordinatesId], references: [id])
@@ -90,21 +90,21 @@ model Coordinates {
 }
 
 model Phones {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   phoneNumber String
   phoneType   String?
   hotelId     Int
-  hotel       Hotels @relation(fields: [hotelId], references: [id])
+  hotel       Hotels  @relation(fields: [hotelId], references: [id])
 }
 
 model Images {
-  id          Int    @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
+  order         Int?
+  path          String?
+  visualOrder   Int?
+  hotelId       Int
   imageTypeCode String?
-  order       Int?
-  path        String?
-  visualOrder Int?
-  hotelId     Int
-  hotel       Hotels @relation(fields: [hotelId], references: [id])
+  hotel         Hotels  @relation(fields: [hotelId], references: [id])
 }
 
 model Rooms {
@@ -118,10 +118,10 @@ model Rooms {
 }
 
 model RoomStays {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   description String?
   order       String?
   stayType    String?
   roomId      Int
-  room        Rooms  @relation(fields: [roomId], references: [id])
+  room        Rooms   @relation(fields: [roomId], references: [id])
 }

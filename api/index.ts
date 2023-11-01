@@ -483,11 +483,11 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
 
         let n = 1
 
-        for (let i = 0; i < 3; i++){
+        for (let i = 0; i < 8; i++){
         let config = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: `https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=${n}&to=${n+2}&useSecondaryLanguage=false&destinationCode=BOS`,
+          url: `https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=${n}&to=${n+5}&useSecondaryLanguage=false&destinationCode=NYC`,
           headers: { 
             'Api-key': process.env.API_KEY, 
             'X-Signature': signature, 
@@ -512,6 +512,45 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
 
         }
     )
+
+interface City{
+        "boston":string,
+        "new york":string 
+    }
+
+const citiesList = {
+    "boston":"BOS",
+    "new york":"NYC",
+    
+}
+
+
+    app.post('/getHotelsByCity', async (req: any, res: any)=>{
+        
+        const {cityName} = req.body
+        const search =  cityName.toLowerCase() == "boston" ? "BOS" : "NYC"
+        try{
+            const hotels = await prisma.hotels.findMany({
+                where:{destinationCode:search.toLowerCase()},
+                include:{
+                    city:true,
+                    phones:true,
+                    rooms:{
+                        include:{
+                            roomStays:true,
+                        }
+                    },
+                    description:true,
+                    address:true,
+                    coordinates:true,
+                    images:true,
+                }
+        
+            })
+            res.json(hotels)
+        }
+        catch(error:any){res.json(error.message)}
+    })
 
 
 app.listen(
