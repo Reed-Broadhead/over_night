@@ -19,7 +19,7 @@ export default function SixStarHotels() {
         <Promotions  key={index} name={element.hotelName} id={element.HotelId} image={element.pictures}/>
       ))
     return (
-<div className="h-[500px] border">
+<div className="h-[500px] ">
                 <h1 className="flex ml-24 mt-10 text-3xl mb-5 h-min w-[200px] flex items-center justify-center rounded border-b-4 border-logos-yellow"
                 >Six Star Hotels</h1>
 

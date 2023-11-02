@@ -19,6 +19,7 @@ export default {
       blue:colors.blue,
       yellow:colors.amber,
       purple:colors.purple,
+      green:colors.green,
    
       logos:{
         yellow:"#F4C01E",
