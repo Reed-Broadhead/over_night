@@ -82,14 +82,6 @@ app.post('/signup', async  (req: any, res: any, next: any)  => {
     res.status(201).send({message: "User created successfully!", user: user})
 })
 
-app.get('/checkCookies', (req: any, res: any, next: any) => {
-    if (req.cookies.user){
-        res.status(200).send({user: req.cookies.user})
-    } else {
-        res.status(404).send(null)
-    }
-})
-
 app.patch('/logout', (req: any, res: any, next: any) => {
 res.clearCookie("user")
 res.status(201).send({message: "User logged Out"})
@@ -197,63 +189,6 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
           console.log(error);
         });
 
-
-        
-        
-                //  hotel avilabilaty
-
-            // let data = JSON.stringify({
-            //     "stay": {
-            //       "checkIn": "2023-10-15",
-            //       "checkOut": "2023-10-16"
-            //     },
-            //     "occupancies": [
-            //       {
-            //         "rooms": 1,
-            //         "adults": 2,
-            //         "children": 0
-            //       }
-            //     ],
-            //     "filter": {
-            //       "maxRooms": 5
-            //     },
-            //     "hotels": {
-            //       "hotel": [
-            //         77,
-            //         168,
-            //         264,
-            //         265,
-            //         297,
-            //         311
-            //       ]
-            //     }
-            //   });
-              
-            //   let config = {
-            //     method: 'post',
-            //     maxBodyLength: Infinity,
-            //     url: 'https://api.test.hotelbeds.com/hotel-api/1.0/hotels',
-            //     headers: { 
-            //     'Api-key': process.env.API_KEY, 
-            //     'X-Signature': signature, 
-            //     'Accept': 'application/json', 
-            //     'Accept-Encoding': process.env.ACCEPT_ENCODING, 
-            //     'Secret': process.env.SECRET_KEY,
-            //     'Content-Type': 'application/json'
-            //     },
-            //     data : data
-            //   };
-
-            //   axios.request(config)
-            //   .then((response : any) => {
-            //     res.status(201).send(JSON.stringify(response.data))
-            //   })
-            //   .catch((error : any) => {
-            //     console.log(error, "failed");
-            //   });
-
-
-        // res.status(201).send({message: "kinda works"})
     })
 
     app.get('/getCitys', async (req: any, res: any, next: any) => {
@@ -266,30 +201,7 @@ app.post('/getHotels', (req: any, res: any, next: any) => {
         }
         
     })
-        // code: 34494,
-        // name: [Object],
-        // description: [Object],
-        // countryCode: 'US',
-        // stateCode: 'MA',
-        // destinationCode: 'BOS',
-        // zoneCode: 5,
-        // coordinates: [Object],
-        // categoryCode: '4EST',
-        // categoryGroupCode: 'GRUPO4',
-        // chainCode: 'MARIO',
-        // accommodationTypeCode: 'H',
-        // boardCodes: [Array],
-        // segmentCodes: [Array],
-        // address: [Object],
-        // postalCode: '2139',
-        // city: [Object],
-        // phones: [Array],
-        // rooms: [Array],
-        // facilities: [Array],
-        // images: [Array],
-        // lastUpdate: '2023-07-26',
-        // S2C: '3*',
-        // ranking: 101
+
     interface Content {
         content: string,
         languageCode: string
@@ -549,9 +461,9 @@ const citiesList = {
                 }
         
             })
-            res.cookie("hotels", hotels);
-            // res.json(hotels)
-            res.status(200).send(hotels);
+            // res.cookie("hotels", hotels);
+            res.json(hotels)
+            // res.status(200).send(hotels);
         }
         catch(error:any){res.json(error.message)}
     })
