@@ -45,7 +45,7 @@ export default function SearchPage () {
                     {/* <h1 className="  flex flex-col-reverse pb-8 text-lg">View Details</h1> */}
                     <div className="  flex flex-col-reverse pb-8"> 
                         <Underline>
-                        <h1 className="text-lg text-gray-600 hover:text-black">View Details</h1>
+                        <h1 className="text-lg text-logos-blue hover:text-blue-500">View Details</h1>
                         </Underline>
                     </div>
 {/* ml-16 */}
