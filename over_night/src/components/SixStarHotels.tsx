@@ -2,6 +2,8 @@ import {useState, useEffect} from "react"
 import Promotions from "./Promotions"
 import axios from "axios";
 import {motion} from "framer-motion"
+import rightButton from "../assets/iconNextRight.png"
+import leftButton from "../assets/iconLeftButton.png"
 
 export default function SixStarHotels() {
     const [sixStarCount, setSixStarCount] = useState<number>(0)
@@ -25,14 +27,17 @@ export default function SixStarHotels() {
 
                     <div className="w-1/2 flex flex-row items-center justify-center ">
 
-                        <motion.button 
+                        <motion.img 
                         onClick={() => { sixStarCount == 0 ? setSixStarCount(featuredHotels.length -2) : setSixStarCount(sixStarCount - 2)}}
 
-                        className="w-fit h-fit p-1 mr-10  text-2xl rounded shadow-lg "
+                        className="w-[50px] h-fit mr-10  text-2xl rounded-full shadow-md "
 
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        > ← </motion.button>
+                        transition={{type: "spring", stiffness: 300}} 
+                        src={leftButton}
+                        alt='left button'
+                        ></motion.img>
 
                         {featuredHotels[sixStarCount]} 
 
@@ -42,14 +47,18 @@ export default function SixStarHotels() {
 
                         {featuredHotels[sixStarCount + 1]}
 
-                        <motion.button
+                        <motion.img
                         onClick={() => { (sixStarCount + 2) >= featuredHotels.length ? setSixStarCount(0) : setSixStarCount(sixStarCount + 2)}}
-                        className="w-fit h-fit p-1 ml-10 border text-2xl text-bold rounded-lg shadow-lg"
-                        whileHover={{ scale: 1.05 }}
+                        className="w-[50px] h-fit ml-10 text-2xl text-bold rounded-full shadow-md"
+                        whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        > → </motion.button>
+                        transition={{type: "spring", stiffness: 300}} 
+                        
+                        src={rightButton}
+                       alt='button right'></motion.img>
 
                     </div>
+                   
 
                 </div>
 
