@@ -1,4 +1,5 @@
 import { describe } from "node:test";
+import { cities }  from "./Cities"
 
 require("dotenv").config()
 const express = require("express");
@@ -437,36 +438,66 @@ const citiesList = {
 }
 
 
-    app.post('/getHotelsByCity', async (req: any, res: any)=>{
-        
-        const {cityName} = req.body
-        const search =  cityName.toLowerCase() == "boston" ? "BOS" : "NYC"
-        try{
-            const hotels = await prisma.hotels.findMany({
-                take: 10,
-                where:{destinationCode:search},
-                include:{
-                    city:true,
-                    phones:true,
-                    rooms:{
-                        include:{
-                            roomStays:true,
-                        }
-                    },
-                    description:true,
-                    address:true,
-                    coordinates:true,
-                    images:true,
-                    name: true
-                }
-        
+app.post('/getHotelsByCity', async (req: any, res: any)=>{
+       
+    const cityName: keyof typeof cities = req.body.cityName.toUpperCase()
+    const search = cities[cityName]
+    console.log(search)
+    try{
+        const hotels = await prisma.hotels.findMany({
+            take: 10,
+            where:{destinationCode:search},
+            include:{
+                city:true,
+                phones:true,
+                rooms:{
+                    include:{
+                        roomStays:true,
+                    }
+                },
+                description:true,
+                address:true,
+                coordinates:true,
+                images:true,
+                name: true
+            }
+        })
+        res.json(hotels)
+    }
+    catch(error:any){res.json(error.message)}
+})
+
+
+app.get('/checkHotelsCityTypes', async (req: any, res:any) => {
+    type Code = {[key: string]: string}
+    let codes: Code = { "BOSTON": "BOS" }
+    try {
+        const hotels = await prisma.hotels.findMany({include: {city:true}})
+        hotels.filter((el: any) => {
+            if (Object.keys(codes).includes(el.city.content) == false){
+                codes[el.city.content.toUpperCase()] = el.destinationCode}
             })
-            // res.cookie("hotels", hotels);
-            res.json(hotels)
-            // res.status(200).send(hotels);
-        }
-        catch(error:any){res.json(error.message)}
-    })
+    } catch(err) {console.log(err)}
+    console.log(codes)
+    res.statuse(201).send({message: "opperation compete"})
+    // try {
+    //     const codeList = await prisma.hotels.groupBy({
+    //         by: ["destinationCode"]
+    //     })
+    //     for (const i in codeList){
+    //         await prisma.hotels.groupBy({
+    //             by: ['']
+    //         })
+    //     }
+    //     console.log(codeList)
+    //     res.status(201).send({message: "complete"})
+    // } catch (err: any) {
+    //     res.status(500).send({error: err})
+    // }  
+})
+
+
+
 
     app.get('/checkHotels', (req: any, res:any) => {
         if (req.cookies.hotels){
