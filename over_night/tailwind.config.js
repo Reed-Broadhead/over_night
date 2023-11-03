@@ -11,7 +11,7 @@ export default {
         poppins: [
           '"Poppins"',
         {
-          fontVariationSettings: '"wght", 50'
+          // fontVariationSettings: '"wght", 50'
         },]
         
     },},

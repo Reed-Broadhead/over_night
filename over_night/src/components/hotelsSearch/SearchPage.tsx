@@ -25,11 +25,11 @@ export default function SearchPage () {
 
                 <div className="h-full w-[300px]  flex flex-col p-2">
                     {hotel.name.content.length < 25 ?
-                        <h1 className=" text-xl mb-4 ml-1 border-b-2 w-fit border-logos-yellow">{hotel.name.content}</h1> 
+                        <h1 className=" text-xl mb-4 ml-1 border-b-2 w-fit border-logos-blue">{hotel.name.content}</h1> 
                         :
                         <>
-                        <h1 className=" text-xl ml-1 border-b-2 w-fit border-logos-yellow">{hotel.name.content.slice(0, 26)}</h1>
-                        <h1 className=" text-xl mb-1 ml-1 border-b-2 w-fit border-logos-yellow">{hotel.name.content.slice(26)}</h1> 
+                        <h1 className=" text-xl ml-1 border-b-2 w-fit border-logos-blue">{hotel.name.content.slice(0, 26)}</h1>
+                        <h1 className=" text-xl mb-1 ml-1 border-b-2 w-fit border-logos-blue">{hotel.name.content.slice(26)}</h1> 
                         </>
                     }
 
@@ -51,14 +51,14 @@ export default function SearchPage () {
                     </div> */}
 {/* ml-16 */}
                 </div>
-                    <motion.div className="flex flex-row items-center  border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
+                    <motion.div className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
                     rounded-md hover:shadow-lg "
                     whileTap={{ scale: 0.98 }}
                     whileHover={{scale: 1.1}}  
                     transition={{type: "spring", stiffness: 300}} 
                     >
                        
-                        <h1 className=''>Choose Room</h1><img className="h-5 pl-2"src={brandedButton}></img>
+                        <h1 className='font-bold font-poppins'>Choose Room</h1><img className="h-5 pl-2"></img>
                     </motion.div>
 
             </div>

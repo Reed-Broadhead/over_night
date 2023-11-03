@@ -40,7 +40,7 @@ export default function PopularStays(){
         return (
         <div className={el.side ? "w-1/2": "w-1/2 flex flex-row-reverse"}>   
         <motion.div 
-        className='flex w-[80%]  h-[150px] border border-gray-600 shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
+        className='flex w-[95%]  h-[150px] border border-gray-600 shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
         style={{backgroundImage: `url(${el.picture})`}}
         whileTap={{ scale: 0.98 }}
         whileHover={{scale: 1.01}}        
