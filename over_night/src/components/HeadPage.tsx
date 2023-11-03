@@ -60,7 +60,7 @@ export default function HeadPage() {
         <div className=" h-full w-full flex-col">
 
           <div className='w-full h-1/2 flex items-center justify-center'>
-            <h1 className="text-white text-center text-7xl mt-auto">Your destination awaits {user?.username}</h1> 
+            <h1 className="text-white text-center text-7xl mt-auto ">Your destination awaits {user?.username}</h1> 
             <button className="border z-10" onClick={() => makeCityRequest()}>yo</button>
           </div>
           <div className='flex w-full justify-center mt-[13%]  h-fit mb-14 '>

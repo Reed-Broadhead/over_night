@@ -6,7 +6,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: [
+          '"Poppins"',
+        {
+          fontVariationSettings: '"wght", 50'
+        },]
+        
+    },},
    
     colors: {
       transparent: 'transparent',
