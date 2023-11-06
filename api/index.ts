@@ -23,6 +23,19 @@ const prisma = new PrismaClient();
 
 const plainPassword = 'user_password';
 
+const apiKey: string | undefined = process.env.API_KEY;
+const secret: string | undefined = process.env.SECRET_KEY;
+if (!apiKey || !secret) {
+    console.error("API_KEY and/or SECRET_KEY not defined in environment variables.");
+    process.exit(1);
+  }
+
+  const timestamp = Math.floor(Date.now() / 1000);
+  const dataToHash = apiKey + secret + timestamp.toString();
+  const signature = createHash('sha256')
+  .update(dataToHash)
+  .digest('hex');
+
 
 app.get("/", async (req: any, res: any, next: any) => {
     try{
@@ -436,10 +449,45 @@ const citiesList = {
     "new york":"NYC",
     
 }
+const checkAvailability = (codes: any, checkIn: string, checkOut: string, rooms = 1 ) => {
+        let data = JSON.stringify({
+            "stay": {
+            "checkIn": checkIn,
+            "checkOut": checkOut
+            },
+            "occupancies": [
+            {
+                "rooms": rooms,
+                "adults": 2,
+                "children": 0
+            }
+            ],
+            "hotels": {
+            "hotel": codes
+            }
+        });
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'https://api.test.hotelbeds.com/hotel-api/1.0/hotels',
+            headers: { 
+            'Api-key': process.env.API_KEY, 
+            'X-Signature':  signature, 
+            'Accept': 'application/json', 
+            'Accept-Encoding': process.env.ACCEPT_ENCODING, 
+            'Content-Type': 'application/json', 
+            'secret': process.env.SECRET_KEY
+            },
+            data : data
+        };
 
+        return (axios.request(config))
+    }
 
 app.post('/getHotelsByCity', async (req: any, res: any)=>{
-       
+    
+    const {checkIn, checkOut, rooms} = req.body
+
     const cityName: keyof typeof cities = req.body.cityName.toUpperCase()
     const search = cities[cityName]
     console.log(search)
@@ -462,10 +510,31 @@ app.post('/getHotelsByCity', async (req: any, res: any)=>{
                 name: true
             }
         })
+        // console.log(hotels)
+        // let codes = hotels.filter((hotel: any) => {
+        //     return hotel.code
+        // })
+
+        let codes = hotels.map((hotel: any) => hotel.code)
+        console.log(checkIn, checkOut, rooms, codes)
+
+    
+        // if ( checkIn != undefined && checkOut != undefined){
+        //         checkAvailability(codes, checkIn, checkOut, rooms || 1)
+        //         .then((response: any) => {
+        //         console.log(response.data.hotels);
+        //         // JSON.stringify(response.data)
+        //         })
+        //         .catch((error: any) => {
+        //             console.log(error)
+        //         });
+        // }
         res.json(hotels)
     }
     catch(error:any){res.json(error.message)}
 })
+
+
 
 
 app.get('/checkHotelsCityTypes', async (req: any, res:any) => {
@@ -494,6 +563,10 @@ app.get('/checkHotelsCityTypes', async (req: any, res:any) => {
     // } catch (err: any) {
     //     res.status(500).send({error: err})
     // }  
+
+
+
+
 })
 
 

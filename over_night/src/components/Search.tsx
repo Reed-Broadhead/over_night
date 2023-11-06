@@ -30,6 +30,23 @@ export default function Search(){
     const [isCalender, setIsCalender] = useState<boolean>(false)
     const [date, setDate] = useState<any>(new Date());
 
+
+    const formateDate = (date: any) => {
+      const months = {
+        Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
+        Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12'
+      };
+
+      const parts = date.split(' ');
+      const day = parts[2];
+      const month = months[parts[1]];
+      const year = parts[3];
+
+      return (`${year}-${month}-${day}`)
+    }
+
+    
+
     const dispatch = useDispatch()
     
 
@@ -54,15 +71,27 @@ export default function Search(){
         }
       });
       
-    const handleSubmit = (destination: string, dates: [], rooms: string) : void => {
-      console.log(destination, dates, rooms)
-        axios.post("api/getHotelsByCity",{cityName:destination})
+    const handleSubmit = (destination: string, dates: any, rooms: string) : void => {
+      // console.log(destination, rooms)
+      // console.log(formateDate(dates.toString()))
+
+      if (Array.isArray(dates)){
+        let parsedDates = dates.map((data: any) => formateDate(data.toString()))
+
+        axios.post("api/getHotelsByCity", {cityName:destination, checkIn:parsedDates[0], checkOut:parsedDates[1], rooms:rooms})
         .then((res)=> {dispatch(setHotels(res.data));})
         .catch((err) => console.log(err));
         navigate("/search")
+
+      }else{
+
+        axios.post("api/getHotelsByCity", {cityName:destination})
+        .then((res)=> {dispatch(setHotels(res.data));})
+        .catch((err) => console.log(err));
+        navigate("/search")
+
+      }
     }
-
-
     
 
     return(

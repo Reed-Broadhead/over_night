@@ -17,7 +17,7 @@ interface Data {
     description: Content,
     destinationCode: string,
     // facilities?: array[obj]
-    images?: {
+    images: {
         imageTypeCode?: string,
         order?: number,
         path?: string,

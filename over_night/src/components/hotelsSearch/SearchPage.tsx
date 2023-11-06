@@ -6,22 +6,38 @@ import Data from "./interfaces"
 import Underline from "../Underline";
 import {motion} from "framer-motion"
 import brandedButton from "../../assets/checkmark.png"
+import {useState} from "react"
 
 
 export default function SearchPage () {
     const hotels = useSelector((state: any) => state.hotels.value)
-    console.log(hotels)
 
-    
+    const imageRanking: any = {
+        "GEN" : 1 ,
+        "TER" : 2 ,
+        "COM" : 3 ,
+        "HAB" : 4 ,
+        "PLA" : 5 ,
+        "PIS" : 6 ,
+        "BAR" : 7 ,
+        "CON" : 8 ,
+        "DEP" : 9 ,
+        "RES" : 10, }
 
-
-    // if (hotels[0]){
     const hotelList = hotels[0] ? hotels?.map((hotel: Data) => {
-        console.log(hotel)
+
+        const [image, setImage] = useState<any>(hotel.images[0])
+
+        hotel.images.forEach((img: any) => {
+            if (imageRanking.img?.imageTypeCode < imageRanking.image?.imageTypeCode) {
+                setImage(img)
+            }
+        })
+
         return(
             <div className="w-[900px] h-[200px] flex flex-row  mx-auto my-10 shadow-lg border-2 border-gray-400 rounded-lg">
                 
-                <img className=" w-[250px]"src={`http://photos.hotelbeds.com/giata/bigger/${hotel.images[0].path}`} />
+                <img className=" w-[250px]"src={`http://photos.hotelbeds.com/giata/bigger/${image.path}`} />
 
                 <div className="h-full w-[300px]  flex flex-col p-2">
                     {hotel.name.content.length < 25 ?
@@ -43,13 +59,6 @@ export default function SearchPage () {
 
                 </div>
                 <div className=" flex border-logos-yellow ">
-{/*                    
-                    <div className="  flex flex-col-reverse pb-8"> 
-                        <Underline>
-                        <h1 className="text-lg text-logos-blue hover:text-blue-500">Choose Room</h1>
-                        </Underline>
-                    </div> */}
-{/* ml-16 */}
                 </div>
                     <motion.div className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
                     rounded-md hover:shadow-lg "
@@ -68,7 +77,7 @@ export default function SearchPage () {
     return (
         <div className=''>
         <NavBar/>
-        <div className="h-28 bg-gray-400 " />
+        <div className="h-28 bg-gradient-to-r from-blue-950 to-black " />
         
         <div className="flex items-center justify-center w-full mb-10 mt-5  ">
             <motion.h1 className="text-6xl text-black">
