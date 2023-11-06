@@ -480,7 +480,6 @@ const checkAvailability = (codes: any, checkIn: string, checkOut: string, rooms 
             },
             data : data
         };
-
         return (axios.request(config))
     }
 
@@ -490,9 +489,8 @@ app.post('/getHotelsByCity', async (req: any, res: any)=>{
 
     const cityName: keyof typeof cities = req.body.cityName.toUpperCase()
     const search = cities[cityName]
-    console.log(search)
     try{
-        const hotels = await prisma.hotels.findMany({
+        let hotels = await prisma.hotels.findMany({
             take: 10,
             where:{destinationCode:search},
             include:{
@@ -510,28 +508,27 @@ app.post('/getHotelsByCity', async (req: any, res: any)=>{
                 name: true
             }
         })
-        // console.log(hotels)
-        // let codes = hotels.filter((hotel: any) => {
-        //     return hotel.code
-        // })
 
         let codes = hotels.map((hotel: any) => hotel.code)
-        console.log(checkIn, checkOut, rooms, codes)
-
     
-        // if ( checkIn != undefined && checkOut != undefined){
-        //         checkAvailability(codes, checkIn, checkOut, rooms || 1)
-        //         .then((response: any) => {
-        //         console.log(response.data.hotels);
-        //         // JSON.stringify(response.data)
-        //         })
-        //         .catch((error: any) => {
-        //             console.log(error)
-        //         });
-        // }
-        res.json(hotels)
-    }
-    catch(error:any){res.json(error.message)}
+        if ( checkIn != undefined && checkOut != undefined){
+                checkAvailability(codes, checkIn, checkOut, rooms || 1)
+                .then((response: any) => {
+                    const codes = (response.data.hotels.hotels.map((el: any) => {
+                        return el.code
+                    })) 
+                    res.json(  ( hotels.filter((hotel: any) => {
+                        return codes.includes(hotel.code)  
+                    }))  )
+                })
+                .catch((error: any) => {
+                    console.log(error)
+                });
+        } else{
+            res.json(hotels)
+        }
+
+        } catch(error:any){res.json(error.message)}
 })
 
 
@@ -549,23 +546,6 @@ app.get('/checkHotelsCityTypes', async (req: any, res:any) => {
     } catch(err) {console.log(err)}
     console.log(codes)
     res.statuse(201).send({message: "opperation compete"})
-    // try {
-    //     const codeList = await prisma.hotels.groupBy({
-    //         by: ["destinationCode"]
-    //     })
-    //     for (const i in codeList){
-    //         await prisma.hotels.groupBy({
-    //             by: ['']
-    //         })
-    //     }
-    //     console.log(codeList)
-    //     res.status(201).send({message: "complete"})
-    // } catch (err: any) {
-    //     res.status(500).send({error: err})
-    // }  
-
-
-
 
 })
 
