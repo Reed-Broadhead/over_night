@@ -7,9 +7,9 @@ export default function FooterSections( {words} : any ) {
     // const words: any = [word1, word2, word3]
 
     // maps over array to make an 3 high coloumn  
-    const mappedWords = words.map((el : any) => {
+    const mappedWords = words.map((el : any, index: number) => {
         return (
-            <div className="my-auto">
+            <div key={index} className="my-auto">
 
                 <Underline>
                 <h1 className="my-auto text-xl text-black ">

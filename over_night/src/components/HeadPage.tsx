@@ -52,7 +52,7 @@ export default function HeadPage() {
           </div>
           
           {/* search bar */}
-          <div className='flex w-full h-2/6 justify-center  items-end  '>
+          <div className='flex w-full h-[40%] justify-center  items-end  '>
             <Search />
           </div>
 
