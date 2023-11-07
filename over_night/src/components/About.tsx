@@ -5,11 +5,16 @@ import github from "../assets/github.png"
 import medium from "../assets/medium.png"
 import {motion} from "framer-motion"
 import Franco from "../assets/FrancoPicColor.jpg"
+import user from "../assets/user.png"
 import Reed from "../assets/user.png"
+import Aydan from "../assets/AydanHeadshot.jpeg"
+import Aydanlogo from "../assets/Aydanwebsitelogo.png"
+import instagram from "../assets/instagramlogo2.png"
 
 export default function About(){
-//  need to change so not all franco info
-
+ const aydansInfo = [{image:linkedin, url: "https://www.linkedin.com/in/aydanrivera/"}, {image: Aydanlogo, url: "https://aydandesigns.com/"},{image:instagram, url: "https://www.instagram.com/aydan.designs"}] 
+ const francosInfo =[{image:linkedin, url:"https://www.linkedin.com/in/francolepe/"},{image:github,url:"https://github.com/FrancoLepe"},{image:medium, url: "https://medium.com/@francolepe169"}]
+ const reedsInfo =[{image:linkedin, url:"https://www.linkedin.com/in/reed-broadhead/"},{image:github,url:"https://github.com/Reed-Broadhead"},{image:medium, url: "https://medium.com/@reedbroadhead"}]
     return(
         <div className="">
             {/* navBar and div to fill space - navBar positon abosolute */}
@@ -41,7 +46,7 @@ export default function About(){
 
                         <div className="h-[650px] w-[400px]  mr-10 ">
 
-                            <img className="h-[400px] w-[400px] fit shadow-md rounded" src={Franco}/>
+                            <img className="h-[400px] w-[400px] fit shadow-md rounded" src={user}/>
 
                             {/* text section */}
                             <h2 className=" text text-2xl mt-3 ml-1 ">Reed Broadhead</h2>
@@ -50,17 +55,20 @@ export default function About(){
 
                             {/* mapped icons section  */}
                             <div className="mt-4 w-1/3 flex flex-row  ">
-                                {[linkedin, github, medium].map((el) => {
+                                {reedsInfo.map((el) => {
                                         return (
-                                    <div to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl">
+                                            <a to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                            to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                            href={el.url}
+                                            target="_blank" 
+                                            rel="noreferrer"> 
+                                            <motion.img 
+                                            src={el.image}
+                                            whileHover={{ scale: 1.2 }}
+                                            whileTap={{ scale: 0.9 }}/>
                                     
-                                        <motion.img 
-                                        src={el}
-                                        whileHover={{ scale: 1.2 }}
-                                        whileTap={{ scale: 0.9 }}/>
-                                
-
-                                    </div>
+    
+                                        </a>
                                 )})}
                             </div>  
                         </div>
@@ -71,21 +79,25 @@ export default function About(){
                             {/* text section */}
                             <h2 className=" text text-2xl mt-3 ">Franco Lepe</h2>
                             <h2 className=" text text-xl  text-indigo-600">Lead Engineer</h2>
-                            <p className="text-gray-500 mt-2">you yo sjdf askksj  hhhhhhhhhhhhhhhhhhhhjsjjs jkfgdsfds ghkjtr cvtbbb bbubuub jjjjj</p>
+                            <p className="text-gray-500 mt-2">Hello! My name is Franco Lepe and I am a passionate and innovative software engineer utilizing a wide range of programming languages and tools to solve complex problems and deliver exceptional user experiences.</p>
 
                              {/* mapped icons section  */}
-                            <div className="mt-4 w-1/3 flex flex-row  ">
-                                {[linkedin, github, medium].map((el) => {
+                            <div className="mt-4 w-1/3 flex flex-row  "
+                            >
+                                {francosInfo.map((el) => {
                                         return (
-                                    <div to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl">
-                                    
+                                    <a to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                        to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                        href={el.url}
+                                        target="_blank" 
+                                        rel="noreferrer"> 
                                         <motion.img 
-                                        src={el}
+                                        src={el.image}
                                         whileHover={{ scale: 1.2 }}
                                         whileTap={{ scale: 0.9 }}/>
                                 
 
-                                    </div>
+                                    </a>
                                 )})}
                             </div>  
 
@@ -96,31 +108,38 @@ export default function About(){
             </div >
           
                 {/* aydens section  */}
-                <div className="h-[270px] w-[500px]   ml-24 my-5 flex flex-row ">
+                <div className="h-[300px] w-[600px]   ml-48 my-5 flex flex-row  ">
 
-                    <div className="w-1/2 h-full w-full  ">
-                    <img className="h-full shadow-md rounded" src={Franco}/>
+                    <div className="w-1/2 h-full   ">
+                    <img className="h-fit w-full shadow-md rounded" src={Aydan}/>
 
                     </div>
                     {/* info section   */}
-                        <div className="w-1/2 h-full  px-2">
+                        <div className="w-1/2 h-full  px-2  ">
                             {/* text section  */}
                             <h1 className=" text-2xl ">Ayden Rivera</h1>
-                            <h1 className="text-xl text-indigo-600 ">Design Consultant</h1>
-                            <p className="text-md text-gray-500 mt-4  w-full">jdkflajdl;fjasd;lfjkldjfalkdjfaskldj faskldjflkasdjfkldjfla jkgldjs</p>
+                            <h1 className="text-xl text-indigo-600 ">UX/UI Design Consultant</h1>
+                            <p className="text-sm text-gray-500 mt-4  w-full  ">Hello! My name is Aydan Rivera, and I am a UX/UI Designer, and I am passionate about creating human-centered designs and solutions! From studying computer hardware engineering and working in the fashion industry, I have always been a creative spirit and a tech lover!</p>
                             {/* icons mapped section */}
                             <div className="mt-8 w-2/3 flex flex-row  ">
-                                {[linkedin, github, medium].map((el) => {
+                                {aydansInfo.map((el) => {
                                         return (
-                                    <div to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl">
+                                    <a to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                    href={el.url}
+                                    target="_blank" 
+                                    rel="noreferrer" 
+                                    >
                                     
                                         <motion.img 
-                                        src={el}
+                                        className="rounded-full w-full h-full "
+                                        src={el.image}
+
                                         whileHover={{ scale: 1.2 }}
                                         whileTap={{ scale: 0.9 }}/>
+
                                 
 
-                                    </div>
+                                    </a>
                                 )})}
 
                             </div> 
