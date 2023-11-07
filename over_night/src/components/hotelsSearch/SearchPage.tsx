@@ -13,6 +13,10 @@ export default function SearchPage () {
 // hotels = react rexus persistant state set when user makes request to search
     const hotels = useSelector((state: any) => state.hotels.value)
     
+    const handleLink = (el) => {
+        window.location.replace(el);
+    };
+
     // ranking system for images
     const imageRanking: any = {
         "GEN" : 1 ,
@@ -33,6 +37,8 @@ export default function SearchPage () {
 // sets default image
 
         let image = hotel.images[0]
+
+  
 
 // check to find best image using imageRanking object
 
@@ -63,19 +69,30 @@ export default function SearchPage () {
 
                         <h2 className=" text-lg mb-2">{`Rating: ${hotel.ranking}`}</h2>
 
+                       
+
                         <p className=" md ">{`${hotel.address.content}, ${hotel.city.content.slice(0,1)}${hotel.city.content.slice(1).toLocaleLowerCase()}`}</p>
                     </div>
-
-                </div>
+                
+                </div >
                 {/* button */}
-                    <motion.div className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
+               
+                    <motion.a className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
                     rounded-md hover:shadow-lg "
+                        
+                        href={hotel.web?.slice(0,4) == "http" ? hotel.web : "https://" + hotel.web}
+                        target="_blank" 
+                        rel="noreferrer" 
+
                         whileTap={{ scale: 0.98 }}
                         whileHover={{scale: 1.1}}  
                         transition={{type: "spring", stiffness: 300}} 
                     > 
-                        <h1 className='font-bold font-poppins'>Choose Room</h1><img className="h-5 pl-2"></img>
-                    </motion.div>
+                        <h1 className='font-bold '>Choose Room</h1><img className="h-5 pl-2"></img>
+                    
+                    </motion.a>
+                    
+                    
 
             </div>
         )
