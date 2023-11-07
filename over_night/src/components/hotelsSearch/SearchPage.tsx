@@ -13,6 +13,7 @@ export default function SearchPage () {
 // hotels = react rexus persistant state set when user makes request to search
     const hotels = useSelector((state: any) => state.hotels.value)
 
+    console.log(hotels, useSelector((state: any) => state))
     // ranking system for images
     const imageRanking: any = {
         "GEN" : 1 ,
@@ -111,6 +112,10 @@ export default function SearchPage () {
         )
     }): null
 // component return
+
+const city = `${hotels[0].city.content.slice(0,1)}${hotels[0].city.content.slice(1).toLocaleLowerCase()}`
+// hotels[0]
+// ${hotel.city.content.slice(0,1)}${hotel.city.content.slice(1).toLocaleLowerCase()}
     return (
         <div className=''>
         <NavBar/>
@@ -119,7 +124,7 @@ export default function SearchPage () {
         
         <div className="flex items-center justify-center w-full mb-10 mt-5  ">
             <motion.h1 className="text-6xl text-black">
-                Hotel List
+                {city} Hotels
             </motion.h1>
         </div>
         

@@ -79,7 +79,7 @@ export default function Search(){
         let parsedDates = dates.map((data: any) => formateDate(data.toString()))
 
         axios.post("api/getHotelsByCity", {cityName:destination, checkIn:parsedDates[0], checkOut:parsedDates[1], rooms:rooms})
-        .then((res)=> {dispatch(setHotels(res.data));})
+        .then((res)=> {dispatch(setHotels( {hotels: res.data, name: "stuff" } ));})
         .catch((err) => console.log(err));
         navigate("/search")
 
