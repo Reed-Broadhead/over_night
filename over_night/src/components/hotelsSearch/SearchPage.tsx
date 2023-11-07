@@ -12,10 +12,6 @@ import {useState} from "react"
 export default function SearchPage () {
 // hotels = react rexus persistant state set when user makes request to search
     const hotels = useSelector((state: any) => state.hotels.value)
-    
-    const handleLink = (el) => {
-        window.location.replace(el);
-    };
 
     // ranking system for images
     const imageRanking: any = {
@@ -47,6 +43,7 @@ export default function SearchPage () {
                 image = img
             }
         })
+
         // hotel list return
         return(
             <div className="w-[900px] h-[200px] flex flex-row  mx-auto my-10 shadow-lg border-2 border-gray-400 rounded-lg">
@@ -77,12 +74,28 @@ export default function SearchPage () {
                 </div >
                 {/* button */}
                
-                    <motion.a className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
+                    {/* <motion.a className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
                     rounded-md hover:shadow-lg "
                         
                         href={hotel.web?.slice(0,4) == "http" ? hotel.web : "https://" + hotel.web}
                         target="_blank" 
                         rel="noreferrer" 
+
+                        whileTap={{ scale: 0.98 }}
+                        whileHover={{scale: 1.1}}  
+                        transition={{type: "spring", stiffness: 300}} 
+                    > 
+                        <h1 className='font-bold '>Choose Room</h1><img className="h-5 pl-2"></img>
+                    
+                    </motion.a> */}
+                    <motion.a className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
+                        rounded-md hover:shadow-lg "
+        
+                        
+                        href={hotel.web ? hotel.web?.slice(0,4) == "http" ? hotel.web : "https://" + hotel.web : undefined}
+                        target="_blank" 
+                        rel="noreferrer" 
+                        onClick={() => hotel.web ? undefined : alert("hotel not avalible")}
 
                         whileTap={{ scale: 0.98 }}
                         whileHover={{scale: 1.1}}  

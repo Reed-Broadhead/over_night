@@ -517,7 +517,7 @@ app.post('/getHotelsByCity', async (req: any, res: any)=>{
                     const codes = (response.data.hotels.hotels.map((el: any) => {
                         return el.code
                     })) 
-                    res.json(  ( hotels.filter((hotel: any) => {
+                    res.json(   ( hotels.filter((hotel: any) => {
                         return codes.includes(hotel.code)  
                     }))  )
                 })
