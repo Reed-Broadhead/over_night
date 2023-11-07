@@ -18,7 +18,9 @@ interface Values {
     password: string,
   }
 
-
+// login by check data given by user agains data in data base
+// use formik for form 
+// holds user info with redux
 
 export default function Login( {setState} : any ){
     const dispatch = useDispatch()
@@ -57,6 +59,7 @@ export default function Login( {setState} : any ){
 
 
     return (
+    
         <Formik 
             initialValues={{
                 email: "", 

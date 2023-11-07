@@ -12,7 +12,7 @@ import Navbar from "./NavBar";
 import Underline from './Underline';
 import Footer from './Footer';
 
-
+//  conditionaly reders either login of signup
 export default function Login_signUp() {
 
   const [isLogin, setIsLogin] = useState<boolean>(true)
@@ -40,21 +40,6 @@ export default function Login_signUp() {
       
       <div className='absolute top-0 left-2'>
         
-      {/* <Underline>
-      <AnimatePresence mode='wait'>
-      <motion.div className=''
-      initial={{ x: 20, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -20, opacity: 0 }}
-      transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96]  }}
-      > 
-        <NavLink className='transition-slide-left duration-3000'to="/">
-        <img src={homeButton} className="pt-1 pl-1 h-14" alt="logo" />
-        </NavLink>
-        </motion.div>  
-      
-      </AnimatePresence>
-      </Underline> */}
       </div>
 
       <AnimatePresence mode='wait'>

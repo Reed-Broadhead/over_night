@@ -2,7 +2,7 @@ import Footer from "./Footer"
 import NavBar from "./NavBar"
 
 export default function FAQ(){
-
+    //  might finish 
     return(
         <div>
             <NavBar/>

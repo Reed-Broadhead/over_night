@@ -10,6 +10,9 @@ interface Props {
     underlineRight?: boolean;
 }
 
+
+// underlineRight makes under line switch starting side : underlineRight={true}
+
 export default function Underline({children, underlineRight} : Props ){
     const [isHovered, setIsHovered] = useState<boolean>(false);
 

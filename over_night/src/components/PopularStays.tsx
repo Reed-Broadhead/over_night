@@ -4,23 +4,37 @@ import { motion } from "framer-motion"
 import miami from '../assets/miami.jpeg'
 import leftButton from "../assets/iconLeftButton.png"
 import rightButton from "../assets/iconNextRight.png"
+import { useDispatch} from 'react-redux'
+import { setHotels } from "../states/hotels";
+import { useNavigate } from 'react-router-dom'
+
 
 export default function PopularStays(){
+
+    const dispatch = useDispatch()
+
+    const navigate = useNavigate()
+
     const [citys, setCitys] = useState<any>([])
     const [cityCount, setCityCount] = useState<number>(0)
 
+
+//  function to handle rerouting users to search page after click
+    const handleCityClick = (name : string) => {
+        axios.post("api/getHotelsByCity", {cityName:name})
+        .then((res)=> {dispatch(setHotels(res.data));})
+        .catch((err) => console.log(err));
+        navigate("/search")
+    }
+
+//  data for bottom row
     useEffect(() => {
         axios.get("/api/getCitys")
         .then((res) => setCitys(res.data))
         .catch((err) => console.log(err))
     }, [])
-    // console.log(citys)
-    // useEffect(() => {
-    //     axios.get("/api/getSixStars")
-    //     .then((res) => setSixStars(res.data))
-    //     .catch((err) => console.log(err))
-    //   }, []);
-
+  
+//  data for top row
     const mainCityData = [
         {
             name : "Dallas",
@@ -35,15 +49,17 @@ export default function PopularStays(){
             side: false
         } 
     ]
-
-    const mappedMainCitys = mainCityData.map((el, index) => {
+// mapped top row
+    const mappedMainCitys = mainCityData.map((el) => {
         return (
         <div className={el.side ? "w-1/2": "w-1/2 flex flex-row-reverse"}>   
         <motion.div 
         className='flex w-[95%]  h-[150px] border border-gray-600 shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
         style={{backgroundImage: `url(${el.picture})`}}
         whileTap={{ scale: 0.98 }}
-        whileHover={{scale: 1.01}}        
+        whileHover={{scale: 1.01}}   
+        
+        onClick={() => {handleCityClick(el.name.toLocaleLowerCase())}}
         >
             
             <div className='flex items-center justify-center h-full w-32 bg-black/60 rounded-l-md'>
@@ -54,7 +70,7 @@ export default function PopularStays(){
         </div> 
         )
     })
-
+//  mapped bottom row 
     const mappedCitys = citys.map((el : any) => {
         return (
             <motion.div 
@@ -62,15 +78,15 @@ export default function PopularStays(){
             style={{backgroundImage: `url(${el?.picture})`}}
             whileTap={{ scale: 0.95 }}
             whileHover={{scale: 1.01}}
+
+            onClick={() => handleCityClick(el.name.toLowerCase())}
             >
                 
-                <h1 className='w-3/4 h-1/4 text-xl text-white text-center flex pt-1 justify-center text-bold bg-black/60 '>{el.name}</h1>
-                {/* <div className='flex items-center justify-center h-full w-32 bg-gray-700/80 rounded-l-md'>
-                </div> */}
-       
+                <h1 className='w-3/4 h-1/4 text-xl text-white text-center flex pt-1 justify-center text-bold bg-black/60 '>{el.name}</h1>      
             </motion.div>  )
     })
 
+//  component return
     return(
         <div className='mb-8'>
             <div>

@@ -14,11 +14,11 @@ export default function HomePage()  {
     return (
         <>
         <NavBar/>
-        {/* <img scr={bellegio}></img> */}
+
         <HeadPage/>
         <SixStarHotels />
 
-        
+        {/* image  */}
         <div  
             className="flex justify-center items-center w-full h-[500px] "
             style={{
@@ -27,6 +27,7 @@ export default function HomePage()  {
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center'
             }}>
+                {/* text in image */}
                 <div className="w-full h-full  flex justify-center items-center bg-black/40">
                     <h1 className="text-7xl text-white"> Where the best memories happen </h1>
                 </div>
