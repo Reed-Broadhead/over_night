@@ -514,12 +514,25 @@ app.post('/getHotelsByCity', async (req: any, res: any)=>{
         if ( checkIn != undefined && checkOut != undefined){
                 checkAvailability(codes, checkIn, checkOut, rooms || 1)
                 .then((response: any) => {
+                    // all returened codes
                     const codes = (response.data.hotels.hotels.map((el: any) => {
                         return el.code
                     })) 
-                    res.json(   ( hotels.filter((hotel: any) => {
+
+                    // res.json(   ( hotels.filter((hotel: any) => {
+                    //     return codes.includes(hotel.code)  
+                    // }))  )
+
+                    const filteredHotels = ( hotels.filter((hotel: any) => {
                         return codes.includes(hotel.code)  
-                    }))  )
+                    }))  
+
+                    res.json( filteredHotels.map( (hotel : any, index : number) => {
+                        return [hotel, response.data.hotels.hotels[index]]
+                    }) )
+
+                    
+
                 })
                 .catch((error: any) => {
                     console.log(error)

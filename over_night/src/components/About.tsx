@@ -57,8 +57,7 @@ export default function About(){
                             <div className="mt-4 w-1/3 flex flex-row  ">
                                 {reedsInfo.map((el) => {
                                         return (
-                                            <a to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
-                                            to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                            <a className="w-10 mx-auto  rounded-full hover:shadow-xl"
                                             href={el.url}
                                             target="_blank" 
                                             rel="noreferrer"> 
@@ -86,8 +85,7 @@ export default function About(){
                             >
                                 {francosInfo.map((el) => {
                                         return (
-                                    <a to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
-                                        to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                    <a className="w-10 mx-auto  rounded-full hover:shadow-xl"
                                         href={el.url}
                                         target="_blank" 
                                         rel="noreferrer"> 
@@ -124,7 +122,7 @@ export default function About(){
                             <div className="mt-8 w-2/3 flex flex-row  ">
                                 {aydansInfo.map((el) => {
                                         return (
-                                    <a to="/about" className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                    <a  className="w-10 mx-auto  rounded-full hover:shadow-xl"
                                     href={el.url}
                                     target="_blank" 
                                     rel="noreferrer" 

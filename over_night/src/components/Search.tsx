@@ -88,21 +88,21 @@ export default function Search({homePage} : any){
         let parsedDates = dates.map((data: any) => formateDate(data.toString()))
 
         axios.post("api/getHotelsByCity", {cityName:destination, checkIn:parsedDates[0], checkOut:parsedDates[1], rooms:rooms})
-        .then((res)=> {dispatch(setHotels( {hotels: res.data, name: "stuff" } ));})
+        .then((res)=> {dispatch(setHotels( res.data ));})
         .catch((err) => console.log(err));
         navigate("/search")
 
       }else{
 
         axios.post("api/getHotelsByCity", {cityName:destination})
-        .then((res)=> {dispatch(setHotels(res.data));})
+        .then((res)=> { console.log(res.data); dispatch(setHotels(res.data));})
         .catch((err) => console.log(err));
         navigate("/search")
 
       }
     }
     
-    console.log(homePage)
+  
     return(
         <div className="w-full flex justify-center" >
          
