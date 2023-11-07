@@ -26,7 +26,8 @@ interface Values {
   }
 
 
-export default function Search(){
+export default function Search({homePage} : any){
+    
     const [isCalender, setIsCalender] = useState<boolean>(false)
     const [date, setDate] = useState<any>(new Date());
 
@@ -70,6 +71,14 @@ export default function Search(){
           document.removeEventListener("mousedown", handler);
         }
       });
+
+
+      const buttonText = (               
+      <div className="w-fit h-fit flex flex-row items-center justify-center mx-auto ">     
+      <h1 className=" w-min  text-2xl text-simibold text-middle text-center ">Book now</h1>
+      <h1 className=" w-fit  text-2xl">→</h1> 
+      </div> 
+      )
       
     const handleSubmit = (destination: string, dates: any, rooms: string) : void => {
       // console.log(destination, rooms)
@@ -93,7 +102,7 @@ export default function Search(){
       }
     }
     
-
+    console.log(homePage)
     return(
         <div className="w-full flex justify-center" >
          
@@ -116,15 +125,19 @@ export default function Search(){
         >
           {/* w-[1250px] */}
 
-          <div className="rounded-lg w-3/4 h-[155px] shadow-2xl bg-cover bg-center relative flex justify-center items-center ">
-          <div className=" flex w-full h-full bg-black/50 absolute inset-0 rounded-lg -z-10"></div>
+          <div className="rounded-lg w-3/4 h-[155px]  bg-transparent bg-center relative flex justify-center items-center ">
+          <div className={
+            homePage ? " flex w-full h-full bg-black/50 absolute inset-0 rounded-lg -z-10 shadow-2xl" 
+            : " flex w-full h-full absolute bg-transparent inset-0 rounded-lg -z-10 "}></div>
 
             
-            <Form className="w-full">
+            <Form className="w-full ">
               <div className="flex items-center h-full w-full ">
 
-                <div className="bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%]">
-                  <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
+                <div className={
+                  homePage ?"bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%] "
+                : "bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%] border-2 border-gray-500 shadow-lg"}>
+                  <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5 ">
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1 items-center">
                      <h1 className="font-semibold text-md text-gray-800">DESTINATION</h1>
@@ -135,19 +148,23 @@ export default function Search(){
                   </div>
                  </div>
 
-                <div className="bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%]">
+                <div className={
+                  homePage ?"bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%] "
+                : "bg-white rounded h-[95px] mx-auto px-2 py-1 w-[18%] border-2 border-gray-500 shadow-lg"}>
                   <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1">
                      <h1 className="font-semibold text-md text-gray-800">ROOMS </h1>
                       <img src={bed} className="h-6 ml-1 p-0.5"/>
                      </div>
-                     <Field className=" h-[40px]  pl-1 text-xl shadow bg-white  bg-opacity-0" id="rooms" name="rooms" placeholder="" />
+                     <Field className=" h-[40px]  pl-1 text-xl bg-white  bg-opacity-0" id="rooms" name="rooms" placeholder="" />
                   </div>
                 </div>
                 
 
-                <div ref={menuRef} className="bg-white rounded h-[95px] w-[470px] px-2 py-1 w-[40%] mx-auto">
+                <div ref={menuRef} className={
+                  homePage ? "bg-white rounded h-[95px] w-[470px] px-2 py-1 w-[40%] mx-auto"
+                : "bg-white rounded h-[95px] w-[470px] px-2 py-1 w-[40%] mx-auto border-2 border-gray-500 shadow-lg"}>
                   <div className=" mx-auto h-min  flex flex-col  border-b-2  border-black mb-5">
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1">
@@ -172,7 +189,8 @@ export default function Search(){
                 <div className=' w-[12%] mx-auto '>
              
                 <motion.button  
-                className=" flex flex-row items-center justifu-center w-full h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md" 
+                className={ homePage ? " flex flex-row items-center justifu-center w-full h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md"
+              :  " flex flex-row items-center justifu-center w-full h-[95px] bg-gradient-to-r from-logos-yellow to-logos-gyellow rounded shadow-md border border-gray-400" }
                 type="submit"
                 whileHover={
                   {scale: 1.03, 
@@ -180,8 +198,18 @@ export default function Search(){
                 whileTap={{ scale: 0.9 }}
                 >
                   <div className="w-fit h-fit flex flex-row items-center justify-center mx-auto ">
+                  
+                  {homePage ? (
+                    <>
                     <h1 className=" w-min  text-2xl text-simibold text-middle text-center ">Book now</h1>
-                    <h1 className=" w-fit  text-2xl">→</h1>
+                    <h1 className=" w-fit  text-2xl">→</h1> 
+                    </>
+                  ) : (
+                    <>
+                    <h1 className=" w-min  text-2xl text-simibold text-middle text-center ">Update Search</h1>
+                    {/* <h1 className=" w-fit  text-2xl">→</h1>  */}
+                    </>
+                  )}
                   </div>
                 </motion.button>
 

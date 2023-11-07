@@ -53,7 +53,7 @@ export default function HeadPage() {
           
           {/* search bar */}
           <div className='flex w-full h-[40%] justify-center  items-end  '>
-            <Search />
+            <Search homePage={true}/>
           </div>
 
         </div>

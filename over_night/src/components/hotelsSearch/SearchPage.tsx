@@ -74,21 +74,7 @@ export default function SearchPage () {
                 
                 </div >
                 {/* button */}
-               
-                    {/* <motion.a className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
-                    rounded-md hover:shadow-lg "
-                        
-                        href={hotel.web?.slice(0,4) == "http" ? hotel.web : "https://" + hotel.web}
-                        target="_blank" 
-                        rel="noreferrer" 
 
-                        whileTap={{ scale: 0.98 }}
-                        whileHover={{scale: 1.1}}  
-                        transition={{type: "spring", stiffness: 300}} 
-                    > 
-                        <h1 className='font-bold '>Choose Room</h1><img className="h-5 pl-2"></img>
-                    
-                    </motion.a> */}
                     <motion.a className="flex flex-row items-center bg-logos-yellow border border-gray-400 justify-center   mx-auto w-[150px] h-16 my-auto shadow-md  
                         rounded-md hover:shadow-lg "
         
@@ -114,17 +100,20 @@ export default function SearchPage () {
 // component return
 
 const city = `${hotels[0].city.content.slice(0,1)}${hotels[0].city.content.slice(1).toLocaleLowerCase()}`
-// hotels[0]
-// ${hotel.city.content.slice(0,1)}${hotel.city.content.slice(1).toLocaleLowerCase()}
+
     return (
         <div className=''>
         <NavBar/>
         {/* div to fill in space - nav bar has absolute positioning */}
         <div className="h-28 bg-gradient-to-r from-blue-950 to-black " />
         
+        <div className=" mt-5 mb-10 ">
+            <Search homePage={false}/>
+        </div>
+
         <div className="flex items-center justify-center w-full mb-10 mt-5  ">
             <motion.h1 className="text-6xl text-black">
-                {city} Hotels
+                {hotels[0].city.content} Hotels
             </motion.h1>
         </div>
         
