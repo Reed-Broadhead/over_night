@@ -50,9 +50,9 @@ export default function PopularStays(){
         } 
     ]
 // mapped top row
-    const mappedMainCitys = mainCityData.map((el) => {
+    const mappedMainCitys = mainCityData.map((el, index : number) => {
         return (
-        <div className={el.side ? "w-1/2": "w-1/2 flex flex-row-reverse"}>   
+        <div key={index} className={el.side ? "w-1/2": "w-1/2 flex flex-row-reverse"}>   
         <motion.div 
         className='flex w-[95%]  h-[150px] border border-gray-600 shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
         style={{backgroundImage: `url(${el.picture})`}}
@@ -71,15 +71,18 @@ export default function PopularStays(){
         )
     })
 //  mapped bottom row 
-    const mappedCitys = citys.map((el : any) => {
+    const mappedCitys = citys.map((el : any, index : number) => {
         return (
             <motion.div 
             className='flex items-center justify-center w-2/12 mx-auto h-[150px]  shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
             style={{backgroundImage: `url(${el?.picture})`}}
-            whileTap={{ scale: 0.95 }}
-            whileHover={{scale: 1.01}}
 
             onClick={() => handleCityClick(el.name.toLowerCase())}
+            key={index}
+
+
+            whileTap={{ scale: 0.95 }}
+            whileHover={{scale: 1.01}}
             >
                 
                 <h1 className='w-3/4 h-1/4 text-xl text-white text-center flex pt-1 justify-center text-bold bg-black/60 '>{el.name}</h1>      

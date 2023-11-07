@@ -21,9 +21,9 @@ export default function Footer(){
 
     
 // mapping the data
-    const mappedFooterSection = elements.map((el) => {
+    const mappedFooterSection = elements.map((el, index) => {
         return (
-        <FooterSections words={el} /> )
+        <FooterSections key={index} words={el} /> )
     })
 
     return(
@@ -44,9 +44,9 @@ export default function Footer(){
 
                 {/* icons */}
                 <div className="ml-8 mb-8 w-2/4 flex flex-row  ">
-                    {[linkedin, github, medium].map((el) => {
+                    {[linkedin, github, medium].map((el, index: number) => {
                         return (
-                            <NavLink to="/about" className="w-12 mx-auto shadow-lg rounded-full hover:shadow-xl">
+                            <NavLink key={index} to="/about" className="w-12 mx-auto shadow-lg rounded-full hover:shadow-xl">
                             {/* <div className="w-12 mx-auto shadow-lg rounded-full hover:shadow-xl"> */}
                                 <motion.img 
                                 src={el}
