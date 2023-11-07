@@ -47,12 +47,12 @@ export default function HeadPage() {
         <div className=" h-full w-full flex-col">
 
           {/* message */}
-          <div className='w-full h-1/2 flex items-center justify-center'>
+          <div className='w-full h-1/2 flex items-center justify-center mb-auto '>
             <h1 className="text-white text-center text-7xl mt-auto  ">Your destination awaits {user?.username}</h1> 
           </div>
           
           {/* search bar */}
-          <div className='flex w-full justify-center mt-[13%]  h-fit mb-14 '>
+          <div className='flex w-full h-2/6 justify-center  items-end  '>
             <Search />
           </div>
 

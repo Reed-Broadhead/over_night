@@ -62,13 +62,6 @@ export default function SixStarHotels() {
 
                 </div>
 
-                            {/* <div className="flex items-center justify-center pb-5">
-                <button className="w-[170px] h-[50px]  bg-gradient-to-r from-logos-gyellow to-logos-yellow hover:bg-logos-hyellow rounded-lg cursor-pointer select-none 
-                        active:translate-y-2  active:[box-shadow:0_9px_0_0_#FFBA03,0_0px_0_0_#FFBA03]
-                        active:border-b-[0px]
-                        transition-all duration-150 [box-shadow:0_10px_0_0_#F4C01E,0_10px_0_0_#F4C01E]
-                        border-b-[2px] border-yellow-100 font-semibold text-2xl text-gray-700 hover:text-black "type="submit" >Next</button>
-            </div > */}
             </div>
     )
 }
