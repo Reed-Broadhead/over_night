@@ -12,11 +12,32 @@ import { NavLink } from "react-router-dom"
 
 export default function Footer(){
 
+    const scrollToTop = () =>{ 
+        window.scrollTo({ 
+          top: 0,  
+          behavior: 'smooth'
+          /* you can also use 'auto' behaviour 
+             in place of 'smooth' */
+        }); 
+      }; 
+
 //  data to use for mapping
     const elements = [
     [<NavLink to="/about"> About</NavLink>,<NavLink to="/login">Login</NavLink>, <NavLink to="/login">Sign Up</NavLink>], 
     [<NavLink to="/FAQ">FAQ</NavLink>, "Privacy Policy", "Help"], 
-    ["Flight", "Stays", "Cars"], 
+    [
+    <a href="https://www.google.com/travel/flights"
+    target="_blank" 
+    rel="noreferrer"
+    >Flight</a>,
+
+    <button onClick={() => scrollToTop()}>stays</button>, 
+
+    <a href="https://www.enterprise.com/en/home.html"
+    target="_blank" 
+    rel="noreferrer"   
+    >Cars</a>
+    ], 
     [<NavLink to="/about">Linkedin</NavLink>,<NavLink to="/about">GitHub</NavLink>, <NavLink to="/about">Medium</NavLink>]]
 
     
