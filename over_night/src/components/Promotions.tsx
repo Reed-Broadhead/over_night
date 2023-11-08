@@ -7,11 +7,13 @@ import {motion} from "framer-motion"
 interface PromotionsProps {
     name : string,
     id : string,
-    image : string
+    image : string,
+    web :string
 }
 
-export default function Promotions({name, id, image} : PromotionsProps){
+export default function Promotions({name, id, image, web} : PromotionsProps){
  
+console.log(web)
 
     const handleClick = () => {
         console.log(id)
@@ -36,10 +38,14 @@ export default function Promotions({name, id, image} : PromotionsProps){
 
             <h1 className="text-black text-2xl text-bold  my-auto">{name}</h1>
             <h1 className="text-lg my-auto">save 20% on all purchases cus were awsome</h1>
-            <motion.button className="border border-black p-2 rounded-xl py-1 px-2 text-lg my-auto hover:shadow-lg  "
+            <motion.a 
+                className="border border-black p-2 rounded-xl py-1 px-2 text-lg my-auto hover:shadow-lg  "
+                href={web}
+                target="_blank" 
+                rel="noreferrer" 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.9 }}
-            >View Details</motion.button>
+            >View Details</motion.a>
             </div>
         </div>
             

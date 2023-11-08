@@ -28,10 +28,11 @@ model Order {
 }
 
 model SixStars {
-  id        Int    @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   HotelId   String
   hotelName String
   pictures  String
+  web       String?
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.

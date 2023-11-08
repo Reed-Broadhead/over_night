@@ -14,9 +14,9 @@ export default function SixStarHotels() {
         .then((res) => setSixStars(res.data))
         .catch((err) => console.log(err))
       }, []);
-
+console.log(sixStars)
     const featuredHotels = sixStars.map((element, index) => (
-        <Promotions  key={index} name={element.hotelName} id={element.HotelId} image={element.pictures}/>
+        <Promotions  key={index} name={element.hotelName} id={element.HotelId} image={element.pictures} web={element.web}/>
       ))
     return (
 <div className="h-[500px] ">

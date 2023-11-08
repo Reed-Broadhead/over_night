@@ -30,6 +30,7 @@ export default {
       green:colors.green,
    
       logos:{
+        green:"#22932d",
         yellow:"#F4C01E",
         gyellow:"#FFF506",
         hyellow:"#F5E54A",

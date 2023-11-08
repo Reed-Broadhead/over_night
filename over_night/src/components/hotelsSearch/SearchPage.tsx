@@ -66,7 +66,10 @@ export default function SearchPage () {
                         <div className="w-3/4 pl-3 ">
 
                         {/* price */}
-                            { hotelRes ? <h2 className=" text-lg ">{`Price: ${hotelRes.minRate}$`}</h2> 
+                            { hotelRes ? <div className="text-xl flex flex-row ">
+                                <h2>Price:</h2>
+                                <h2 className='text-logos-green mb-2 ml-2 text-xl'>{`$${hotelRes.minRate}`}</h2>
+                                </div> 
                             : null}
 
                         {/* rating */}
