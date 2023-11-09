@@ -22,11 +22,11 @@ export default function About(){
             <div className="h-28   bg-gradient-to-r from-blue-950 to-black" />
 
 
-            <div className="bg-white flex relative w-full h-3/4 bg-cover flex flex-col items-center" >
+            <div className="bg-white flex relative w-full h-3/4 bg-cover flex flex-col items-center " >
             
-            <div className=" flex flex-row h-full w-fit px-20  ">
+            <div className=" flex flex-row h-full w-fit px-20 ">
 
-            {/* text section */}
+                {/* text section */}
                 <div className ='text-2xl h-full w-[400px] flex flex-col text-black flex mt-10 mr-10 '>
 
                     <h1 className="text-bold text-5xl w-[400px] text-center  ">
@@ -39,22 +39,22 @@ export default function About(){
                 </div>
 
                 {/* reed and franco section */}
-                <div className="flex flex-row h-full w-2/3  mt-10"> 
-                    <div className="w-full h-full flex flex-row  ">
+                <div className="flex flex-col">
+                    <div className="w-full  flex flex-row  w-2/3 flex-row mt-10 ">
 
-                {/* first / reed  */}
+                        {/* first / reed  */}
 
-                        <div className="h-[650px] w-[400px]  mr-10 ">
+                        <div className="h-[650px] w-[400px]  mr-10 flex flex-col">
 
                             <img className="h-[400px] w-[400px] fit shadow-md rounded" src={user}/>
 
                             {/* text section */}
-                            <h2 className=" text text-2xl mt-3 ml-1 ">Reed Broadhead</h2>
-                            <h2 className=" text text-xl  text-indigo-600 ml-1">Lead Engineer</h2>
-                            <p className="text-gray-500 mt-2 ml-1">you yo sjdf askksj  hhhhhhhhhhhhhhhhhhhhjsjjs jkfgdsfds ghkjtr cvtbbb bbubuub jjjjj</p>
+                            <h2 className=" text-2xl mt-3 ml-1  ">Reed Broadhead</h2>
+                            <h2 className=" text-xl  text-indigo-600 ml-1">Lead Engineer</h2>
+                            <p className="text-gray-500 text-lg mt-2 ml-1 mb-auto">I’m Reed Broadhead, a full-stack software developer with a passion for building efficient and reliable software. </p>
 
                             {/* mapped icons section  */}
-                            <div className="mt-4 w-1/3 flex flex-row  ">
+                            <div className=" w-1/3 flex flex-row   ml-1 mb-4 ">
                                 {reedsInfo.map((el) => {
                                         return (
                                             <a className="w-10 mx-auto  rounded-full hover:shadow-xl"
@@ -71,17 +71,18 @@ export default function About(){
                                 )})}
                             </div>  
                         </div>
+
                         {/*  second / franco */}
-                        <div className="h-[650px] w-[400px]  ">
+                        <div className="h-[650px] w-[400px]  mr-10 flex flex-col">
 
-                            <img className="h-[400px] w-[400px] fit shadow-md rounded " src={Franco}/>
+                            <img className="h-[400px] w-[400px] fit shadow-md rounded  " src={Franco}/>
                             {/* text section */}
-                            <h2 className=" text text-2xl mt-3 ">Franco Lepe</h2>
-                            <h2 className=" text text-xl  text-indigo-600">Lead Engineer</h2>
-                            <p className="text-gray-500 mt-2">Hello! My name is Franco Lepe and I am a passionate and innovative software engineer utilizing a wide range of programming languages and tools to solve complex problems and deliver exceptional user experiences.</p>
+                            <h2 className="  text-2xl mt-3 ml-1 ">Franco Lepe</h2>
+                            <h2 className=" text-xl  text-indigo-600 ml-1">Lead Engineer</h2>
+                            <p className="text-gray-500  mt-2 ml-1 mb-auto">Hello! My name is Franco Lepe and I am a passionate and innovative software engineer utilizing a wide range of programming languages and tools to solve complex problems and deliver exceptional user experiences.</p>
 
-                             {/* mapped icons section  */}
-                            <div className="mt-4 w-1/3 flex flex-row  "
+                            {/* mapped icons section  */}
+                            <div className="mt-4 w-1/3 flex flex-row ml-1 mb-4 "
                             >
                                 {francosInfo.map((el) => {
                                         return (
@@ -102,49 +103,56 @@ export default function About(){
                         </div>
 
                     </div>
-                </div>
-            </div >
-          
-                {/* aydens section  */}
-                <div className="h-[300px] w-[600px]   ml-48 my-5 flex flex-row  ">
 
-                    <div className="w-1/2 h-full   ">
-                    <img className="h-fit w-full shadow-md rounded" src={Aydan}/>
+                    {/* aydens section  */}
+                    <div className="h-[300px] w-[600px]  my-5 flex flex-row  ">
 
-                    </div>
-                    {/* info section   */}
-                        <div className="w-1/2 h-full  px-2  ">
-                            {/* text section  */}
-                            <h1 className=" text-2xl ">Ayden Rivera</h1>
-                            <h1 className="text-xl text-indigo-600 ">UX/UI Design Consultant</h1>
-                            <p className="text-sm text-gray-500 mt-4  w-full  ">Hello! My name is Aydan Rivera, and I am a UX/UI Designer, and I am passionate about creating human-centered designs and solutions! From studying computer hardware engineering and working in the fashion industry, I have always been a creative spirit and a tech lover!</p>
-                            {/* icons mapped section */}
-                            <div className="mt-8 w-2/3 flex flex-row  ">
-                                {aydansInfo.map((el) => {
-                                        return (
-                                    <a  className="w-10 mx-auto  rounded-full hover:shadow-xl"
-                                    href={el.url}
-                                    target="_blank" 
-                                    rel="noreferrer" 
-                                    >
-                                    
-                                        <motion.img 
-                                        className="rounded-full w-full h-full "
-                                        src={el.image}
-
-                                        whileHover={{ scale: 1.2 }}
-                                        whileTap={{ scale: 0.9 }}/>
-
-                                
-
-                                    </a>
-                                )})}
-
-                            </div> 
+                        <div className="w-1/2 h-full   ">
+                        <img className="h-fit w-full shadow-md rounded" src={Aydan}/>
 
                         </div>
+                        {/* info section   */}
+                            <div className="w-1/2 h-full  px-2  ">
+                                {/* text section  */}
+                                <h1 className=" text-2xl ">Ayden Rivera</h1>
+                                <h1 className="text-xl text-indigo-600 ">UX/UI Design Consultant</h1>
+                                <p className="text-sm text-gray-500 mt-4  w-full  ">Hello! My name is Aydan Rivera, and I am a UX/UI Designer, and I am passionate about creating human-centered designs and solutions! From studying computer hardware engineering and working in the fashion industry, I have always been a creative spirit and a tech lover!</p>
+                                {/* icons mapped section */}
+                                <div className="mt-8 w-2/3 flex flex-row  ">
+                                    {aydansInfo.map((el) => {
+                                            return (
+                                        <a  className="w-10 mx-auto  rounded-full hover:shadow-xl"
+                                        href={el.url}
+                                        target="_blank" 
+                                        rel="noreferrer" 
+                                        >
+                                        
+                                            <motion.img 
+                                            className="rounded-full w-full h-full "
+                                            src={el.image}
+
+                                            whileHover={{ scale: 1.2 }}
+                                            whileTap={{ scale: 0.9 }}/>
+
+                                    
+
+                                        </a>
+                                    )})}
+
+                                </div> 
+
+                            </div>
+
+                    </div>
+
 
                 </div>
+
+
+            </div >
+          
+
+            {/* </div> */}
 
 
        
