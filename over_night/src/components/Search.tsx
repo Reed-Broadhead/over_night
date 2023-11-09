@@ -1,15 +1,12 @@
-import { Formik, Field, Form, FormikHelpers, setNestedObjectValues } from "formik";
-import {useSelector, useDispatch} from 'react-redux'
+import { Formik, Field, Form, FormikHelpers } from "formik";
+import { useDispatch} from 'react-redux'
 import {useState, useEffect, useRef} from "react"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {motion} from "framer-motion"
 // images
-import pin from "../assets/pin.png"
-import calandar from "../assets/calandar.png"
 import bed from "../assets/beds.png"
 // import searchBar from "../assets/searchbar.png"
-import Underline from "./Underline";
 import newPin from "../assets/newPin.png"
 
 import picCase from "../assets/case.png"
@@ -33,7 +30,7 @@ export default function Search({homePage} : any){
 
 
     const formateDate = (date: any) => {
-      const months = {
+      const months : any = {
         Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
         Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12'
       };
@@ -53,7 +50,7 @@ export default function Search({homePage} : any){
 
     const navigate = useNavigate()
 
-    let menuRef = useRef();
+    let menuRef: any = useRef();
 
     const openCalender = () => {
         setIsCalender(true)
@@ -73,12 +70,7 @@ export default function Search({homePage} : any){
       });
 
 
-      const buttonText = (               
-      <div className="w-fit h-fit flex flex-row items-center justify-center mx-auto ">     
-      <h1 className=" w-min  text-2xl text-simibold text-middle text-center ">Book now</h1>
-      <h1 className=" w-fit  text-2xl">→</h1> 
-      </div> 
-      )
+
       
     const handleSubmit = (destination: string, dates: any, rooms: string) : void => {
       // console.log(destination, rooms)
@@ -142,7 +134,7 @@ export default function Search({homePage} : any){
                      <div className="flex flex-row mb-2 pl-2 pt-1 items-center">
                      <h1 className="font-semibold text-md text-gray-800">DESTINATION</h1>
                      {/* <img /> */}
-                      <img src={newPin} className="h-6 ml-1"/>
+                      <img src={newPin} alt={"pin"} className="h-6 ml-1"/>
                      </div>
                      <Field className=" h-[40px]  pl-1 text-xl bg-white  bg-opacity-0" id="destination" name="destination" placeholder="" />
                   </div>
@@ -155,7 +147,7 @@ export default function Search({homePage} : any){
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1">
                      <h1 className="font-semibold text-md text-gray-800">ROOMS </h1>
-                      <img src={bed} className="h-6 ml-1 p-0.5"/>
+                      <img src={bed} alt={"bed"} className="h-6 ml-1 p-0.5"/>
                      </div>
                      <Field className=" h-[40px]  pl-1 text-xl bg-white  bg-opacity-0" id="rooms" name="rooms" placeholder="" />
                   </div>
@@ -169,14 +161,14 @@ export default function Search({homePage} : any){
                      {/* <img src={pin} className=" h-[40px] w-[48px] mb-1.5 "/> */}
                      <div className="flex flex-row mb-2 pl-2 pt-1">
                      <h1 className="font-semibold text-md text-gray-800">Checkin /Checkout</h1>
-                      <img src={picCase} className="h-6 ml-1 p-1"/>
+                      <img src={picCase} alt={"SuitCase"} className="h-6 ml-1 p-1"/>
                      </div>
                      <Field  onClick={() => openCalender()} className=" h-[40px]  pl-1 text-xl bg-white  bg-opacity-0" id="dates" name="dates" placeholder="" />
                   </div>
                     
                      { isCalender ? 
                     <Calendar 
-                    id="dates" 
+                    // id="dates" 
                     className="react-calendar"
                     value={date}
                     onChange={setDate}

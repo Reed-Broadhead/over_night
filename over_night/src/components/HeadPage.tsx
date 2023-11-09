@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import Search from './Search';
 import video from "../assets/compressed47sec-vid.mp4";
 
 export default function HeadPage() {
 // redux state - is persistant
-  const user = useSelector((state) => state.user.value);
+  const user = useSelector((state : any) => state.user.value);
 
 
   useEffect(() => {
@@ -16,11 +15,11 @@ export default function HeadPage() {
 
   
   // function to run batching prossess batching prosses needs to be updated- takes to long
-  const makeRequest = () => {
-        axios.get("/api/getBatchData")
-        .then((res)=>console.log(res))
-        .catch((err) => console.log(err));
-    }
+  // const makeRequest = () => {
+  //       axios.get("/api/getBatchData")
+  //       .then((res)=>console.log(res))
+  //       .catch((err) => console.log(err));
+  //   }
 
    
   

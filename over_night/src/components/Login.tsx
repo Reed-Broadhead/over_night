@@ -1,18 +1,15 @@
-import { Formik, Field, Form, FormikHelpers, setNestedObjectValues } from "formik";
-import {useSelector, useDispatch} from 'react-redux'
-import {setUser, userSlice} from "../states/user"
+import { Formik, Field, Form, FormikHelpers } from "formik";
+import {useDispatch} from 'react-redux'
+import {setUser} from "../states/user"
 import axios from "axios";
-import background from "../assets/miami.jpeg"
 import loginScreen from "../assets/LoginScreenNewLogo3.png"
-import { motion, AnimatePresence } from "framer-motion";
 import {useState} from "react"
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Underline from "./Underline";
 import toast, { Toaster } from "react-hot-toast"
 
 import lock from "../assets/password.png"
 import user from "../assets/user.png"
-import eye from "../assets/eye.jpg"
 
 interface Values {
     email: string,
@@ -25,7 +22,6 @@ interface Values {
 
 export default function Login( {setState} : any ){
     const dispatch = useDispatch()
-    const userStuff = useSelector((state: any) => state.user.value);
     const navigate= useNavigate()
 
     const [passwordVisable, setPasswordVisable] = useState<boolean>(false)

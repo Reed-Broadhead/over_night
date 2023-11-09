@@ -1,12 +1,9 @@
-import user from "../states/user"
 import { setUser } from "../states/user"
-import axios from "axios"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 
 // logs users out by setting redux state to null
 export default function LogOut(){
     // setup for redux
-    const user = useSelector((state: any)=>state.user.value)
     const dispatch = useDispatch()
     
     // handles click 

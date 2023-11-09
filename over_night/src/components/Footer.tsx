@@ -61,7 +61,7 @@ export default function Footer(){
                 <h1 className="mb-8 ml-10 text-gray-500">Copyright ©️ 2023. All Rights Reserved.</h1>
 
                 {/* logo */}
-                <img className="mb-16 " src={logo}/>
+                <img className="mb-16 " alt={"logo"} src={logo}/>
 
                 {/* icons */}
                 <div className="ml-8 mb-8 w-2/4 flex flex-row  ">

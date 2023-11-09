@@ -2,14 +2,13 @@ import { Formik, Field, Form, FormikHelpers } from "formik";
 // import * as yup from "yup";
 import axios from "axios";
 import { setUser } from "../states/user";
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import signup from "../assets/SignUpScreenNewLogo3.png"
 import lock from "../assets/password.png"
 import user from "../assets/user.png"
 import email from "../assets/email.jpg"
 import house from "../assets/house.jpg"
-import { motion, AnimatePresence } from "framer-motion";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast"
 
 interface Values {

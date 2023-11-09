@@ -1,13 +1,8 @@
 import HeadPage from "./HeadPage"
 import NavBar from "./NavBar"
-import axios from "axios"
-import Promotions from "./Promotions"
 import promotional from "../assets/skylinenight.png"
 import PopularStays from "./PopularStays"
 import Footer from "./Footer"
-import { useState, useEffect } from "react"
-import passwordimage from '../assets/password.png'
-import bellegio from "../assets/Bellagio.png"
 import SixStarHotels from "./SixStarHotels"
 
 export default function HomePage()  {       

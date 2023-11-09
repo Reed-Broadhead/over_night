@@ -1,11 +1,5 @@
 import './App.css'
-import { useEffect } from 'react';
-import {useSelector, useDispatch} from 'react-redux'
-import {setUser} from "./states/user"
-import axios from "axios";
 import HomePage from './components/HomePage';
-import SignUp from './components/SignUp';
-import Login from './components/Login';
 import SearchPage from "./components/hotelsSearch/SearchPage"
 import Login_signUp from './components/Login_signUp';
 import About from './components/About';

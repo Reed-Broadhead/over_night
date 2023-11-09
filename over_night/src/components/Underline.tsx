@@ -1,8 +1,6 @@
-import React, { useEffect, useState, ReactNode } from 'react'
-import Blacklogo from '../assets/blacklogo.png'
-import Whitelogo from "../assets/whiteLogo.png"
+import { useState, ReactNode } from 'react'
 import { motion } from "framer-motion";
-import { NavLink } from 'react-router-dom';
+
 
 
 interface Props {

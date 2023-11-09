@@ -3,9 +3,7 @@ import NavBar from "../NavBar"
 import Search from "../Search"
 import { useSelector } from 'react-redux';
 import Data from "./interfaces"
-import Underline from "../Underline";
 import {motion} from "framer-motion"
-import brandedButton from "../../assets/checkmark.png"
 import {useState} from "react"
 import star from "../../assets/star.png"
 import empty from "../../assets/emptyStar.png"

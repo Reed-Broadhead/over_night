@@ -1,11 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import Blacklogo from '../assets/blacklogo.png';
 import Whitelogo from '../assets/NewLogoWhiteGradient..webp';//whiteLogo.png//AydanLogo.png
-import SignUp from './SignUp';
 import LogOut from './LogOut';
 import { useSelector } from 'react-redux';
 
-import { Menu } from '@headlessui/react';
 import Underline from './Underline';
 import { useEffect, useState } from 'react';
 
@@ -40,7 +37,7 @@ export default function NavBar() {
           <NavLink to="/" className=''>
           <Underline>
             
-              <img src={Whitelogo} className=" h-16  " alt="logo" />
+              <img src={Whitelogo} alt={"Logo"} className=" h-16" alt="logo" />
             
           </Underline>
           </NavLink>

@@ -1,16 +1,8 @@
-import {useSelector, useDispatch} from 'react-redux'
-import {setUser, userSlice} from "../states/user"
-import axios, { formToJSON } from "axios";
-import background from '../assets/Vacation-photos/beautiful-tropical-beach-sea.jpg'
 import Login from "./Login"
 import SignUp from "./SignUp";
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import homeButton from "../assets/whiteLogo.png"
-import { Form, NavLink } from 'react-router-dom';
 import Navbar from "./NavBar";
-import Underline from './Underline';
-import Footer from './Footer';
 
 //  conditionaly reders either login of signup
 export default function Login_signUp() {
@@ -44,7 +36,7 @@ export default function Login_signUp() {
       <AnimatePresence mode='wait'>
         <motion.div className='my-auto mx-auto'
 
-          key={isLogin}
+          // key={isLogin}
           initial={initialRender ? {} : { x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -20, opacity: 0 }}

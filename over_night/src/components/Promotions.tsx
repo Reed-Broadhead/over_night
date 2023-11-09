@@ -1,4 +1,3 @@
-import React from "react"
 import {motion} from "framer-motion"
 
 //  /home/r_broadhead24/development/over_night/over_night/src/assets/sixStars/Bellagio.png
@@ -11,13 +10,8 @@ interface PromotionsProps {
     web :string
 }
 
-export default function Promotions({name, id, image, web} : PromotionsProps){
- 
-console.log(web)
+export default function Promotions({name, image, web} : PromotionsProps){
 
-    const handleClick = () => {
-        console.log(id)
-    }
     return (
         <div 
         className=" 

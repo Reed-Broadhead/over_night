@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
-import axios, { AxiosHeaders } from 'axios'
+import axios from 'axios'
 import { motion } from "framer-motion"
-import miami from '../assets/miami.jpeg'
 import leftButton from "../assets/iconLeftButton.png"
 import rightButton from "../assets/iconNextRight.png"
 import { useDispatch} from 'react-redux'
