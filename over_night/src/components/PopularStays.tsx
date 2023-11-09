@@ -25,6 +25,13 @@ export default function PopularStays(){
         .then((res)=> {dispatch(setHotels(res.data));})
         .catch((err) => console.log(err));
         navigate("/search")
+         
+        window.scrollTo({ 
+            top: 0,  
+            behavior: 'smooth'
+        }); 
+          
+    
     }
 
 //  data for bottom row

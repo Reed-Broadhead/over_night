@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {useState} from "react"
 import { Navigate, useNavigate } from "react-router-dom";
 import Underline from "./Underline";
+import toast, { Toaster } from "react-hot-toast"
 
 import lock from "../assets/password.png"
 import user from "../assets/user.png"
@@ -31,12 +32,13 @@ export default function Login( {setState} : any ){
     
     // setState()
     const handlePost = async (values : any) => {
-        // console.log(values)
+        console.log(values)
         axios.post("/api/login", {
             email: values.email,
             password: values.password,
         })
         .then((response) => {
+            console.log(response);
             if (response.status == 500){
                 console.log('not in system')
             }else{
@@ -53,8 +55,14 @@ export default function Login( {setState} : any ){
             navigate('/')
         }}) 
         .catch((error) => {
-            alert("Email or Password incorrect")
-            //console.error("user not found");
+            toast.error("Email or Password are incorrect", {
+                duration: 3000,
+
+                style: {
+                    borderBottom: '3px solid #713200'
+                }
+            }) ;
+
         })};
 
 
@@ -69,13 +77,14 @@ export default function Login( {setState} : any ){
                 values: Values,
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
-                console.log(values);
+                // console.log(values);
                 handlePost(values);
                 setSubmitting(false);
             }}
         >
             
             <Form className="pt-40 flex flex-col rounded-lg w-[320px] h-[600px] bg-cover shadow-2xl" style={{backgroundImage: `url(${loginScreen})`}}>
+            <Toaster />
               <div className="pl-4 ">
                 <div className="">
                     <button className="ml-0.5 border-b-2 border-logos-blue mr-3 text-gray-500 hover:text-gray-700">login</button>

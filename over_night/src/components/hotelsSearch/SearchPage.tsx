@@ -9,11 +9,24 @@ import brandedButton from "../../assets/checkmark.png"
 import {useState} from "react"
 import star from "../../assets/star.png"
 import empty from "../../assets/emptyStar.png"
+import leftArrow from "../../assets/iconLeftButton.png"
+import rightArrow from "../../assets/iconNextRight.png"
+
 
 export default function SearchPage () {
 // bundledHotels = react rexus persistant state set when user makes request to search
     const bundledHotels = useSelector((state: any) => state.hotels.value)
 
+    const [hotelIndex, setHotelIndex] = useState<number>(0)
+
+    // const [currentHotels, setCurrentHotels] = useState<any>(bundledHotels.slice(hotelIndex, hotelIndex + 10))
+
+    const scrollToTop = () =>{ 
+        window.scrollTo({ 
+          top: 0,  
+          behavior: 'smooth'
+        }); 
+      }; 
 
 // ranking system for images
     const imageRanking: any = {
@@ -29,7 +42,7 @@ export default function SearchPage () {
         "RES" : 10, }
 
 // maps over hotels
-    const hotelList = bundledHotels[0] ? bundledHotels?.map((hotelData : any, index : number) => {
+    const hotelList = bundledHotels[0] ? bundledHotels.slice(hotelIndex, hotelIndex + 10)?.map((hotelData : any, index : number) => {
             // checks if user selected a date or not
             const hotel : Data = Array.isArray(hotelData) ?  hotelData[0] : hotelData 
             const hotelRes = hotelData.length > 1 ? hotelData[1] : undefined
@@ -73,7 +86,7 @@ export default function SearchPage () {
                             : null}
 
                         {/* rating */}
-                            <div className="flex flex-row h-4">
+                            <div className="flex flex-row h-4 mb-3">
                                 { hotelRes 
                                     ? Array(Number(5)).fill(star).map((el, index) => {return  <img className="w-4 "src={index < hotelRes.categoryName[0] ? el : empty } />})
                                     : <h2 className=" text-lg mb-2">{`Rating: ${hotel.ranking}`}</h2>
@@ -137,6 +150,20 @@ export default function SearchPage () {
                 {hotelList}
             </div>
 
+            {bundledHotels.length > 10 
+            ?
+                <div className="w-full h-20 flex flex-row">
+                    {hotelIndex == 0 
+                    ? <button onClick={() => {setHotelIndex(hotelIndex + 10); scrollToTop()}} className=" h-10 mx-auto">
+                        <img src={rightArrow} className="w-10"/></button>
+                    : 
+                    <div className="mx-auto flex">
+                        <button onClick={() => {setHotelIndex(hotelIndex - 10); scrollToTop()}} className="mr-10 w-10 h-10"><img src={leftArrow} className="w-10"/></button>  
+                        <button onClick={() => {setHotelIndex(hotelIndex + 10); scrollToTop()}} className="w-10 h-10 "><img src={rightArrow} className="w-10"/></button>
+                    </div>
+                    }
+                </div>
+            : null}
         
             <Footer/>
         </div>

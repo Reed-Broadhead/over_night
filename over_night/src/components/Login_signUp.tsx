@@ -23,7 +23,6 @@ export default function Login_signUp() {
 
   const setState = (x : boolean) : void => {
       setIsLogin(x) 
-
   }
 
   useEffect(() : void => {

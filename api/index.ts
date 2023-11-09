@@ -63,18 +63,15 @@ app.post("/login", async (req: any , res: any, next: any) => {
             email: email
         }
     })
+  
+    bcrypt.compare(password, user.password)
+        .then((response: any) => response ? 
+        res.status(200).send({ message: "Authentication successful", user: user }) 
+        : res.status(500).send({ message: "Internal server error" })
+        ) 
 
-    bcrypt.compare(password, user.password, (err: any, result: any) => {
-        if (err) {
-            console.log(err);
-            //  Handle the error, e.g., send an error response
-            return res.status(500).send({ message: "Internal server error" });
-        } else if (result === true) {
-            res.cookie('user', user.email)
-            res.status(200).send({ message: "Authentication successful", user: user })};
-        })
     } catch(error: any){
-        next(error.message)}
+        next(error.message);}
     })
 
 
@@ -491,7 +488,7 @@ app.post('/getHotelsByCity', async (req: any, res: any)=>{
     const search = cities[cityName]
     try{
         let hotels = await prisma.hotels.findMany({
-            take: 10,
+            take: 1500,
             where:{destinationCode:search},
             include:{
                 city:true,
