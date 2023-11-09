@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import logo from "../assets/NewLogoBlackGradient.png"
+import logo from "../assets/NewLogoBlackGradient.webp"
 import FooterSections from "./FooterSection"
 import linkedin from "../assets/linkedin.png"
 import github from "../assets/github.png"

@@ -45,13 +45,13 @@ export default function PopularStays(){
     const mainCityData = [
         {
             name : "Dallas",
-            picture: "https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/cityImages/dallas.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvY2l0eUltYWdlcy9kYWxsYXMuanBnIiwiaWF0IjoxNjk3ODI1MzE4LCJleHAiOjE3MjkzNjEzMTh9.aX2-Vx_R5M--pYuBxMq9oX5t9BhByUEs4r7Lw453cig&t=2023-10-20T18%3A08%3A42.033Z",
+            picture: "https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/cityImages/dallas.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvY2l0eUltYWdlcy9kYWxsYXMud2VicCIsImlhdCI6MTY5OTU2MDMwNCwiZXhwIjoxODI1NzA0MzA0fQ.QYoxO4ETQ1vrGWdNLvqMi5ucp6ujew3oKxLlv-iRCrE&t=2023-11-09T20%3A05%3A04.839Z",
             code : "",
             side: true
         },
         {
             name : "Washington",
-            picture : "https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/cityImages/washington.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvY2l0eUltYWdlcy93YXNoaW5ndG9uLmpwZyIsImlhdCI6MTY5NzgyMzg5NiwiZXhwIjoxNzI5MzU5ODk2fQ.wVar31PY13KPzzrCz351jP5AcB3wxn4ULVulF7yD4Fg&t=2023-10-20T17%3A45%3A00.074Z",
+            picture : "https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/cityImages/washington.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvY2l0eUltYWdlcy93YXNoaW5ndG9uLndlYnAiLCJpYXQiOjE2OTk1NjAzMjcsImV4cCI6MTgyNTcwNDMyN30.htxpOUYVOYA8kEWVJ6iV3fZcFfRb2YcNoVtIc4MX_b8&t=2023-11-09T20%3A05%3A27.975Z",
             code : "",
             side: false
         } 

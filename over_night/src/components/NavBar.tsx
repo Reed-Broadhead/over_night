@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Blacklogo from '../assets/blacklogo.png';
-import Whitelogo from '../assets/NewLogoWhiteGradient.png';//whiteLogo.png//AydanLogo.png
+import Whitelogo from '../assets/NewLogoWhiteGradient..webp';//whiteLogo.png//AydanLogo.png
 import SignUp from './SignUp';
 import LogOut from './LogOut';
 import { useSelector } from 'react-redux';
