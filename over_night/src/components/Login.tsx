@@ -59,7 +59,7 @@ export default function Login( {setState} : any ){
                 duration: 3000,
 
                 style: {
-                    borderBottom: '3px solid #713200'
+                    borderBottom: '3px solid #F02C05'
                 }
             }) ;
 

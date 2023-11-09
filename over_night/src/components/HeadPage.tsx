@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import Search from './Search';
@@ -21,6 +21,8 @@ export default function HeadPage() {
         .then((res)=>console.log(res))
         .catch((err) => console.log(err));
     }
+
+   
   
   return (
     <div className="flex relative w-full h-screen bg-cover">
@@ -49,6 +51,7 @@ export default function HeadPage() {
           {/* message */}
           <div className='w-full h-1/2 flex items-center justify-center mb-auto '>
             <h1 className="text-white text-center text-7xl mt-auto  ">Your destination awaits {user?.username}</h1> 
+            
           </div>
           
           {/* search bar */}

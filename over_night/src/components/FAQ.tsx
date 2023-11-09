@@ -8,9 +8,9 @@ export default function FAQ(){
     //  might finish 
 
     const data = [
-    {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "}, 
-    {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "},
-    {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "},
+    {question: "What Tech stack was used to build this app?", answer: " Over Night was built using react with typescript for the front-end, and express for the back-end "}, 
+    {question: "What Tech stack was used to build this app?", answer: " Over Night was built using react with typescript for the front-end, and express for the back-end "},
+    {question: "What Tech stack was used to build this app?", answer: " Over Night was built using react with typescript for the front-end, and express for the back-end "},
     {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "},
     {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "},
     {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "},

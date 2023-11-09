@@ -11,6 +11,7 @@ import star from "../../assets/star.png"
 import empty from "../../assets/emptyStar.png"
 import leftArrow from "../../assets/iconLeftButton.png"
 import rightArrow from "../../assets/iconNextRight.png"
+import toast, { Toaster } from "react-hot-toast"
 
 
 export default function SearchPage () {
@@ -107,7 +108,14 @@ export default function SearchPage () {
                             href={hotel.web ? hotel.web?.slice(0,4) == "http" ? hotel.web : "https://" + hotel.web : undefined}
                             target="_blank" 
                             rel="noreferrer" 
-                            onClick={() => hotel.web ? undefined : alert("hotel not avalible")}
+                            onClick={() => hotel.web ? undefined : toast.error("Hotel Unavaliable", {
+                                duration: 3000,
+                
+                                style: {
+                                    borderBottom: '3px solid #F02C05',
+                                    marginTop:"25px"
+                                }
+                            }) }
 
                             whileTap={{ scale: 0.98 }}
                             whileHover={{scale: 1.1}}  
@@ -131,8 +139,9 @@ export default function SearchPage () {
             <NavBar/>
         {/* div to fill in space - nav bar has absolute positioning */}
             <div className="h-28 bg-gradient-to-r from-blue-950 to-black " />
-            
+            <Toaster/>
         {/* search bar */}
+
             <div className=" mt-5 mb-10 ">
                 <Search homePage={false}/>
             </div>
