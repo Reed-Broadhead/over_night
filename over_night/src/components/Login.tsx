@@ -55,6 +55,7 @@ export default function Login( {setState} : any ){
             navigate('/')
         }}) 
         .catch((error) => {
+            console.log(error);
             toast.error("Email or Password are incorrect", {
                 duration: 3000,
 

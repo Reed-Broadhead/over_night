@@ -10,6 +10,7 @@ import email from "../assets/email.jpg"
 import house from "../assets/house.jpg"
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigate, useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast"
 
 interface Values {
     username: string,
@@ -22,7 +23,16 @@ export default function SignUp( {setState} : any ){
     const dispatch = useDispatch()
     const navigate= useNavigate()
     const handlePost = async (values : any) => {
-        console.log(values)
+        
+        // const {username, email, address, password} = values
+        if ((Object.values(values)).includes("")){
+            toast.error("All fields are required", {
+                duration: 3000,
+                style: {
+                    borderBottom: '3px solid #F02C05'
+                }  } ) 
+            } else {
+
         axios.post("/api/signup", {
             username: values.username,
             password: values.password,
@@ -40,9 +50,14 @@ export default function SignUp( {setState} : any ){
             }))
             navigate('/')
         })
-        .catch((error) => {
-            console.error(error);
-        })};
+        .catch((error: any) => {
+            toast.error(`${error.response.data.target} is already taken`, {
+                duration: 3000,
+                style: {
+                    borderBottom: '3px solid #F02C05'
+                }
+            })
+        })}; }
 
     return (
         <Formik 
@@ -56,7 +71,6 @@ export default function SignUp( {setState} : any ){
                 values: Values,
                 {setSubmitting}: FormikHelpers<Values>
             ) => {
-                console.log(values);
                 handlePost(values);
                 setSubmitting(false);
             }}
@@ -64,6 +78,7 @@ export default function SignUp( {setState} : any ){
             
 
             <Form className="pt-40  flex flex-col rounded-lg w-[320px] h-[600px] bg-cover shadow-2xl" style={{backgroundImage: `url(${signup})`}}>
+                <Toaster />
             <div className=" pl-4">
                 <div className="">
                     <button className=" ml-0.5 mr-3 text-gray-500 hover:text-gray-700" onClick={(e) => {e.preventDefault() ; setState(true) }}>login</button>

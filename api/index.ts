@@ -80,17 +80,23 @@ app.post('/signup', async  (req: any, res: any, next: any)  => {
   
     const { username, password, email, address } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log(hashedPassword)
-    const user = await prisma.user.create({ 
-        data: {
-            username: username,
-            password: hashedPassword,
-            email: email,
-            address:address
-        },
-    })
-    console.log("hi")
-    res.status(201).send({message: "User created successfully!", user: user})
+
+    try {
+        const user = await prisma.user.create({ 
+            data: {
+                username: username,
+                password: hashedPassword,
+                email: email,
+                address:address
+            },
+        })
+        console.log("hi")
+        res.status(201).send({message: "User created successfully!", user: user})
+
+    } catch(error: any) {
+        res.status(500).send({message: "username, and email have to be unique", target: error.meta.target[0]})
+    }
+    
 })
 
 app.patch('/logout', (req: any, res: any, next: any) => {
