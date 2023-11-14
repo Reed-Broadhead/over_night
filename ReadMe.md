@@ -77,7 +77,9 @@ OverNight is currently still in progress and not yet hosted. We have not obtaine
 > Working with Booking Apis 
 
 ---
-- The development of OverNight was initially planned to be completed within one and a half months. However, we soon realized that the project would require significantly more time. While programming a complete end-to-end hotel booking system isn't inherently challenging, gaining access to the necessary APIs proved to be a major hurdle. Most hotel booking APIs are accessible only through partner programs, which substantially delayed our development process. For those considering building a hotel booking application, it's important to understand that access to these APIs typically requires an already established company. To learn more about hotel booking APIs and their access requirements, you can find detailed information [Here](https://www.altexsoft.com/blog/hotel-api/).
+- The development of OverNight was initially planned to be completed within one and a half months. However, we soon realized that the project would require significantly more time. While programming a complete end-to-end hotel booking system isn't inherently challenging, gaining access to the necessary APIs proved to be a major hurdle. Most hotel booking APIs are accessible only through partner programs, which substantially delayed our development process.
+
+- For those considering building a hotel booking application, it's important to understand that access to these APIs typically requires an already established company. To learn more about hotel booking APIs and their access requirements, you can find detailed information [Here](https://www.altexsoft.com/blog/hotel-api/).
 
 ---
 > Front end 
