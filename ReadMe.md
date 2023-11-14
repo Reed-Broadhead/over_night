@@ -3,10 +3,10 @@
 <!-- > A Hotel booking site -->
 
 <!-- <h3 align="center">  -->
-<!-- > `Overnight` is a hotel booking site, designed to find the best deals and the hottest stays! -->
+`Overnight` is a hotel booking site, designed to find the best deals and the hottest stays!
 
-<h3 align="center"> Overnight is a hotel booking site, designed to find the best deals and the hottest stays!
-</h3>
+<!-- <p align="center"> Overnight is a hotel booking site, designed to find the best deals and the hottest stays!
+</p> -->
 
 <!-- </h3> --> 
 
@@ -22,7 +22,8 @@
 
 ---
 # ✨ Demo
-<img src="https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/Recording%202023-11-14%20142931%20(3).gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvUmVjb3JkaW5nIDIwMjMtMTEtMTQgMTQyOTMxICgzKS5naWYiLCJpYXQiOjE2OTk5OTQyNTcsImV4cCI6MTgyNjEzODI1N30.amluqvL-0-nkKQuOpfGDVJXpeJB_LviBJhnU0u49jL4&t=2023-11-14T20%3A37%3A39.276Z" alt="Gif of OverNight homePage">
+
+![Gif of OverNight homePage](https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/Recording%202023-11-14%20142931%20(3).gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvUmVjb3JkaW5nIDIwMjMtMTEtMTQgMTQyOTMxICgzKS5naWYiLCJpYXQiOjE2OTk5OTQyNTcsImV4cCI6MTgyNjEzODI1N30.amluqvL-0-nkKQuOpfGDVJXpeJB_LviBJhnU0u49jL4&t=2023-11-14T20%3A37%3A39.276Z)
 
 ### [Full Video Demo](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
