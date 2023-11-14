@@ -3,11 +3,11 @@
 <!-- > A Hotel booking site -->
 
 <!-- <h3 align="center">  -->
-> `Overnight` is a hotel booking site, designed to find the best deals and the hottest stays!
+<!-- > `Overnight` is a hotel booking site, designed to find the best deals and the hottest stays! -->
 
- OverNight was developed with the hopes that we could complete the project within a month and a half, however; we quickly learned it would take much longer. fully implementing end to end hotel booking is not difficult to programme, however; it is heighly difficult to aquire access to most APIs that allow booking. All hotle booking APIs that we encountered requried partner programs to gain access to use which greatly slowed down development time. If you are concidering building a hotel booking application know that you most likly need already established company. Learn more about booking APIs [Here](https://www.altexsoft.com/blog/hotel-api/).
+<h3 align="center"> Overnight is a hotel booking site, designed to find the best deals and the hottest stays!
+</h3>
 
-The development of OverNight was initially planned to be completed within one and a half months. However, we soon realized that the project would require significantly more time. While programming a complete end-to-end hotel booking system isn't inherently challenging, gaining access to the necessary APIs proved to be a major hurdle. Most hotel booking APIs are accessible only through partner programs, which substantially delayed our development process. For those considering building a hotel booking application, it's important to understand that access to these APIs typically requires an already established company. To learn more about hotel booking APIs and their access requirements, you can find detailed information [Here](https://www.altexsoft.com/blog/hotel-api/).
 <!-- </h3> --> 
 
 
@@ -22,7 +22,7 @@ The development of OverNight was initially planned to be completed within one an
 
 ---
 # ✨ Demo
-<img src="https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/Recording%202023-11-14%20142931%20(3).gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvUmVjb3JkaW5nIDIwMjMtMTEtMTQgMTQyOTMxICgzKS5naWYiLCJpYXQiOjE2OTk5OTQyNTcsImV4cCI6MTgyNjEzODI1N30.amluqvL-0-nkKQuOpfGDVJXpeJB_LviBJhnU0u49jL4&t=2023-11-14T20%3A37%3A39.276Z" alt="temperary">
+<img src="https://gyuazwnjskzspekvmvnr.supabase.co/storage/v1/object/sign/images/Recording%202023-11-14%20142931%20(3).gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvUmVjb3JkaW5nIDIwMjMtMTEtMTQgMTQyOTMxICgzKS5naWYiLCJpYXQiOjE2OTk5OTQyNTcsImV4cCI6MTgyNjEzODI1N30.amluqvL-0-nkKQuOpfGDVJXpeJB_LviBJhnU0u49jL4&t=2023-11-14T20%3A37%3A39.276Z" alt="Gif of OverNight homePage">
 
 ### [Full Video Demo](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
