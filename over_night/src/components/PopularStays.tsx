@@ -60,7 +60,7 @@ export default function PopularStays(){
         return (
         <div key={index} className={el.side ? "w-1/2": "w-1/2 flex flex-row-reverse"}>   
         <motion.div 
-        className='flex w-[95%]  h-[150px] border border-gray-600 shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
+        className='flex w-[95%]  h-[150px] border border-gray-600 shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md cursor-pointer'
         style={{backgroundImage: `url(${el.picture})`}}
         whileTap={{ scale: 0.98 }}
         whileHover={{scale: 1.01}}   
@@ -80,7 +80,7 @@ export default function PopularStays(){
     const mappedCitys = citys.map((el : any, index : number) => {
         return (
             <motion.div 
-            className='flex items-center justify-center w-2/12 mx-auto h-[150px]  shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md'
+            className='flex items-center justify-center w-2/12 mx-auto h-[150px]  shadow-lg hover:shadow-2xl bg-cover bg-no-repeat bg-center rounded-md cursor-pointer'
             style={{backgroundImage: `url(${el?.picture})`}}
 
             onClick={() => handleCityClick(el.name.toLowerCase())}
@@ -107,12 +107,12 @@ export default function PopularStays(){
             </div>
             
             <div className='flex justify-center h-[200px]'>
-                <div className='flex items-center justify-center h-full w-12 '>
+                <div className='flex items-center justify-center h-full w-12  '>
                     <motion.img onClick={() => { (cityCount) <= 0 ? setCityCount( citys.length - 5) : setCityCount(cityCount - 5) }} 
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{type: "spring", stiffness: 300}} 
-                    className="w-[50px] h-fit mr-10  text-2xl rounded-full shadow-md "
+                    className="w-[50px] h-fit mr-10  text-2xl rounded-full shadow-md cursor-pointer "
                     src={leftButton}
                     alt='left button'
                     ></motion.img>
@@ -126,7 +126,7 @@ export default function PopularStays(){
                 {/* <button onClick={() => { (sixCityCount + 2) >= featuredHotels.length ? setSixStarCount(0) : setSixStarCount(sixStarCount + 2)}} > </button> */}
                     <motion.img 
                         onClick={() => { (cityCount + 5) >= citys.length ? setCityCount(0) : setCityCount(cityCount + 5)}}
-                        className="w-[50px] h-fit ml-10 text-2xl text-bold rounded-full shadow-md"
+                        className="w-[50px] h-fit ml-10 text-2xl text-bold rounded-full shadow-md cursor-pointer"
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
                         src={rightButton}

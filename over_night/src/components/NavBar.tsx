@@ -27,6 +27,7 @@ export default function NavBar() {
   }, []);
 
   return (
+    <>
     <div
       className={`flex justify-center h-28 w-full bg-contain bg-no-repeat fixed z-10 text-right  ${
         scrolling ? 'bg-black/50 ' : ''
@@ -37,7 +38,7 @@ export default function NavBar() {
           <NavLink to="/" className=''>
           <Underline>
             
-              <img src={Whitelogo} alt={"Logo"} className=" h-16" alt="logo" />
+              <img src={Whitelogo} className=" h-16" alt="logo" />
             
           </Underline>
           </NavLink>
@@ -82,5 +83,7 @@ export default function NavBar() {
 
         </div>
     </div>
+    
+    </>
   );
 }

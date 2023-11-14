@@ -169,10 +169,13 @@ export default function Search({homePage} : any){
                      { isCalender ? 
                     <Calendar 
                     // id="dates" 
+                    defaultValue={[new Date(2023, 11, 13), new Date(2023, 11, 15)]}
+                    
                     className="react-calendar"
                     value={date}
                     onChange={setDate}
                     selectRange={true}
+                    goToRangeStartOnSelect={false}
                     /> 
                     : null}
                 </div>

@@ -1,15 +1,12 @@
 import {motion} from "framer-motion"
 
-//  /home/r_broadhead24/development/over_night/over_night/src/assets/sixStars/Bellagio.png
-// http ${image}
-
 interface PromotionsProps {
     name : string,
     id : string,
     image : string,
     web :string
 }
-
+// works with SixStarHotels.tsx
 export default function Promotions({name, image, web} : PromotionsProps){
 
     return (

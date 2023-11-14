@@ -13,16 +13,6 @@ export default function HeadPage() {
     window.scrollTo(0, 0);
   }, []); // The empty dependency array ensures this effect runs only once on component mount
 
-  
-  // function to run batching prossess batching prosses needs to be updated- takes to long
-  // const makeRequest = () => {
-  //       axios.get("/api/getBatchData")
-  //       .then((res)=>console.log(res))
-  //       .catch((err) => console.log(err));
-  //   }
-
-   
-  
   return (
     <div className="flex relative w-full h-screen bg-cover">
       <div className="flex flex-col bg-black bg-opacity-10 relative w-full h-full">

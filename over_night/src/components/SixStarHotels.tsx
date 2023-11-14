@@ -5,6 +5,7 @@ import {motion} from "framer-motion"
 import rightButton from "../assets/iconNextRight.png"
 import leftButton from "../assets/iconLeftButton.png"
 
+// works with promotions.tsx
 export default function SixStarHotels() {
     const [sixStarCount, setSixStarCount] = useState<number>(0)
     const [sixStars, setSixStars] = useState([]);
@@ -30,7 +31,7 @@ export default function SixStarHotels() {
                         <motion.img 
                         onClick={() => { sixStarCount == 0 ? setSixStarCount(featuredHotels.length -2) : setSixStarCount(sixStarCount - 2)}}
 
-                        className="w-[50px] h-fit mr-10  text-2xl rounded-full shadow-md "
+                        className="w-[50px] h-fit mr-10  text-2xl rounded-full shadow-md cursor-pointer  "
 
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -49,7 +50,7 @@ export default function SixStarHotels() {
 
                         <motion.img
                         onClick={() => { (sixStarCount + 2) >= featuredHotels.length ? setSixStarCount(0) : setSixStarCount(sixStarCount + 2)}}
-                        className="w-[50px] h-fit ml-10 text-2xl text-bold rounded-full shadow-md"
+                        className="w-[50px] h-fit ml-10 text-2xl text-bold rounded-full shadow-md cursor-pointer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         transition={{type: "spring", stiffness: 300}} 
