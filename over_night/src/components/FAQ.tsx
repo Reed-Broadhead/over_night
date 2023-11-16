@@ -13,8 +13,10 @@ export default function FAQ(){
     {question: "Where does OverNight obtain its data?", answer: "OverNight's data is sourced from HotelBeds, one of the largest hotel data suppliers."},
     {question: "Why does selecting a date with the calendar not work?", answer: "To properly access the calendar filter you need to first double click your arrival date and then single click your departure date."},
     {question: "Do I need to create an account to access hotel search functionality?", answer: "No, it is not necessary to create an account in order to browse hotel availability."},
-    {question: "How can I see hotel pirces?", answer: "In order to see hotel availability and pricing, you need to select a date range in the search bar."},
-    {question: "What Technologies were used to build this site?", answer: "OverNight was built using Typescript featuring React on the front-end and Express with Prisma on the back-end."}]
+    {question: "How can I see hotel prices?", answer: "In order to see hotel availability and pricing, you need to select a date range in the search bar."},
+    {question: "What Technologies were used to build this site?", answer: "OverNight was built using Typescript featuring React on the front-end and Express with Prisma on the back-end."},
+    {question: "Want to know more?", answer: "If you have any more questions, you can contact either Franco Lepe or Reed Broadhead.There contact information if avalible on the about us page."},
+]
 
 // state to will hold array that we use to see whick questions open
     const [clicked, setClicked] = useState<any>([])
@@ -49,7 +51,7 @@ export default function FAQ(){
                         <h1 className="text-xl ml-6 text-logos-blue"> / </h1>
                         <h1 className="text-xl mr-1 text-logos-blue"> / </h1>
 
-                        <p className="text-xl  text-gray-800  my-3 ">{el.answer}</p>
+                        <p className="text-xl  text-gray-800  ml-2 my-3 ">{el.answer}</p>
                     </div>
                     : null
                     }
