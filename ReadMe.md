@@ -31,7 +31,7 @@
 
 # UserGuide
 
-OverNight is currently still in progress and not yet hosted. We have not obtained access to sufficient API calls to publicly host the site without running out of data access. If you would like to see a demonstration of the site, you can visit [here]() to view the developers presenting OverNight in its current state. Alternatively, if you would like to learn more, you can reach out to either of the developers, [Franco Lepe]() or [Reed Broadhead](https://www.linkedin.com/in/reed-broadhead/), for a live demonstration of OverNight or to gain temporary access to the site.
+OverNight is currently still in progress and not yet hosted. We have not obtained access to sufficient API calls to publicly host the site without running out of data access. If you would like to see a demonstration of the site, you can visit [here]() to view the developers presenting OverNight in its current state. Alternatively, if you would like to learn more, you can reach out to either of the developers, [Franco Lepe](https://www.linkedin.com/in/francolepe/) or [Reed Broadhead](https://www.linkedin.com/in/reed-broadhead/), for a live demonstration of OverNight or to gain temporary access to the site.
 
 > Current live features
 - City Search: Users can search for hotels by city name.
@@ -52,16 +52,17 @@ OverNight is currently still in progress and not yet hosted. We have not obtaine
 # Development 
 
 
->OverNight was created and developed by [Reed Broadhead](https://www.linkedin.com/in/reed-broadhead/) and [Franco Lepe](), however; OverNight would not be the same without all the contributers that helped make this possible.
+>OverNight was created and developed by [Reed Broadhead](https://www.linkedin.com/in/reed-broadhead/) and [Franco Lepe](https://www.linkedin.com/in/francolepe/), however; OverNight would not be the same without all the contributers that helped make this possible.
 
 
 ### Lead Developers and creators
-- [Franco Lepe]() - Lead Dev and Co Creator
+- [Franco Lepe](https://www.linkedin.com/in/francolepe/) - Lead Dev and Co Creator
 - [Reed Broadhead](https://www.linkedin.com/in/reed-broadhead/) - Lead Dev and Co Creator
 
 ### Consultants
-- [Aydan Rivera]() - UX/UI Consultant
-- [shiri]() - Data Consultant
+- [Aydan Rivera](https://www.linkedin.com/in/aydanrivera/) - UX/UI Consultant
+
+
 
 
 ## Development Processes
@@ -86,15 +87,14 @@ OverNight is currently still in progress and not yet hosted. We have not obtaine
 
 ---
 
-- We built the Front-end with React, Tailwind , and Redux.
+- The Front-end was developed with React, Tailwind , and Redux.
 
-- A large portion of building the front-end for OverNight involved working with a UX/UI consultant. We were already halfway done with the site when we enlisted the help of [Aydan Rivera](). So, when she provided us with the redesign for OverNight, we had to remake certain sections of the site and figure out how best to implement the mockups. This extended the time it took us to build OverNight; however, it greatly enhanced the look and feel of the site.
+- A large portion of building the front-end for OverNight involved working with a UX/UI consultant. We were already halfway done with the site when we enlisted the help of [Aydan Rivera](https://www.linkedin.com/in/aydanrivera/). So, when she provided us with the redesign for OverNight, we had to remake certain sections of the site and figure out how best to implement the mockups. This extended the time it took us to build OverNight; however, it greatly enhanced the look and feel of the site.
 
 ---
 
-Overall, building OverNight was a long but rewarding experience that has resulted in a project of which we can truly be proud.
+Overall, building OverNight was a long but rewarding experience that has resulted in a project of which we can truly be proud of.
 
-OverNight was build by [Reed Broadhead](https://www.linkedin.com/in/reed-broadhead/) and [Franco Lepe]().
 
 
 ---
@@ -104,11 +104,11 @@ OverNight was build by [Reed Broadhead](https://www.linkedin.com/in/reed-broadhe
 If you would like to learn more about both the current and future state of OverNight, talk more about the production, or meet the developers, connect with either Franco Lepe or Reed Broadhead.
 
 > `Franco Lepe`
-- [LinkedIn]()
-- [Email]()
+- [LinkedIn](https://www.linkedin.com/in/francolepe/)
+- [Email](mailto:francolepe169@gmail.com)
 
 > `Reed Broadhead`
 - [LinkedIn](https://www.linkedin.com/in/reed-broadhead/)
-- [Email]()
+- [Email](mailto:reedbroadhead@gmail.com)
 
 ---
