@@ -11,10 +11,10 @@ export default function FAQ(){
     {question: "Can I book hotels on OverNight?", answer: "Booking functionality is currently not supported on OverNight; however, it is under development and is expected to be added soon."}, 
     {question: "What happens when I try to book on OverNight?", answer: "You will be redirected to the designated hotel site, where you can complete your reservation."},
     {question: "Where does OverNight obtain its data?", answer: "OverNight's data is sourced from HotelBeds, one of the largest hotel data suppliers."},
-    {question: "Why does selecting a date with the calendar not work?", answer: ""},
-    {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "},
-    {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "},
-    {question: "What Tech stack was used to build this app?", answer: " Over Night was build using react with typescript for the front-end, and express for the back-end "}]
+    {question: "Why does selecting a date with the calendar not work?", answer: "To properly access the calendar filter you need to first double click your arrival date and then single click your departure date."},
+    {question: "Do I need to create an account to access hotel search functionality?", answer: "No, it is not necessary to create an account in order to browse hotel availability."},
+    {question: "How can I see hotel pirces?", answer: "In order to see hotel availability and pricing, you need to select a date range in the search bar."},
+    {question: "What Technologies were used to build this site?", answer: "OverNight was built using Typescript featuring React on the front-end and Express with Prisma on the back-end."}]
 
 // state to will hold array that we use to see whick questions open
     const [clicked, setClicked] = useState<any>([])
