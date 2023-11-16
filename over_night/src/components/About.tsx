@@ -5,7 +5,7 @@ import github from "../assets/github.png"
 import medium from "../assets/medium.png"
 import {motion} from "framer-motion"
 import Franco from "../assets/Francoheadshot3.jpg"
-import user from "../assets/user.png"
+import reed from "../assets/ReedsHeadshot2.jpg"
 import Aydan from "../assets/AydanHeadshot.jpeg"
 import Aydanlogo from "../assets/Aydanwebsitelogo.png"
 import instagram from "../assets/instagramlogo2.png"
@@ -45,7 +45,10 @@ export default function About(){
 
                         <div className="h-[650px] w-[400px]  mr-10 flex flex-col">
 
-                            <img className="h-[400px] w-[400px] fit shadow-md rounded" src={user}/>
+                            <div className="h-[400px] w-[400px] flex">
+                            <img className="  shadow-md   rounded " src={reed}/>
+
+                            </div>
 
                             {/* text section */}
                             <h2 className=" text-2xl mt-3 ml-1  ">Reed Broadhead</h2>
