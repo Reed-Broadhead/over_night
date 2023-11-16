@@ -93,8 +93,15 @@ export default function Search({homePage} : any){
 
       }
     }
-    
-  
+  // date.length || "hi" 
+  console.log(date.length || "hi" )
+  const CheckInData = () => {
+    let an = ""
+    if (date.length)(
+      an = `${String(date[0]).split(" ")[1]} - ${String(date[0]).split(" ")[2]} / ${String(date[1]).split(" ")[1]} - ${String(date[1]).split(" ")[2]}`
+    ) 
+    return an
+}
     return(
         <div className="w-full flex justify-center" >
          
@@ -153,7 +160,7 @@ export default function Search({homePage} : any){
                   </div>
                 </div>
                 
-
+                
                 <div ref={menuRef} className={
                   homePage ? "bg-white rounded h-[95px] w-[470px] px-2 py-1 w-[40%] mx-auto"
                 : "bg-white rounded h-[95px] w-[470px] px-2 py-1 w-[40%] mx-auto border-2 border-gray-500 shadow-lg"}>
@@ -163,7 +170,7 @@ export default function Search({homePage} : any){
                      <h1 className="font-semibold text-md text-gray-800">Checkin /Checkout</h1>
                       <img src={picCase} alt={"SuitCase"} className="h-6 ml-1 p-1"/>
                      </div>
-                     <Field  onClick={() => openCalender()} className=" h-[40px]  pl-1 text-xl bg-white  bg-opacity-0" id="dates" name="dates" placeholder="" />
+                     <Field  onClick={() => openCalender()} className=" h-[40px]  pl-1 text-xl bg-white placeholder-gray-700 placeholder-ml-2  bg-opacity-0" id="dates" name="dates" placeholder={CheckInData()} />
                   </div>
                     
                      { isCalender ? 
