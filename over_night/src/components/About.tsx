@@ -9,11 +9,17 @@ import reed from "../assets/ReedsHeadshot2.jpg"
 import Aydan from "../assets/AydanHeadshot.jpeg"
 import Aydanlogo from "../assets/Aydanwebsitelogo.png"
 import instagram from "../assets/instagramlogo2.png"
+import { useEffect } from "react"
 
 export default function About(){
  const aydansInfo = [{image:linkedin, url: "https://www.linkedin.com/in/aydanrivera/"}, {image: Aydanlogo, url: "https://aydandesigns.com/"},{image:instagram, url: "https://www.instagram.com/aydan.designs"}] 
  const francosInfo =[{image:linkedin, url:"https://www.linkedin.com/in/francolepe/"},{image:github,url:"https://github.com/FrancoLepe"},{image:medium, url: "https://medium.com/@francolepe169"}]
  const reedsInfo =[{image:linkedin, url:"https://www.linkedin.com/in/reed-broadhead/"},{image:github,url:"https://github.com/Reed-Broadhead"},{image:medium, url: "https://medium.com/@reedbroadhead"}]
+
+ useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
     return(
         <div className="">
             {/* navBar and div to fill space - navBar positon abosolute */}

@@ -24,20 +24,19 @@ export default function Footer(){
 //  data to use for mapping
     const elements = [
     [<NavLink to="/about"> About</NavLink>,<NavLink to="/login">Login</NavLink>, <NavLink to="/login">Sign Up</NavLink>], 
-    [<NavLink to="/FAQ">FAQ</NavLink>, "Privacy Policy", "Help"], 
+    [<NavLink to="/FAQ">FAQ</NavLink>, "Privacy Policy", <NavLink to="/FAQ">Help</NavLink>], 
     [
     <a href="https://www.google.com/travel/flights"
     target="_blank" 
     rel="noreferrer"
     >Flight</a>,
 
-    <button onClick={() => scrollToTop()}>stays</button>, 
+    <button onClick={() => scrollToTop()}>Stays</button>, 
 
     <a href="https://www.enterprise.com/en/home.html"
     target="_blank" 
     rel="noreferrer"   
-    >Cars</a>
-    ], 
+    >Cars</a>], 
     [<NavLink to="/about">Linkedin</NavLink>,<NavLink to="/about">GitHub</NavLink>, <NavLink to="/about">Medium</NavLink>]]
 
     

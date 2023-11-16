@@ -4,7 +4,7 @@ import Search from "../Search"
 import { useSelector } from 'react-redux';
 import Data from "./interfaces"
 import {motion} from "framer-motion"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import star from "../../assets/star.png"
 import empty from "../../assets/emptyStar.png"
 import leftArrow from "../../assets/iconLeftButton.png"
@@ -19,7 +19,10 @@ export default function SearchPage () {
     const [hotelIndex, setHotelIndex] = useState<number>(0)
 
     // const [currentHotels, setCurrentHotels] = useState<any>(bundledHotels.slice(hotelIndex, hotelIndex + 10))
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      
     const scrollToTop = () =>{ 
         window.scrollTo({ 
           top: 0,  

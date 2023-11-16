@@ -20,11 +20,15 @@ export default function SixStarHotels() {
         <Promotions  key={index} name={element.hotelName} id={element.HotelId} image={element.pictures} web={element.web}/>
       ))
     return (
-<div className="h-[500px] ">
-                <h1 className="flex ml-24 mt-10 text-3xl mb-5 h-min w-[200px] flex items-center justify-center rounded border-b-4 border-logos-yellow"
-                >Six Star Hotels</h1>
+<div className="h-[475px] flex flex-col items-center">
 
-                <div className="flex flex-row  w-full ">
+                <div className="h-[120px] w-full flex items-center justify-center">
+
+                <h1 className="flex   text-3xl  h-min w-[200px] flex items-center justify-center rounded border-b-4 border-logos-yellow"
+                >Six Star Hotels</h1>
+                </div>
+
+                <div className="flex flex-row  w-full  ">
 
                     <div className="w-1/2 flex flex-row items-center justify-center ">
 
@@ -62,7 +66,7 @@ export default function SixStarHotels() {
                    
 
                 </div>
-
+                
             </div>
     )
 }

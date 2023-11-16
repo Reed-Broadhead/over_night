@@ -99,7 +99,7 @@ export default function PopularStays(){
     return(
         <div className='mb-8'>
             <div>
-            <h1 className="flex ml-24 mt-12 text-3xl  h-min w-fit flex  rounded border-b-4 border-logos-yellow"
+            <h1 className="flex mx-auto mt-10 mb-4 text-3xl  h-min w-fit flex  rounded border-b-4 border-logos-yellow"
             >Most Popular Stays</h1>
 
             <div className='h-[200px] w-10/12 px-6 mx-auto items-center flex '> 

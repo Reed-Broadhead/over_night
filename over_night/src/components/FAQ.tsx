@@ -1,11 +1,14 @@
 import Footer from "./Footer"
 import NavBar from "./NavBar"
 import arrow from "../assets/arrow.jpg"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {motion} from "framer-motion"
 
 export default function FAQ(){
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 // data to use
     const data = [
     {question: "Can I book hotels on OverNight?", answer: "Booking functionality is currently not supported on OverNight; however, it is under development and is expected to be added soon."}, 
