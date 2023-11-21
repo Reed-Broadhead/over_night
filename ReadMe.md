@@ -23,7 +23,7 @@
 ---
 # ✨ Demo
 
-![Gif of OverNight homePage]()
+![Gif of OverNight homePage](https://github.com/Reed-Broadhead/over_night/blob/master/over_night/public/overnight.gif)
 
 ### [Full Video Demo](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
